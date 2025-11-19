@@ -94,7 +94,7 @@ elif int(reponse_1) == 2:
 		print("Vous décidez de:\n 1) Acheter un peu de métamphétamine pour votre consommation personnelle, vous avez jamais testé et vous êtes curieux.\n 2) Vous acceptez son offre car vous n'avez plus rien, c'est votre seul moyen de faire de l'argent.\n 3) Vous le dénoncez au policier qui surveille votre cellule car vous savez que vous sortez avant lui")	
 		reponse_DEAL = input("Que choisissez-vous ?")
 		
-		if reponse_2_A == 1 :
+		if reponse_DEAL == 1 :
 			print("\nVous acceptez « juste pour essayer ». Le codétenu vous glisse un petit morceau de cristal.")
 			print("Vous hésitez… puis vous le prenez. Quelques minutes plus tard, un rush violent vous traverse, des sensations fortes.")
 			print("Votre cœur bat à 200, vous êtes dans un état second.")
