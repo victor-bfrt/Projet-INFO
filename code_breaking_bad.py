@@ -3,9 +3,6 @@ import random
 money = 30000
 pv = 100
 blue_crystal = 0
-Casino = 1
-Numéro_Casino = 1 
-n = 0
 
 # Introduction
 print("Vous êtes Walter Black, un professeur d'informatique de lycée. En vous réveillant, vous checker vos mails et apprenait que la direction vous a viré car votre métier se fait remplacer par une intelligence artificielle")
@@ -71,7 +68,7 @@ if int(reponse_1) == 1:
 elif int(reponse_1) == 2:
 	print("\nAvec d'autres professeurs vous organisez un blocus devant le lycée et des étudiants vous rejoignent pour manifester. ")
 	print("La manifestation dégénère rapidement, car de nombreux casseurs s'étaient infiltrés dans vos rangs et les CRS sont appelés. Ces derniers commence à gazer vos collègues. Révolté, vous décidez de:")
-	print("1)Sortir votre paf et leur courir dessus.\n 2) Tenter un 1v1 avec un CRS malgré le fait que vous soyez moins imposant qu'un moustique.\n 3) Dire à un CRS que sa soeur est belle (mauvaise idée).\n 4)Leur jeter dessus le plus gros pavé que vous trouvez.")
+	print(" 1)Sortir votre paff et leur courir dessus.\n 2) Tenter un 1v1 avec un CRS malgré le fait que vous soyez moins imposant qu'un moustique.\n 3) Dire à un CRS que sa soeur est belle (mauvaise idée).\n 4)Leur jeter dessus le plus gros pavé que vous trouvez.")
 	reponse_2 = input("Que choisissez-vous ?")
 	if int(reponse_2) in [1, 2, 3, 4]:
 		print("\nÉnerver un CRS n'était clairement pas une bonne idée...")
@@ -84,8 +81,8 @@ elif int(reponse_1) == 2:
 			print("Les policiers pensent que vous cachez encore quelque chose.")
 			print("Ils vous interrogent toute la journée...\n")
 			jour = jour + 1
-		print(" La garde à vue prend fin après ces longues heures de pression.")
-		print("Malgré le fait que les policiers ont décidés d'abandonner la garde à vue, ils décident de vous faire passer un peu de temps en cellule avec des personnes très peu sympatiques...")
+		print("La garde à vue prend fin après ces longues heures de pression.")
+		print("Malgré le fait que les policiers ont décidés d'abandonner la garde à vue, ils décident de vous faire passer un peu de temps en cellule avec des personnes très peu sympatiques, le temps de gérer la partie admistrative...")
 		print("\nUn de vos condétenu, un géorgien de 2m10 et 110kg de muscle avec un t-shirt et un short ufc, vous demande de lui passer vos chaussures car <<elles lui iraient très bien>>.")
 		print("Vous décidez de:\n 1)Vous tentez de le frapper le plus fort possible au visage, même si son menton semble plus solide que les barreaux de votre cellule.\n 2) Vous lui passez vos chaussures comme le bon toutou que vous êtes.")
 		(reponse_2_1) = input("Que choisissez-vous?")
@@ -93,6 +90,86 @@ elif int(reponse_1) == 2:
 			print("\nVous vous faites mal à la main en essayant de le frapper, il finit par vous soulever et vous lancer sur le sol de la celulle. Il récupère vos chaussures pendant que vous pleurez par terre.")
 		elif int(reponse_2_1) == 2:
 			print("\nContent de sa nouvelle paire de chaussures, il décide de vous laisser tranquile pour le reste du temps.")
-		print("Un autre codétenu vous aborde, il vous explique qu'il est un dealer et il vous propose d'acheter ou de rentrer dans son réseau. Vous décidez de:\n 1) Acheter un peu de métamphétamine pour votre consommation personnelle, vous avez jamais testé et vous êtes curieux.\n 2) Vous acceptez son offre car vous n'avez plus rien, c'est votre seul moyen de faire de l'argent.\n 3) Vous le dénoncez au policier qui surveille votre cellule car vous savez que vous sortez avant lui")	
-		reponse_2_A = input("Que choisissez-vous ?")
+		print("Un autre codétenu vous aborde, il vous explique qu'il est un dealer et il vous propose d'acheter ou de rentrer dans son réseau.")
+		print("Vous décidez de:\n 1) Acheter un peu de métamphétamine pour votre consommation personnelle, vous avez jamais testé et vous êtes curieux.\n 2) Vous acceptez son offre car vous n'avez plus rien, c'est votre seul moyen de faire de l'argent.\n 3) Vous le dénoncez au policier qui surveille votre cellule car vous savez que vous sortez avant lui")	
+		reponse_DEAL = input("Que choisissez-vous ?")
+		
+		if reponse_2_A == 1 :
+    		print("\nVous acceptez « juste pour essayer ». Le codétenu vous glisse un petit morceau de cristal.")
+    		print("Vous hésitez… puis vous le prenez. Quelques minutes plus tard, un rush violent vous traverse, des sensations fortes.")
+    		print("Votre cœur bat à 200, vous êtes dans un état second.")
+			print("Mais quand l’effet retombe, un vide énorme vous frappe.")
+   			input("\nAppuyez sur Entrée pour continuer...")
+			print("\nLe lendemain matin, le codétenu vient vous voir :")
+    		print("« Alors, ça t’a plu ? J’en ai encore si tu veux… mais cette fois tu paies. »")
+    		print("\nVous décidez de :")
+    		print(" 1) Reprendre une dose (vous en voulez vraiment).")
+    		print(" 2) Refuser… mais vous n'avez pas de quoi payer la première dose.")
+    		choix_drogue = input("Votre choix ? ")
+			if choix_drogue == "1":
+        		print("\nVous craquez. Vous en voulez encore. Vous tendez la main.")
+        		print("Le codétenu sourit : « Je le savais. »")
+       			print("Vous avalez la dose, mais cette fois votre corps ne tient pas.")
+        		print("Votre vision se brouille, votre respiration se coupe. Les autres détenus crient.")
+        		input("\nAppuyez sur Entrée pour continuer...")
+        		print("\nVous tombez au sol, convulsez…")
+        		print("Overdose. Vous ne vous relevez jamais.")
+        		print("La consommation de stupéfiant est dangereuse pour votre santé ceci est un message du gouvernement.")
+				quit()
+			elif choix_drogue == 2 :
+        		print("\nVous refusez. « Non merci, hier c’était une erreur. »")
+				print("Le codétenu change soudain de visage « Ah ouais ? Donc tu consommes gratos maintenant ? Tu crois que je fais ça par charité ? »")
+				print("\nIl s’approche de vous, tout près :")
+        		print("« Tu vas rembourser. Et tu vas rembourser en travaillant pour moi. »")
+        		print("Il vous met dans la main un petit sachet : « Tu vas le refourguer discret. Si tu refuses… »")
+        		print("« Quand tu sortiras dehors on te retrouvera et ton fera la peau si tu nous trahi. »")
+				print("\nVous êtes désormais forcé de dealer pour rembourser votre ‘dette’.")
+				print("Au même instant on vous annonce que vous êtes liberé c'est la fin de votre séjour en cellulle")
+				devient_dealer = True
+		
+		elif reponse_DEAL == 2 :
+    		print("\nVous acceptez la proposition. Le codétenu hoche la tête : « Bienvenue dans l’entreprise. »")
+    		print("Il vous glisse discrètement trois petits sachets dans la main, c'est de la metenphétamine.")
+    		print("« Tu les écoules aujourd’hui. Prix simple : 500$ la dose. Tu prend 50% pour toi et le reste tu iras les données au big boss Tuco. »")
+			print("Vous venez officiellement d'entrer dans la famille. Et en sortir sera presque impossible.")
+			print("Au même instant on vous annonce que vous êtes liberé c'est la fin de votre séjour en cellulle")
+			devient_dealer = True
+
+		elif reponse_DEAL == 3 :
+			print("\nVous signalez discrètement le dealer au policier. En quelques secondes, il se fait attraper.")
+			print("Il vous fixe avec une intensité glaçante pendant qu’on l’emmène. Vous savez que ce regard n'annonce rien de bon.")
+			print("Les policiers vous félicitent : « Grâce à vous, on a attrapé un gros poisson. Vous êtes officiellement libre. »")
+    		print("Une fois libre Une camionnette noire s’arrête juste devant vous. Deux hommes descendent.")
+    		print("C’est le réseau du dealer. Ils vous attrapent sans un mot.")
+    		input("\nAppuyez sur Entrée pour continuer...")
+    		print("\nDans un hangar, ils vous expliquent les choses très clairement :")
+    		print("« Tu as dénoncé l’un des nôtres. Maintenant tu as deux options : »")
+    		print("1) Travailler pour nous. Vendre. Livrer. Fermer ta bouche.")
+    		print("2) Disparaître sous une dalle de béton et ne plus jamais poser de problèmes.")
+			choix_final = input("Votre choix ? ")
+			if choix_final == "1":
+        		print("\nVous baissez les yeux. Vous savez que vous n’avez aucune autre issue.")
+        		print("« D’accord... j’accepte. »")
+        		print("L’homme sourit : « Bonne décision. On aime les gens intelligents. »")
+        		print("Il coupe vos liens et vous tend un sac rempli de petits sachets.")
+        		print("« Tu commences aujourd’hui. Si tu tentes de fuir… tu connais la suite. Vend tout ces sachet pour la fin de semaine et ramène le pognoin au big boss Tuco »")
+        		print("Vous êtes libre… mais uniquement pour servir leur réseau.")
+				devient_dealer = True
+       
+    		elif choix_final == 2 :
+        		print("\nVous refusez catégoriquement de collaborerer.")
+        		print("Il soupire, se relève, et fait un signe de tête.")
+        		input("\nAppuyez sur Entrée pour continuer...")
+        		print("\nUn homme s’approche derrière vous")
+        		print("PANNN !!")
+        		print("Vous êtes mort")
+        		quit()
+		if devient_dealer == True :
+			print("La suite arrive ...")
+
+
+
+
+
+
 	
