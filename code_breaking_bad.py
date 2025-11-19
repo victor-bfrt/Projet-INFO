@@ -1,4 +1,4 @@
-limport random
+import random
 
 money = 30000
 pv = 100
