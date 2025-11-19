@@ -57,10 +57,11 @@ if int(reponse_1) == 1:
 				print(f"Tu repars avec {money}$ !!! Vous êtes riche !!! Largement suffisant pour démarer une nouvelle vie loin de tout problèmes et proche de toutes les babies dont vous rêvez!!!!")
 				exit() 
 			print("Comme vous n'êtes pas très futé, vous décidez de remettre tout vos gains en jeux, c'est à dire {money}$")
-			else:  # Défaite
+			else :  
 				money = 0
 				print("\nDommage ! La balle ne tombe pas sur votre couleur...")
 				print(f"Vous avez perdu TOUTES vos économies vous ne disposez plus que de {money}$")
+				break 
 
 		# Branche principale
 		print("\nVous êtes dépité, viré du casino et n'avait plus un seul euros sur vous ! Un homme en capuche s'approche de vous et vous propose ce deal")
