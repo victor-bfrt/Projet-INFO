@@ -21,7 +21,7 @@ reponse_1 = input("Quel choix(sélectionnez le numéro) : ")
 if int(reponse_1) == 1:
 	print("Une fois au bar le moral n'est toujours pas au top vous enchaîner verres de bière et de wisky, votre collègue vous propse un plan pour se refaire aller au casino !")
 	print("Alors que l'alcool monte peit à petit vous décider :")
-	print(" 1)Refuser et continuer à boire pour oublier vos problèmes\n 2)Tenter votre au casino !")
+	print(" 1)Refuser et continuer à boire pour oublier vos problèmes\n 2)Tenter votre chance au casino !")
 	reponse_1_1 = input("Que choisissez-vous ? : ")
 
 	# Branche 1-1 Ivre
@@ -57,7 +57,7 @@ if int(reponse_1) == 1:
 			Casino = 2
 			print ("Dommage!! Vous avez perdu toutes votres argent !")
 		while Casino == 1:
-			print(f"Vous avez gagné!! Comme vous n'êtes pas très futé, vous décidez de remettre vos gains en jeux, c'est à dire (money}$.")
+			print(f"Vous avez gagné!! Comme vous n'êtes pas très futé, vous décidez de remettre vos gains en jeux, c'est à dire {money}$.")
 			print("Choisissez à nouveau sur quelle couleur vous mettez votre argent: 1)Rouge 2)Noir.")")
 			réponse_Casino = input ("Quel est votre choix?")
 			Numéro _Casino = random. randint (1,2)
@@ -70,7 +70,7 @@ if int(reponse_1) == 1:
 				print ("Dommage!! Vous avez perdu toutes vos économies")
 			n=n+1
 			if n == 4: 
-				print(f'Vous venez de remporté le jackpot 5 fois d'affilé, vous êtes riche et vous disposez de (money}, largement suffisant pour démarer une nouvelle vie loin de tout problèmes !!! ")
+				print(f"Vous venez de remporté le jackpot 5 fois d'affilé, vous êtes riche et vous disposez de ({money}, largement suffisant pour démarer une nouvelle vie loin de tout problèmes !!! ")
 				break
 		# Branche principale
 		print("Vous êtes dépité, viré du casino et n'avait plus un seul euros sur vous ! Un homme en capuche s'approche de vous et vous propose ce deal")
