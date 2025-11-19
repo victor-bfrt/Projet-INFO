@@ -52,11 +52,11 @@ if int(reponse_1) == 1:
 				tours = tours + 1
 				print(f"Bravo ! Tu gagnes. Ton argent double : {money}$.")
 				
-			if tours == 5:
-				print(f"\n JACKPOT ! Tu as gagné 5 fois d’affilée.")
-				print(f"Tu repars avec {money}$ !!! Vous êtes riche !!! Largement suffisant pour démarer une nouvelle vie loin de tout problèmes et proche de toutes les babies dont vous rêvez!!!!")
-				exit() 
-			print("Comme vous n'êtes pas très futé, vous décidez de remettre tout vos gains en jeux, c'est à dire {money}$")
+				if tours == 5:
+					print(f"\n JACKPOT ! Tu as gagné 5 fois d’affilée.")
+					print(f"Tu repars avec {money}$ !!! Vous êtes riche !!! Largement suffisant pour démarer une nouvelle vie loin de tout problèmes et proche de toutes les babies dont vous rêvez!!!!")
+					exit() 
+				print("Comme vous n'êtes pas très futé, vous décidez de remettre tout vos gains en jeux, c'est à dire {money}$")
 			else :  
 				money = 0
 				print("\nDommage ! La balle ne tombe pas sur votre couleur...")
