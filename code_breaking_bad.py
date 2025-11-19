@@ -123,7 +123,6 @@ elif int(reponse_1) == 2:
 				print("« Quand tu sortiras dehors on te retrouvera et ton fera la peau si tu nous trahi. »")
 				print("\nVous êtes désormais forcé de dealer pour rembourser votre ‘dette’.")
 				print("Au même instant on vous annonce que vous êtes liberé c'est la fin de votre séjour en cellulle")
-				devient_dealer = True
 		
 		elif reponse_DEAL == 2 :
 			print("\nVous acceptez la proposition. Le codétenu hoche la tête : « Bienvenue dans l’entreprise. »")
@@ -131,7 +130,6 @@ elif int(reponse_1) == 2:
 			print("« Tu les écoules aujourd’hui. Prix simple : 500$ la dose. Tu prend 50% pour toi et le reste tu iras les données au big boss Tuco. »")
 			print("Vous venez officiellement d'entrer dans la famille. Et en sortir sera presque impossible.")
 			print("Au même instant on vous annonce que vous êtes liberé c'est la fin de votre séjour en cellulle")
-			devient_dealer = True
 
 		elif reponse_DEAL == 3 :
 			print("\nVous signalez discrètement le dealer au policier. En quelques secondes, il se fait attraper.")
@@ -152,7 +150,7 @@ elif int(reponse_1) == 2:
 				print("Il coupe vos liens et vous tend un sac rempli de petits sachets.")
 				print("« Tu commences aujourd’hui. Si tu tentes de fuir… tu connais la suite. Vend tout ces sachet pour la fin de semaine et ramène le pognoin au big boss Tuco »")
 				print("Vous êtes libre… mais uniquement pour servir leur réseau.")
-				devient_dealer = True
+		
 			elif choix_final == 2 :
 				print("\nVous refusez catégoriquement de collaborerer.")
 				print("Il soupire, se relève, et fait un signe de tête.")
@@ -161,8 +159,8 @@ elif int(reponse_1) == 2:
 				print("PANNN !!")
 				print("Vous êtes mort")
 				quit()
-		if devient_dealer == True :
-			print("La suite arrive ...")
+		
+		print("La suite arrive ...")
 
 
 
