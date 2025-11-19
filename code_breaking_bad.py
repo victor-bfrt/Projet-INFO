@@ -1,4 +1,4 @@
-import random
+limport random
 
 money = 30000
 pv = 100
@@ -8,18 +8,18 @@ Numéro_Casino = 1
 n = 0
 
 # Introduction
-print("Vous êtes Walter Black, un professeur d'informatique de lycée. En vous réveillant, vous checker vos mails et apprenait que la direction vous a virer car votre métier se fait remplacer par une intelligence artificielle")
-print("Cette nouvelle vous atriste beaucoup car ces derniers vous avez quelque soucis financier ")
+print("Vous êtes Walter Black, un professeur d'informatique de lycée. En vous réveillant, vous checker vos mails et apprenait que la direction vous a viré car votre métier se fait remplacer par une intelligence artificielle")
+print("Cette nouvelle vous attriste car ces derniers temps, vous avez quelques soucis financiers... ")
 # Premier choix
-print("Pendant que vous déprimé votre collégue vous appel car il a reçu le même mail")
+print("Pendant que vous déprimé votre collègue vous appel car il a reçu le même mail")
 print("Face à la situation vous décidez :" )
-print(" 1)De sortir boire coup au bar pour vous changer les idées\n 2)D'aller manifester devant le lycée avec d'autres enseignant dans votre cas ")
+print(" 1)De sortir boire un coup au bar pour vous changer les idées\n 2)D'aller manifester devant le lycée avec d'autres enseignants dans votre cas ")
 reponse_1 = input("Quel choix(sélectionnez le numéro) : ")
 
 # Branche 1
 if int(reponse_1) == 1:
-	print("\nUne fois au bar le moral n'est toujours pas au top vous enchaîner verres de bière et de wisky, votre collègue vous propose un plan pour se refaire aller au casino !") 
-	print("Alors que l'alcool monte peit à petit vous décider :" )
+	print("\nUne fois au bar le moral n'est toujours pas au top vous enchaînez verres de bière et de whisky, votre collègue vous propose un plan pour se refaire aller au casino !") 
+	print("Alors que l'alcool monte petit à petit vous décidez :" )
 	print(" 1)Refuser et continuer à boire pour oublier vos problèmes\n 2)Aller tenter votre chance au casino !")
 	reponse_1_1 = input("Que choisissez-vous ? : ")
 	
@@ -33,38 +33,35 @@ if int(reponse_1) == 1:
 		if int(reponse_1_1_1) == 1:
 			print("\nVous sombrez dans l'alcool, vous perdez tout ce que vous avez dans l'unique objectif de pouvoir acheter une bouteille de plus. Chaque jour devient le même, une bouteille de vodka à la main en dormant sous un pont.")
 		elif int(reponse_1_1_1) == 2:
-			print("\nÀ cause de l'essor de l'intelligence artificielle, vous avez des difficultés à trouver un travail adapter à vos compétences, vous vous résignez et partez travailler à Mcdo. Cela suffit à combler vos besoins, et sans ambitions, vous continuez votre vie ainsi jusqu'à la retraite, une vie simple en fin de compte.")
+			print("\nÀ cause de l'essor de l'intelligence artificielle, vous avez des difficultés à trouver un travail adapter à vos compétences, vous vous résignez et partez travailler à McDo.") 
+			print("Cela suffit à combler vos besoins, et sans ambitions, vous continuez votre vie ainsi jusqu'à la retraite, une vie simple en fin de compte.")
 			
 	# Branche 1-2 Casino
-	if int(reponse_1_1) == 2:
+	elif int(reponse_1_1) == 2:
 		print("\nEt vous voilà arrivez au CASINO ! ")
 		print(f"Vous disposez de {money}$, ce qui correspond à tout l'argent que vous avez de côté, y compris l'argent qui est censé rembourser vos prêts et payer les études de votre enfant. Vous décidez de tout mettre en un coup à la roulette.")
-		print("Vous choisissez de mettre tout votre argent sur le :\n 1)Rouge\n 2)Noir.")
-		réponse_Casino = input ("Quel est votre choix?")
-		Numéro_Casino = random.randint(1,2)
-		if int(réponse_Casino) == Numéro_Casino:
-			Casino = 1
-			money = 2*money
-		else:
-			Casino = 2
-			money=0
-			print (f"\nDommage!! Vous avez perdu toutes vos économies vous ne disposez plus que de {money}$")
-		
-		while Casino == 1:
-			print(f"\nVous avez gagné!! Comme vous n'êtes pas très futé, vous décidez de remettre vos gains en jeux, c'est à dire {money}$. Choisissez à nouveau sur quelle couleur où vous mettez tout votre argent:\n 1)Rouge\n 2)Noir.")
-			réponse_Casino = input ("Quel est votre choix?")
-			Numéro_Casino = random.randint(1,2)
-			if int(réponse_Casino) == Numéro_Casino:
-				Casino = 1
+		tours = 0
+		while tours < 5:
+			print(f"\nTour {tours+1} — Mise actuelle : {money}$")
+			print("Vous choisissez de mettre tout votre argent sur le :\n 1)Rouge\n 2)Noir.")
+			choix_casino = input ("Quel est votre choix?")
+			resultat = random.randint(1, 2)
+			
+			if int(choix_casino) == resultat:      # Victoire
 				money = 2*money
-			else:
-				Casino = 2
-				money = 0
-				print (f"\nDommage!! Vous avez perdu toutes vos économies vous ne disposez plus que de {money}$")
-			n = n+1
-			if n == 4:
-				print(f"\nVous venez de remporté le jackpot 5 fois d'affilé, vous êtes riche et vous disposez de {money}$!!!!!! Largement suffisant pour démarer une nouvelle vie loin de tout problèmes et proche de toutes les babies dont vous rêvez!!!!")
+				tours = tours + 1
+				print(f"Bravo ! Tu gagnes. Ton argent double : {money}$.")
+				
+			if tours == 5:
+				print(f"\n JACKPOT ! Tu as gagné 5 fois d’affilée.")
+				print(f"Tu repars avec {money}$ !!! Vous êtes riche !!! Largement suffisant pour démarer une nouvelle vie loin de tout problèmes et proche de toutes les babies dont vous rêvez!!!!")
 				exit() 
+			print("Comme vous n'êtes pas très futé, vous décidez de remettre tout vos gains en jeux, c'est à dire {money}$")
+			else:  # Défaite
+				money = 0
+				print("\nDommage ! La balle ne tombe pas sur votre couleur...")
+				print(f"Vous avez perdu TOUTES vos économies vous ne disposez plus que de {money}$")
+
 		# Branche principale
 		print("\nVous êtes dépité, viré du casino et n'avait plus un seul euros sur vous ! Un homme en capuche s'approche de vous et vous propose ce deal")
 		print("Je t'ai entendu parler dans le casino, je sais que t'as plus rien et que tu t'y connais en informatique. Je te propose un nouveau travail, où tu gagneras en un mois ce que t'aurais gagné en une vie. J'étais comme toi y'a plusiseurs années, maintenant je suis plein aux as... affaire à suivre :/")
