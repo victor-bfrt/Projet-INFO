@@ -19,27 +19,27 @@ reponse_1 = input("Quel choix(sélectionnez le numéro) : ")
 # Branche 1
 if int(reponse_1) == 1:
 	print("\nUne fois au bar le moral n'est toujours pas au top vous enchaîner verres de bière et de wisky, votre collègue vous propose un plan pour se refaire aller au casino !") 
-	print("Alors que l'alcool monte peit à petit vous décider " )
-	print(" 1)Refuser et continuer à boire pour oublier vos problèmes\n 2)Tenter votre chance au casino")
+	print("Alors que l'alcool monte peit à petit vous décider :" )
+	print(" 1)Refuser et continuer à boire pour oublier vos problèmes\n 2)Aller tenter votre chance au casino !")
 	reponse_1_1 = input("Que choisissez-vous ? : ")
 	
 	# Branche 1-1 Ivre
 	if int(reponse_1_1) == 1:
 		print("\nVous finissez complètement arraché, torse nu dans le bar, des élèves de votre lycée vous ont filmés vous faire sortir par le videur, avec lequel vous avez démmaré un combat.")
-		print("Sans grande surprise, il vous bat et vous rentrez chez vous. Votre femme vous découvre complètement ivre, et sachant que vous n'avez plus de travail, elle décide de vous quitter et de vous virer de votre maison qu'elle possède.")
+		print("Sans grande surprise, il vous bat et vous rentrez chez vous. Votre femme vous découvre complètement ivre, et sachant que vous n'avez plus de travail, elle décide de vous quitter et de vous virer de la maison qu'elle possède.")
 		print("Face à la situation vous décidez :")
 		print(" 1)Vous décidez de resortir boire comme hier soir car vous en pouvez plus de votre situation\n 2)Vous décidez de reprendre votre vie en main et d'aller trouver un emploie chez pôle emploie.")
 		reponse_1_1_1 = input("Quel est votre choix : ")
 		if int(reponse_1_1_1) == 1:
 			print("\nVous sombrez dans l'alcool, vous perdez tout ce que vous avez dans l'unique objectif de pouvoir acheter une bouteille de plus. Chaque jour devient le même, une bouteille de vodka à la main en dormant sous un pont.")
 		elif int(reponse_1_1_1) == 2:
-			print("\nA cause de l'essor de l'intelligence artificielle, vous avez des difficultés à trouver un travail adapter à vos compétences, vous vous résignez et partez travailler à Mcdo. Cela suffit à combler vos besoins, et sans ambitions, vous continuez votre vie ainsi jusqu'à la retraite, une vie simple en fin de compte.")
+			print("\nÀ cause de l'essor de l'intelligence artificielle, vous avez des difficultés à trouver un travail adapter à vos compétences, vous vous résignez et partez travailler à Mcdo. Cela suffit à combler vos besoins, et sans ambitions, vous continuez votre vie ainsi jusqu'à la retraite, une vie simple en fin de compte.")
 			
 	# Branche 1-2 Casino
 	if int(reponse_1_1) == 2:
 		print("\nEt vous voilà arrivez au CASINO ! ")
 		print(f"Vous disposez de {money}$, ce qui correspond à tout l'argent que vous avez de côté, y compris l'argent qui est censé rembourser vos prêts et payer les études de votre enfant. Vous décidez de tout mettre en un coup à la roulette.")
-		print("Vous choisissez de mettre tout votre argent sur:\n 1)Rouge\n 2)Noir.")
+		print("Vous choisissez de mettre tout votre argent sur le :\n 1)Rouge\n 2)Noir.")
 		réponse_Casino = input ("Quel est votre choix?")
 		Numéro_Casino = random.randint(1,2)
 		if int(réponse_Casino) == Numéro_Casino:
@@ -48,10 +48,10 @@ if int(reponse_1) == 1:
 		else:
 			Casino = 2
 			money=0
-			print (f"\nDommage!! Vous avez perdu toutes vos économies vous n'avaez plus que {money}$")
+			print (f"\nDommage!! Vous avez perdu toutes vos économies vous ne disposez plsu que de {money}$")
 		
 		while Casino == 1:
-			print(f"\nVous avez gagné!! Comme vous n'êtes pas très futé, vous décidez de remettre vos gains en jeux, c'est à dire {money} $. Choisissez à nouveau sur quelle couleur vous mettez tout votre argent:\n 1)Rouge\n 2)Noir.")
+			print(f"\nVous avez gagné!! Comme vous n'êtes pas très futé, vous décidez de remettre vos gains en jeux, c'est à dire {money}$. Choisissez à nouveau sur quelle couleur où vous mettez tout votre argent:\n 1)Rouge\n 2)Noir.")
 			réponse_Casino = input ("Quel est votre choix?")
 			Numéro_Casino = random.randint(1,2)
 			if int(réponse_Casino) == Numéro_Casino:
@@ -63,7 +63,7 @@ if int(reponse_1) == 1:
 				print (f"\nDommage!! Vous avez perdu toutes vos économies vous ne disposez plus que de {money}$")
 			n = n+1
 			if n == 4:
-				print(f"\nVous venez de remporté le jackpot 5 fois d'affilé, vous êtes riche et vous disposez de {money}$!!!!!! Largement suffisant pour démarer une nouvelle vie loin de tout problèmes mais proche de toutes les babies dont vous rêvez!!!!")
+				print(f"\nVous venez de remporté le jackpot 5 fois d'affilé, vous êtes riche et vous disposez de {money}$!!!!!! Largement suffisant pour démarer une nouvelle vie loin de tout problèmes et proche de toutes les babies dont vous rêvez!!!!")
 				exit() 
 		# Branche principale
 		print("\nVous êtes dépité, viré du casino et n'avait plus un seul euros sur vous ! Un homme en capuche s'approche de vous et vous propose ce deal")
@@ -71,7 +71,7 @@ if int(reponse_1) == 1:
 
 # Branche 2 manifestation
 elif int(reponse_1) == 2:
-	print("\nAvec d'autres professeurs vous organiser un blocus devant le lycée et des etudiants vous rejoignent pour manifester. ")
+	print("\nAvec d'autres professeurs vous organisez un blocus devant le lycée et des etudiants vous rejoignent pour manifester. ")
 	print("La manifestation dégénère rapidement, car de nombreux casseurs s'étaient infiltrés dans vos rangs et les CRS sont appelés. Ces derniers commence à gazer vos collègues. Révolté, vous décidez de:")
 	print("1)Sortir votre paf et leur courir dessus.\n 2) Tenter un 1v1 avec un CRS malgré le fait que vous soyez moins imposant qu'un moustique.\n 3) Dire à un CRS que sa soeur est belle (mauvaise idée).\n 4)Leur jeter dessus le plus gros pavé que vous trouvez.")
 	reponse_2 = input("Que choisissez-vous ?")
