@@ -48,7 +48,7 @@ if int(reponse_1) == 1:
 		else:
 			Casino = 2
 			money=0
-			print (f"\nDommage!! Vous avez perdu toutes vos économies vous ne disposez plsu que de {money}$")
+			print (f"\nDommage!! Vous avez perdu toutes vos économies vous ne disposez plus que de {money}$")
 		
 		while Casino == 1:
 			print(f"\nVous avez gagné!! Comme vous n'êtes pas très futé, vous décidez de remettre vos gains en jeux, c'est à dire {money}$. Choisissez à nouveau sur quelle couleur où vous mettez tout votre argent:\n 1)Rouge\n 2)Noir.")
