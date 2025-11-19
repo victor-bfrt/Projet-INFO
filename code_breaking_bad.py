@@ -50,13 +50,13 @@ if int(reponse_1) == 1:
 			if int(choix_casino) == resultat:      # Victoire
 				money = 2*money
 				tours = tours + 1
-				print(f"Bravo ! Tu gagnes. Ton argent double : {money}$.")
+				print(f"\nBravo ! Tu gagnes. Ton argent double : {money}$.")
 				
 				if tours == 5:
-					print(f"\n JACKPOT ! Tu as gagné 5 fois d’affilée.")
+					print(f"JACKPOT ! Tu as gagné 5 fois d’affilée.")
 					print(f"Tu repars avec {money}$ !!! Vous êtes riche !!! Largement suffisant pour démarer une nouvelle vie loin de tout problèmes et proche de toutes les babies dont vous rêvez!!!!")
 					exit() 
-				print("Comme vous n'êtes pas très futé, vous décidez de remettre tout vos gains en jeux, c'est à dire {money}$")
+				print(f"Comme vous n'êtes pas très futé, vous décidez de remettre tout vos gains en jeux, c'est à dire {money}$")
 			else :  
 				money = 0
 				print("\nDommage ! La balle ne tombe pas sur votre couleur...")
