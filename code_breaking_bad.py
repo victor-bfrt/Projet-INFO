@@ -67,7 +67,7 @@ if int(reponse_1) == 1:
 		décision = input("Votre choix : ")
 		if int(décision) == 1 :
 			print("\nVous acceptez sans réfléchir. L'homme vous emmène dans une voiture.")
-    		print("Il vous tend des sachets métanphétamine et sors un flingue en vous menaçant :")
+			print("Il vous tend des sachets métanphétamine et sors un flingue en vous menaçant :")
 			print("<<Tiens, ta première mission, revend tous ça d'ici la fin de semaine et ramène le fric au big boss Tuco c'est le seul moyen de faire tes preuves dans notre cartel, après ça on en aura pas fini avec toi crois moi bien!") 
 			print("Trop tard pour reculer, vous n'avez pas d'autre choix que de dealer.")
 		elif int(décision) == 2 :
