@@ -4,6 +4,10 @@ money = 30000
 pv = 100
 blue_crystal = 0
 
+# Fonction : Début dans le cartel
+def le_cartel():
+	print("C'est le début de votre aventure dans le monde du narcotrafique")
+	
 # Introduction
 print("Vous êtes Walter Black, un professeur d'informatique de lycée. En vous réveillant, vous checker vos mails et apprenait que la direction vous a viré car votre métier se fait remplacer par une intelligence artificielle")
 print("Cette nouvelle vous attriste car ces derniers temps, vous avez quelques soucis financiers... ")
@@ -20,7 +24,7 @@ if int(reponse_1) == 1:
 	print(" 1)Refuser et continuer à boire pour oublier vos problèmes\n 2)Aller tenter votre chance au casino !")
 	reponse_1_1 = input("Que choisissez-vous ? : ")
 	
-	# Branche 1-1 Ivre
+	# Branche Ivre
 	if int(reponse_1_1) == 1:
 		print("\nVous finissez complètement arraché, torse nu dans le bar, des élèves de votre lycée vous ont filmés vous faire sortir par le videur, avec lequel vous avez démmaré un combat.")
 		print("Sans grande surprise, il vous bat et vous rentrez chez vous. Votre femme vous découvre complètement ivre, et sachant que vous n'avez plus de travail, elle décide de vous quitter et de vous virer de la maison qu'elle possède.")
@@ -33,7 +37,7 @@ if int(reponse_1) == 1:
 			print("\nÀ cause de l'essor de l'intelligence artificielle, vous avez des difficultés à trouver un travail adapté à vos compétences, vous vous résignez et partez travailler à McDo.") 
 			print("Cela suffit à combler vos besoins, et sans ambitions, vous continuez votre vie ainsi jusqu'à la retraite, une vie simple en fin de compte.")
 			
-	# Branche 1-2 Casino
+	# Branche Casino
 	elif int(reponse_1_1) == 2:
 		print("\nEt vous voilà arrivez au CASINO ! ")
 		print(f"Vous disposez de {money}$, ce qui correspond à tout l'argent que vous avez de côté, y compris l'argent qui est censé rembourser vos prêts et payer les études de votre enfant. Vous décidez de tout mettre en un coup à la roulette.")
@@ -63,7 +67,7 @@ if int(reponse_1) == 1:
 		print("\nVous êtes dépité, viré du casino et n'avait plus un seul euros sur vous ! Un homme en capuche s'approche de vous et vous propose ce deal")
 		print("Je t'ai entendu parler dans le casino, je sais que t'as plus rien et que tu t'y connais en informatique. Je te propose un nouveau job, où tu gagneras en un mois ce que t'aurais gagné en une vie. J'étais comme toi y'a plusiseurs années, maintenant je suis plein aux as...")
 		print("Que lui répondez vous ?")
-		print(" 1) <<Au point où j'en suis je n'ai plus rien à perdre dis moi en plus>> suis  \n 2) <<Non ça ira je ne suis pas intéressé>>")
+		print(" 1) <<Au point où j'en suis je n'ai plus rien à perdre dis moi en plus>>\n 2) <<Non ça ira je ne suis pas intéressé>>")
 		décision = input("Votre choix : ")
 		if int(décision) == 1 :
 			print("\nVous acceptez sans réfléchir. L'homme vous emmène dans une voiture.")
@@ -79,7 +83,7 @@ if int(reponse_1) == 1:
 		# Début dans le cartel
 		le_cartel()
 
-# Branche 2 manifestation
+# Branche 2 Manifestation
 elif int(reponse_1) == 2:
 	print("\nAvec d'autres professeurs vous organisez un blocus devant le lycée et des étudiants vous rejoignent pour manifester. ")
 	print("La manifestation dégénère rapidement, car de nombreux casseurs s'étaient infiltrés dans vos rangs et les CRS sont appelés. Ces derniers commence à gazer vos collègues. Révolté, vous décidez de:")
@@ -177,11 +181,6 @@ elif int(reponse_1) == 2:
 				
 		# Début dans le cartel
 		le_cartel()
-
-
-# Fonction : Début dans le cartel
-def le_cartel():
-	print("C'est le début de votre aventure dans le monde du narcotrafique")
 
 
 	
