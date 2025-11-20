@@ -6,6 +6,7 @@ blue_crystal = 0
 
 # Fonction : Début dans le cartel
 def le_cartel():
+	input("\nAppuyez sur Entrée pour commencez à dealer...")
 	print("C'est le début de votre aventure dans le monde du narcotrafique")
 	
 # Introduction
