@@ -126,6 +126,7 @@ elif int(reponse_1) == 2:
 			print(" 1) Reprendre une dose (vous en voulez vraiment).")
 			print(" 2) Refuser… mais vous n'avez pas de quoi payer la première dose.")
 			choix_drogue = input("Votre choix ? ")
+			
 			if int(choix_drogue) == 1 :
 				print("\nVous craquez. Vous en voulez encore. Vous tendez la main.")
 				print("Le codétenu sourit : « Je le savais. »")
@@ -134,6 +135,7 @@ elif int(reponse_1) == 2:
 				print("Overdose. Vous ne vous relevez jamais.")
 				print("La consommation de stupéfiant est dangereuse pour votre santé ceci est un message du gouvernement.")
 				quit()
+				
 			elif int(choix_drogue) == 2 :
 				print("\nVous refusez. « Non merci, hier c’était une erreur. »")
 				print("Le codétenu change soudain de visage « Ah ouais ? Donc tu consommes gratos maintenant ? Tu crois que je fais ça par charité ? »")
@@ -163,9 +165,10 @@ elif int(reponse_1) == 2:
 			print("1) Travailler pour nous. Vendre. Livrer. Fermer ta bouche.")
 			print("2) Disparaître sous une dalle de béton et ne plus jamais poser de problèmes.")
 			choix_final = input("Votre choix ? ")
+			
 			if int(choix_final) == 1 :
 				print("\nVous baissez les yeux. Vous savez que vous n’avez aucune autre issue.")
-				print("« D’accord... j’accepte. »")
+				print("« J’accepte. »")
 				print("L’homme sourit : « Bonne décision. On aime les gens intelligents. »")
 				print("Il coupe vos liens et vous tend un sac rempli de petits sachets.")
 				print("« Tu commences aujourd’hui. Si tu tentes de fuir… tu connais la suite. Vend tout ces sachet pour la fin de semaine et ramène le pognoin au big boss Tuco »")
