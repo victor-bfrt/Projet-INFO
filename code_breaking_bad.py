@@ -20,14 +20,6 @@ def la_quête_du_crackhead():
 		sachets = sachets-3
 		print(f"Ils te restent {sachets} sachets et tu as {money}$.")
 		
-	
-
-# Fonction : Début dans le cartel
-def le_cartel():
-	input("\nAppuyez sur Entrée pour commencez à dealer...")
-	print("C'est le début de votre aventure dans le monde du narcotrafique")
-	time.sleep(duree_1)
-	mission_dealeur_1()
 
 def mission_dealeur_1():
 	sachets = 12
@@ -44,7 +36,12 @@ def mission_dealeur_1():
 	if int(deal1) == 1:
 		la_quête_du_crackhead()
 		
-	
+# Fonction : Début dans le cartel
+def le_cartel():
+	input("\nAppuyez sur Entrée pour commencez à dealer...")
+	print("C'est le début de votre aventure dans le monde du narcotrafique")
+	time.sleep(duree_1)
+	mission_dealeur_1()
 	
 	
 	
