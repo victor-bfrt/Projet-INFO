@@ -5,8 +5,10 @@ money = 30000
 pv = 100
 blue_crystal = 0
 duree_1 = 1 
-def la_quête_du_crackhead():
-	print("Tu es reçu par 6 fous du bus, chacun avec une bouteille de poliakov cassée en main.")
+
+
+def la_quête_du_crackhead(sachets):
+	print("\nTu es reçu par 6 fous du bus, chacun d'eux avec une bouteille de poliakov cassée en main.")
 	print("Ils te demandent ce que tu viens faire ici.")
 	print("Au vu de leur apparence et de leurs bouteilles en main, tu prends peur et part en courant en disant que tu t'es trompé d'adresse.")
 	print("Tu repenses à l'argent que tu dois faire, tu choisis donc de:")
@@ -26,16 +28,24 @@ def mission_dealeur_1():
 	print(f"Vous disposez de {sachets} sachets de métamphétamine, chacun contenant 10 grammes, sachant que ça se vend généralement à 100$ le gramme.")
 	print("Vous devez vendre tous ces sachets et rapporter 7000$ à Tuco. Le reste part dans votre poche.")
 	print("Par contre, si vous n'êtes pas capables de ramener cet argent, ne vous attendez pas à rester en vie plus de quelques heures...")
-	while sachets>0:
-	print(f"Il vous reste {sachets} sachets à vendre, vous décidez de:")
-	print("1) Aller au contact de la clientèle, c'est à dire aller directement en proposer aux crack-head sous le pont.")
-	print("2) Aller voir le distributeur local dont on t'a donné l'adresse.")
-	print("3) Tu vas en boîte de nuit pour vendre")
-	print("4) Tu missiones une de tes lointaine connaissance d'aller vendre pour toi car il s'y connaît mieux que toi, en lui promettant qu'il touchera sa part")
-	deal1 = input("Comment vend tu ta drogue?"):
-	if int(deal1) == 1:
-		la_quête_du_crackhead()
-		
+	while sachets>0 :
+		print(f"Il vous reste {sachets} sachets à vendre, vous décidez de:")
+		print("1) Aller au contact de la clientèle, c'est à dire aller directement en proposer aux crack-head sous le pont.")
+		print("2) Aller voir le distributeur local dont on t'a donné l'adresse.")
+		print("3) Tu vas en boîte de nuit pour vendre")
+		print("4) Tu missiones une de tes lointaine connaissance d'aller vendre pour toi car il s'y connaît mieux que toi, en lui promettant qu'il touchera sa part")
+		deal1 = input("Comment vend tu ta drogue?")
+		if int(deal1) == 1:
+			la_quête_du_crackhead()
+		elif int(deal1) == 2:
+			
+		elif int(deal1) == 3 :
+			
+		elif int(deal1) == 4:
+			
+
+
+
 # Fonction : Début dans le cartel
 def le_cartel():
 	input("\nAppuyez sur Entrée pour commencez à dealer...")
