@@ -24,44 +24,74 @@ def sortie_GAV(money):
 	delai = 0.02
 	parole(message, delai)
 	
-def la_quête_du_crackhead(sachets):
+def la_quête_du_crackhead(sachets, money):
 	print("\nTu es reçu par 6 fous du bus, chacun d'eux avec une bouteille de poliakov cassée en main.")
-	print("Ils te demandent ce que tu viens faire ici.")
-	print("Au vu de leur apparence et de leurs bouteilles en main, tu prends peur et part en courant.")
+	print("Ils te demandent ce que tu viens faire ici. Au vu de leur apparence tu prends peur et part en courant.")
 	time.sleep(duree_1)
 	print("Tu repenses à l'argent que tu dois faire, tu choisis donc :")
 	print(" 1) Retourner les voir en leur proposant d'acheter ta marchandise.")
-	print(" 2) C'est une mauvaise idée de dealer directement avec eux et tu repars d'où tu viens.")
+	print(" 2) C'est une mauvaise idée de dealer avec eux et tu repars d'où tu viens.")
 	réponse_crackhead = input ("🔹 Que fais-tu ?")
 	if int(réponse_crackhead) == 1:
 		print("\nIls semblent être partant pour t'en acheter au début, mais l'un d'entre eux dit aux autres qu'ils ont juste à te voler.")
 		print("Tu t'enfuies le plus vite possible, mais tu te retrouvent coincés dans un cul-de-sac.")
 		print("Ils te laissent le choix entre leur donner gentiment 3 sachets ou te les faire voler de force, après quoi tu leur donnes sans hésiter les sachets.")
-		sachets = sachets-3
-		time.sleep(duree_1)
-		print(f"Ils te restent {sachets} sachets et tu as {money}$.")
-		return sachets 
-		return money
-		
+		print("Avec tout le respect il te refile un vieux billet tout chiffoné de 5$ pour te remercier")
+		sachets -= 3
+		money += 5
+		return sachets, money
+	if int(réponse_crackhead) == 2:
+		print("\nTu refuses de retourner voir le groupe, mais un des crack-head t’attend déjà sur le chemin.")
+		print("Il insiste lourdement et finit par t'acheter 3 sachets pour 300$ d’un coup, tu acceptes volontier pour éviter les ennuis.")
+		print("La transaction est rapide, tu prends l’argent et tu t’éclipses même si tu n'es pas en bénéfice.")
+		sachets -= 3
+		money += 300
+    return sachets, money
+
+def distributeur_local(sachets, money):
+	print("mission 2")
+	sachets -= 3
+	money += 3000
+	return sachets, money
+
+def boîte_de_nuit(sachets, money):
+	print("mission 3")
+	sachets -= 5
+	money += 5000
+	return sachets, money
+
+def vendre_par_un_tiers(sachets, money):
+	print("mission 4")
+	sachets -= 1
+	money += 500
+	return sachets, money
 
 def mission_dealeur_1():
+	money = 0
 	sachets = 12
+	missions = {
+        1: ("Aller au contact de la clientèle, directement en proposer aux crack-head sous le pont", la_quête_du_crackhead),
+        2: ("Aller voir le distributeur local dont on t'a donné l'adresse", distributeur_local),
+        3: ("Aller en boîte de nuit pour vendre", boîte_de_nuit),
+        4: ("Envoyer une lointaine connaissance vendre pour toi en lui promettant sa part", vendre_par_un_tiers)
+    }
 	print(f"Vous disposez de {sachets} sachets de métamphétamine, chacun contenant 10 grammes, sachant que ça se vend généralement à 100$ le gramme.")
 	print("Vous devez vendre tous ces sachets et rapporter 7000$ à Tuco. Le reste part dans votre poche.")
 	print("Par contre, si vous n'êtes pas capables de ramener cet argent, ne vous attendez pas à rester en vie plus de quelques heures...")
 	time.sleep(duree_1)
 	while sachets>0 :
-		print(f"\nIl vous reste {sachets} sachets à vendre, vous décidez de:\n")
-		print("1) Aller au contact de la clientèle, c'est à dire aller directement en proposer aux crack-head sous le pont.")
-		print("2) Aller voir le distributeur local dont on t'a donné l'adresse.")
-		print("3) Tu vas en boîte de nuit pour vendre")
-		print("4) Tu missiones une de tes lointaine connaissance d'aller vendre pour toi car il s'y connaît mieux que toi, en lui promettant qu'il touchera sa part")
-		deal1 = input("🔹 Comment vend tu ta drogue?")
-		if int(deal1) == 1:
-			la_quête_du_crackhead(sachets)
-			sachets = la_quête_du_crackhead(sachets)
+		print(f"\nIl vous reste {sachets} sachets à vendre, et vous avez {money}$ comment voulez procéder:\n")
+		for num, (desc, _) in missions.items():
+			print(f" {num}) {desc}")
+		deal1 = int(input("🔹 Comment vend tu ta drogue ? : "))
+		if deal1 not in missions:
+			print("❌ Mission déjà faite ou choix invalide.")
+			continue
+		desc, fonction = missions[deal1]
+		sachets, money = fonction(sachets, money)  # Appeler la fonction et mettre à jour les sachets et money
+		del missions[deal1]    # Supprimer la mission pour qu'on ne puisse plus la refaire
+	print("C'est bon vous avez tout vendu ...")
 		
-			
 # Fonction : Début dans le cartel
 def le_cartel():
 	input("\nAppuyez sur Entrée pour commencez à dealer...")
@@ -70,13 +100,14 @@ def le_cartel():
 	parole(message, delai)
 	time.sleep(duree_1)
 	mission_dealeur_1()
-	
+	print("\n Maintenant il faut rendre les sous à Tuco")
 	
 	
 # Introduction
 message = "\n💸A BREAKING BAD STORY💸\n\nVous êtes Walter Black, un professeur d'informatique de lycée.👨‍💻\nEn vous réveillant, vous checker vos mails et apprenait que la direction vous a viré car votre métier se fait remplacer par une intelligence artificielle.\nCette nouvelle vous attriste car ces derniers temps, vous avez quelques soucis financiers... "
 delai = 0.01
 parole(message, delai)
+
 # Premier choix
 message = "Pendant que vous déprimé votre collègue vous appel car il a reçu le même mail\nFace à la situation vous décidez :\n 1)De sortir boire un coup au bar pour vous changer les idées\n 2)D'aller manifester devant le lycée avec d'autres enseignants dans votre cas "
 delai = 0.01
@@ -84,7 +115,6 @@ parole(message, delai)
 reponse_1 = input("🔹 Quel est ton choix(sélectionnez le numéro) : ")
 
 # Branche 1
-
 if int(reponse_1) == 1:
 	print("\nUne fois au bar le moral n'est toujours pas au top vous enchaînez verres de bière et de whisky, votre collègue vous propose un plan pour se refaire aller au casino !") 
 	print("Alors que l'alcool monte petit à petit vous décidez :" )
@@ -105,6 +135,7 @@ if int(reponse_1) == 1:
 			print("\nÀ cause de l'essor de l'intelligence artificielle, vous avez des difficultés à trouver un travail adapté à vos compétences, vous vous résignez et partez travailler à McDo.") 
 			print("Cela suffit à combler vos besoins, et sans ambitions, vous continuez votre vie ainsi jusqu'à la retraite, une vie simple en fin de compte.")
 			fin_histoire()
+			
 	# Branche Casino
 	elif int(reponse_1_1) == 2:
 		print("\nEt vous voilà arrivez au CASINO ! ")
@@ -121,12 +152,10 @@ if int(reponse_1) == 1:
 			delai = 0.04
 			parole(message, delai)
 			time.sleep(duree_1)
-			
 			if int(choix_casino) == resultat:      # Victoire
 				money = 2*money
 				tours = tours + 1
 				print(f"\nBravo ! Tu gagnes. Ton argent double : {money}$.")
-				
 				if tours == 5:
 					print(f"JACKPOT ! Tu as gagné 5 fois d’affilée.")
 					print(f"Tu repars avec {money}$ !!! Vous êtes riche !!! Largement suffisant pour démarer une nouvelle vie loin de tout problèmes et proche de toutes les babies dont vous rêvez!!!!")
@@ -156,7 +185,7 @@ if int(reponse_1) == 1:
 		elif int(décision) == 2 :
 			print("\nVous refusez et tentez de partir pour rentrer chez vous")
 			print("L'homme vous rattrappe aussitôt, sors un flingue, canon sur la tempe il vous dit :")
-			message = " - Je crois t'as pas bien compris petit merdeux ici c'est moi qui décide, et j'ai décidé que tu allé travailler pour moi, revend moi ces sachets de méthamphétamine d'ici la fin de semaine et ramène le fric au big boss Tuco !")
+			message = " - Je crois t'as pas bien compris petit merdeux ici c'est moi qui décide, et j'ai décidé que tu allé travailler pour moi, revend moi ces sachets de méthamphétamine d'ici la fin de semaine et ramène le fric au big boss Tuco !"
 			délai = 0.04
 			parole(message, délai)
 			print("Vous êtes dans une impasse pas d'autre choix que d'obéïr aux ordres")
@@ -194,6 +223,7 @@ elif int(reponse_1) == 2:
 		elif int(reponse_2_1) == 2:
 			print("\nContent de sa nouvelle paire de chaussures, il décide de vous laisser tranquile pour le reste du temps.")
 		time.sleep(duree_1)
+		
 		print("Un autre codétenu vous aborde, il vous explique qu'il est un dealer et il vous propose d'acheter ou de rentrer dans son réseau.")
 		print("Vous décidez de:\n 1) Acheter un peu de métamphétamine pour votre consommation personnelle.\n 2) Vous acceptez son offre car vous n'avez plus rien, c'est votre seul moyen de faire de l'argent.\n 3) Vous le dénoncez au policier qui surveille votre cellule car vous savez que vous sortez avant lui")	
 		reponse_DEAL = input("🔹 Que choisissez-vous ?")
@@ -205,7 +235,9 @@ elif int(reponse_1) == 2:
 			print("Mais quand l’effet retombe, un vide énorme vous frappe.")
 			input("\nAppuyez sur Entrée pour continuer...")
 			print("\nLe lendemain matin, le codétenu vient vous voir :")
-			print("« Alors, ça t’a plu ? J’en ai encore si tu veux… mais cette fois tu paies. »")
+			message = " - Alors, ça t’as plu ? J’en ai encore si tu veux… mais cette fois tu paies. "
+			délai = 0.04
+			parole(message, délai)
 			print("\nVous décidez de :")
 			print(" 1) Reprendre une dose (vous en voulez vraiment).")
 			print(" 2) Refuser… mais vous n'avez pas de quoi payer la première dose.")
@@ -228,21 +260,22 @@ elif int(reponse_1) == 2:
 				délai = 0.04
 				parole(message, délai)
 				print("\nIl s’approche de vous, tout près :")
-				message = " - « Tu vas rembourser. Et tu vas rembourser en travaillant pour moi. »"
+				message = " - Tu vas rembourser. Et tu vas rembourser en travaillant pour moi. "
 				délai = 0.04
 				parole(message, délai)
-				print("Il vous met dans la main un petit sachet : « Tu vas le refourguer discret. Si tu refuses… »")
-				message = " - « Quand tu sortiras dehors on te retrouvera et ton fera la peau si tu nous trahi. »"
+				print("Il vous met dans la main un petit sachet : ")
+				message = " - Tu vas le refourguer discret. Si tu refuses… Quand tu sortiras dehors on te retrouvera et ton fera la peau si tu nous trahi. "
 				délai = 0.04
 				parole(message, délai)
 				print("\nVous êtes désormais forcé dimport time e dealer pour rembourser votre ‘dette’.")
 				print("Au même instant on vous annonce que vous êtes liberé c'est la fin de votre séjour en cellulle")
 				sortie_GAV(money)
+
 		
 		elif int(reponse_DEAL) == 2 :
 			print("\nVous acceptez la proposition :")
 			message = " - « Bienvenue dans l’entreprise. »"
-			déali = 0.04
+			délai = 0.04
 			parole(message, délai)
 			print("\nIl vous glisse discrètement une dizaine de petits sachets dans la main, c'est de la metanphétamine.\n")
 			message = " - « Tu les écoules aujourd’hui. Prix simple : 500$ la dose. Tu prend 50% pour toi et le reste tu iras les données au big boss Tuco. »"
@@ -252,6 +285,7 @@ elif int(reponse_1) == 2:
 			print("Au même instant on vous annonce que vous êtes liberé c'est la fin de votre séjour en cellulle")
 			sortie_GAV(money)
 
+		
 		elif int(reponse_DEAL) == 3 :
 			print("\nVous signalez discrètement le dealer au policier. En quelques secondes, il se fait attraper.")
 			print("Il vous fixe avec une intensité glaçante pendant qu’on l’emmène. Vous savez que ce regard n'annonce rien de bon.")
@@ -259,22 +293,23 @@ elif int(reponse_1) == 2:
 			message = " - « Grâce à vous, on a attrapé un gros poisson. Vous êtes officiellement libre. »"
 			délai = 0.04
 			parole(message, délai)
+			sortie_GAV(money)
 			time.sleep(duree_1)
-			print("Une fois libre Une camionnette noire s’arrête juste devant vous. Deux hommes descendent.")
+			print("Dehors une camionnette noire s’arrête juste devant vous. Deux hommes descendent.")
 			print("C’est le réseau du dealer. Ils vous attrapent sans un mot.")
 			input("\nAppuyez sur Entrée pour continuer...")
 			print("\nDans un hangar, ils vous expliquent les choses très clairement :")
-			message = " - « Tu as dénoncé l’un des nôtres. Maintenant tu as deux options : \n 1) Travailler pour nous. Vendre. Livrer. Fermer ta bouche.\n 2) Disparaître sous une dalle de béton et ne plus jamais poser de problèmes.»")
+			message = " - Tu as dénoncé l’un des nôtres. Maintenant tu as deux options : \n 1) Travailler pour nous. Vendre. Livrer. Fermer ta bouche.\n 2) Disparaître sous une dalle de béton et ne plus jamais poser de problèmes. "
 			délai = 0.04
+			parole(message, délai)
 			time.sleep(duree_1)
 			choix_final = input("🔹 Votre choix ? ")
 			
 			if int(choix_final) == 1 :
 				print("\nVous baissez les yeux. Vous savez que vous n’avez aucune autre issue.")
 				print("« J’accepte. »")
-				print("L’homme sourit : « Bonne décision. On aime les gens intelligents. »")
-				print("Il coupe vos liens et vous tend un sac rempli de petits sachets.")
-				message = "« - Tu commences aujourd’hui. Si tu tentes de fuir… tu connais la suite. Vend tout ces sachet pour la fin de semaine et ramène le pognoin au big boss Tuco »"
+				print("L’homme sourit : ")
+				message = "« - Bonne décision. On aime les gens intelligents. Tu commences aujourd’hui. Si tu tentes de fuir… tu connais la suite. Vend tout ces sachets de drogues pour la fin de semaine et ramène le fric au big boss Tuco »"
 				délai = 0.04
 				parole(message, délai)
 				print("\nVous êtes libre… mais uniquement pour servir leur réseau.")
@@ -295,5 +330,10 @@ elif int(reponse_1) == 2:
 		# Début dans le cartel
 		le_cartel()
 
+# FIN du vrai code 
+
+# Racourci si on a la flemme d'afficher tout le programe pour vérifier la suite 
+if int(reponse_1) == 0:
+	le_cartel()
 
 	
