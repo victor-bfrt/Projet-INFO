@@ -41,7 +41,7 @@ def la_quête_du_crackhead(sachets, money):
 		print("Avec tout le respect il te refile un vieux billet tout chiffoné de 5$ pour te remercier")
 		time.sleep(duree_1)
 		sachets -= 3
-		money += 5
+		money -= 3000   		# Modifier valeur c'est un test pour après 
 		return sachets, money
 	if int(réponse_crackhead) == 2:
 		print("\nTu refuses de retourner voir le groupe, mais un des crack-head t’attend déjà sur le chemin.")
@@ -70,8 +70,7 @@ def vendre_par_un_tiers(sachets, money):
 	money += 500
 	return sachets, money
 
-def mission_dealeur_1():
-	money = 0
+def mission_dealeur_1(money):
 	sachets = 12
 	missions = {
         1: ("Aller au contact de la clientèle, directement en proposer aux crack-head sous le pont", la_quête_du_crackhead),
@@ -87,24 +86,51 @@ def mission_dealeur_1():
 		print(f"\nIl vous reste {sachets} sachets à vendre, et vous avez {money}$ comment voulez procéder:\n")
 		for num, (desc, _) in missions.items():
 			print(f" {num}) {desc}")
-		deal1 = int(input("🔹 Comment vend tu ta drogue ? : "))
+		deal1 = int(input("\n🔹 Comment vend tu ta drogue ? : "))
 		if deal1 not in missions:
-			print("❌ Mission déjà faite ou choix invalide.")
+			print("❌ Choix invalide.")
 			continue
 		desc, fonction = missions[deal1]
 		sachets, money = fonction(sachets, money)  # Appeler la fonction et mettre à jour les sachets et money
 		del missions[deal1]    # Supprimer la mission pour qu'on ne puisse plus la refaire
 	print("C'est bon vous avez tout vendu ...")
+	return sachets, money
 		
 # Fonction : Début dans le cartel
 def le_cartel():
+	money = 0
 	input("\nAppuyez sur Entrée pour commencez à dealer...")
 	message = "\n💰C'est le début de votre aventure dans le monde du narcotrafique💰\n"
 	delai = 0.02
 	parole(message, delai)
 	time.sleep(duree_1)
-	mission_dealeur_1()
+	_, money = mission_dealeur_1(money)
 	print("\nMaintenant il faut rendre les sous à Tuco")
+	print(f"En vendant toute la drogue tu as réussi à te faire {money}$, vous vous rendez donc au QG de Tuco pour lui ramener le fric")
+	print("\nTuco te regarde sans cligner des yeux. Son sourire nerveux t’indique que t’as pas intérêt à le décevoir.")
+	time.sleep(1)
+	if money < 7000:
+		message = f"\n - {money}$ ?! Tu te fous de moi ? Elle est passée où toute ma cam !!? Il est où mon putain de fric ?! Tu vas le payer cher !🤬 "
+		délai = 0.03
+		parole(message, délai)
+		print("Il attrape une batte de baseball derrière lui et commence à avancer vers toi.")
+		print("\nTu n’as qu’une seule option : COURIR.")
+		# fuite  #  coder une fonction 
+	else:
+		print("\n💵 Tu tends l'argent. Tuco compte rapidement les billets, renifle, puis explose de rire.")
+		message = " - Pas mal… PAS MAL DU TOUT ! "
+		délai = 0.03
+		parole(message, délai)
+		print("Il te balance une liasse supplémentaire.")
+		bonus = random.randint(1000, 5000)
+		money += bonus
+		print(f"\n💰 Tuco t’offre un bonus de {bonus}$ pour ta 'motivation'. Nouveau total : {money}$")
+		message = " - Maintenant que t’as prouvé que t’es pas un rigolo… on va passer aux choses sérieuses. "
+		délai = 0.03
+		parole(message, délai)
+		print("Tuco ouvre une porte métallique derrière lui. Une odeur chimique t’agresse.")
+		print("\n🧪 « Bienvenue dans le vrai business. »")
+		# laboratoire  # prochaine mission
 	
 	
 # Introduction
