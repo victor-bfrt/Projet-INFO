@@ -46,7 +46,7 @@ def la_quête_du_crackhead(sachets, money):
 		print("La transaction est rapide, tu prends l’argent et tu t’éclipses même si tu n'es pas en bénéfice.")
 		sachets -= 3
 		money += 300
-    return sachets, money
+		return sachets, money
 
 def distributeur_local(sachets, money):
 	print("mission 2")
