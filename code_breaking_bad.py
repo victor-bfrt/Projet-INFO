@@ -41,9 +41,9 @@ def la_quête_du_crackhead(sachets, money):
 		print("Avec tout le respect il te refile un vieux billet tout chiffoné de 5$ pour te remercier")
 		time.sleep(duree_1)
 		sachets -= 3
-		money -= 3000   		# Modifier valeur c'est un test pour après 
+		money += 5   		# Modifier valeur c'est un test pour après 
 		return sachets, money
-	if int(réponse_crackhead) == 2:
+	elif int(réponse_crackhead) == 2:
 		print("\nTu refuses de retourner voir le groupe, mais un des crack-head t’attend déjà sur le chemin.")
 		print("Il insiste lourdement et finit par t'acheter 3 sachets pour 300$ d’un coup, tu acceptes volontier pour éviter les ennuis.")
 		print("La transaction est rapide, tu prends l’argent et tu t’éclipses même si tu n'es pas en bénéfice.")
@@ -53,21 +53,40 @@ def la_quête_du_crackhead(sachets, money):
 		return sachets, money
 
 def distributeur_local(sachets, money):
-	print("mission 2")
-	sachets -= 3
-	money += 3000
-	return sachets, money
+	print("Pendant qu'on t'emmenait voir Tuco, un des membres du gang t'as présenté les traficants du coin, et tu t'es dis que tu pouvais ta chance avec l'un d'entre eux, crazy 7")
+	print("Tu arrives devant une grande villa avec deux garde du corps qui te font rentrer après avoir bien vérifié que tu n'avais pas d'arme sur toi.")
+	print("Tu lui proposes d'acheter ta marchandise à 1500 euros le gramme, il te répond: <<Tu sais que le prix normal est bien plus bas que ça, t'as intérêt à baisser tes prix si tu veux repartir d'ici en un seul morceau.>>")
+	print("Tu lui répond:")
+	print("1)<< Je vend pas en dessous de ce prix même aux gens comme toi, c'est 1500 le sachet ou rien.>>")
+	print("2)<< Je peux faire le prix général, 1000 euros le sachet mais pas plus bas.")
+	réponse_distributeur = input("Que réponds-tu?")
+	if int(réponse_distributeur) == 1:
+		print("<<T'as bien du cran pour quelqu'un de désarmé face à nous. J'aime bien ça! Payez le.>>")
+		print("Les gardes te passe 1 sac remplie de billets, tu te dépêches de partir.")
+		sachets -= 3
+		money += 4500
+		return sachets, money
+	elif int(réponse_distributeur) == 2:
+		print("<<Je te donnerai 800 euros par sachet tu vas me remercier.>>")
+		print("Avant même que tu ai pu te plaindre, les 2 garde te passe un sac et te foutent dehors")
+		sachets -= 3
+		money += 2400
+		return sachets, money
 
 def boîte_de_nuit(sachets, money):
-	print("mission 3")
-	sachets -= 5
-	money += 5000
+	print("Tu réfléchis aux endroits les plus simples pour vendre ta drogue, quand soudain te viens un éclair de génie:")
+	print("Aller vendre en boîte de nuit.")
+	print("Tu te rends à la boîte de nuit la plus connue de la ville, et c'est un succès total. T'as écoulé toute ma marchandise en moins d'un heure pour un très bon prix, 125 euros le gramme.")
+	money += 1250*sachets
+	sachets -= sachets
 	return sachets, money
 
 def vendre_par_un_tiers(sachets, money):
-	print("mission 4")
-	sachets -= 1
-	money += 500
+	print("Tu cherches quelqu'un qui connaît le domaine pour vendre, et tu rappelle que l'ex de ta soeur était un toxico.")
+	print("Tu l'appelle en lui proposant de vendre pour toi en échange d'un pourcentage et il accepte directement. Tu lui donnes un délai de 3 jours.")
+	print("Après 3 jours sans nouvelles, tu décides finalement de te rendre chez lui pour comprendre ce qu'il se passe. Une fois arrivé chez lui, tu te retrouves face à lui et 4 de ses amis, tous en train de consommer ta marchandise.")
+	print("Tu récupères rapidement les sachets qui restent et prend la fuite, car tu sais qu'il n'a pas de quoi te rembourser.")
+	sachets -= 2
 	return sachets, money
 
 def mission_dealeur_1(money):
@@ -95,7 +114,17 @@ def mission_dealeur_1(money):
 		del missions[deal1]    # Supprimer la mission pour qu'on ne puisse plus la refaire
 	print("C'est bon vous avez tout vendu ...")
 	return sachets, money
+
+def fuite(money):
+	print("Tu part en sprintant en direction de la sortie, tu te retrouves face à un garde qui tente de t'arrêter mais par chance tu arrives à l'esquiver.")
+	print("Tu te retrouves dehors, et tu reconnais la voiture dans laquelle on t'avais emmené. Tu fais donc face à deux choix:")
+	print("1)Aller en direction de la voiture et espérer que les clés sont restés sur le contact")
+	print("2) Continuer de courir en espérant les perdre dans les ruelles voisines.")
+	choix_fuite = input("Comment vous échappez vous?")
+	if int(choix_fuite) = 1:
 		
+
+
 # Fonction : Début dans le cartel
 def le_cartel():
 	money = 0
@@ -115,20 +144,20 @@ def le_cartel():
 		parole(message, délai)
 		print("Il attrape une batte de baseball derrière lui et commence à avancer vers toi.")
 		print("\nTu n’as qu’une seule option : COURIR.")
-		# fuite  #  coder une fonction 
+		money = fuite(money)
 	else:
 		print("\n💵 Tu tends l'argent. Tuco compte rapidement les billets, renifle, puis explose de rire.")
 		message = " - Pas mal… PAS MAL DU TOUT ! "
 		délai = 0.03
 		parole(message, délai)
 		print("Il te balance une liasse supplémentaire.")
-		bonus = random.randint(1000, 5000)
+		bonus = 100*random.randint(1, 50)
 		money += bonus
 		print(f"\n💰 Tuco t’offre un bonus de {bonus}$ pour ta 'motivation'. Nouveau total : {money}$")
 		message = " - Maintenant que t’as prouvé que t’es pas un rigolo… on va passer aux choses sérieuses. "
 		délai = 0.03
 		parole(message, délai)
-		print("Tuco ouvre une porte métallique derrière lui. Une odeur chimique t’agresse.")
+		print("Tuco ouvre une porte métallique derrière lui.")
 		print("\n🧪 « Bienvenue dans le vrai business. »")
 		# laboratoire  # prochaine mission
 	
