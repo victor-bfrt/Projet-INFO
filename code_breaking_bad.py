@@ -10,19 +10,15 @@ duree_05 = 0.5
 choix0 = (0, 1, 2)  ### Racourci pas dans le vrai code ###
 choix2 = (1, 2)   
 choix4 = (1, 2, 3, 4)
-choix0 = (0, 1, 2)
 
 def demander_choix(texte: str, rep_possibles: tuple):
     while True:
         r = input(texte)
-
         if r in ("q", "Q"):
             quit()
- 
         if not r.isdigit():
             print("\n  ❌ Erreur : entre un nombre.\n")
             continue
-
         r = int(r)
         if r in rep_possibles:
             return r
@@ -87,7 +83,7 @@ def distributeur_local(sachets, money):
 	parole(message, délai)
 	réponse_distributeur = demander_choix("🔹 Que réponds-tu?\n", choix2)
 	if int(réponse_distributeur) == 1:
-		message = " - T'as bien du cran pour quelqu'un de désarmé face à nous. J'aime bien ça! Payez le.")
+		message = " - T'as bien du cran pour quelqu'un de désarmé face à nous. J'aime bien ça! Payez le."
 		délai = 0.03
 		parole(message, délai)
 		print("Les gardes te passe 1 sac remplie de billets, tu te dépêches de partir.")
@@ -151,7 +147,7 @@ def fuite(money):
 	print("1)Aller en direction de la voiture et espérer que les clés sont restés sur le contact")
 	print("2) Continuer de courir en espérant les perdre dans les ruelles voisines.")
 	choix_fuite = demander_choix("🔹 Comment vous échappez vous?", choix2)
-	voiture = random.randit(1,2)
+	voiture = random.randint(1,2)
 	if int(choix_fuite) == 1 and voiture == 1:
 		print("Gros coup de chance! Les clés sont encore là, tu t'empresses de démarrer pendant que les membres du gang sortent du batîment et commencent à te tirer dessus.")
 		print("Plusieurs balles touchent la voiture, mais pas de blessures pour toi ni de disfonctionnement pour la voiture.")
@@ -177,6 +173,7 @@ def le_cartel():
 		parole(message, délai)
 		print("Il attrape une batte de baseball derrière lui et commence à avancer vers toi.")
 		print("\nTu n’as qu’une seule option : COURIR.")
+		input("\nAppuyez sur Entrée pour COURIR !!!\n")
 		money = fuite(money)
 	else:
 		print("\n💵 Tu tends l'argent. Tuco compte rapidement les billets, renifle, puis explose de rire.")
