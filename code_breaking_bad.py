@@ -12,6 +12,8 @@ choix2 = (1, 2)
 choix3 = (1, 2, 3)
 choix4 = (1, 2, 3, 4)
 
+# Toutes les fonctions #
+
 def demander_choix(texte: str, rep_possibles: tuple):
     while True:
         r = input(texte)
@@ -26,11 +28,13 @@ def demander_choix(texte: str, rep_possibles: tuple):
         else:
             print(f"\n  ❌ Erreur : choisis parmi {rep_possibles}.\n")
 
+
 def parole(texte, delai):  # Fonction pour afficher le texte progressivement
     for caractere in texte:
         print(caractere, end='', flush=True)  
         time.sleep(delai)
     print()  
+	
 
 def fin_histoire():
 	message = " \n\n💸 FIN DE L'HISTOIRE 💸\n\n "
@@ -38,12 +42,14 @@ def fin_histoire():
 	parole(message, delai)
 	exit()
 
+
 def sortie_GAV(money):
 	money = 0
 	message = "📌 Une fois sortie de cellule après ces quelques jour passer en garde à vue, votre femme apprend ce que vous avez fait... \nElle vous quitte et vous vire de la maison qu'elle possède ! Vous n'avez plus du tout d'argent et êtes livrer à vous mêmes pour survivre ..." 
 	delai = 0.02
 	parole(message, delai)
-	
+
+
 def la_quête_du_crackhead(sachets, money):
 	print("\nTu es reçu par 6 fous du bus, chacun d'eux avec une bouteille de poliakov cassée en main.")
 	print("Ils te demandent ce que tu viens faire ici. Au vu de leur apparence tu prends peur et part en courant.")
@@ -70,6 +76,7 @@ def la_quête_du_crackhead(sachets, money):
 		sachets -= 3
 		money += 300
 		return sachets, money
+
 
 def distributeur_local(sachets, money):
 	print("\nPendant qu'on t'emmenait voir Tuco, un des membres du gang t'as présenté les traficants du coin, et tu t'es dis que tu pouvais ta chance avec l'un d'entre eux, crazy 7")
@@ -101,12 +108,14 @@ def distributeur_local(sachets, money):
 		money += 2400
 		return sachets, money
 
+
 def boîte_de_nuit(sachets, money):
 	print("\nEn réfléchissant aller vendre en boîte de nuit est l'endroits les plus simples pour vendre ta drogue.")
 	print("Tu te rends à la boîte de nuit la plus connue de la ville, et c'est un succès total. T'as écoulé toute ma marchandise en moins d'un heure pour un très bon prix, 125 euros le gramme.")
 	money += 1250*sachets
 	sachets -= sachets
 	return sachets, money
+
 
 def vendre_par_un_tiers(sachets, money):
 	print("Tu cherches quelqu'un qui connaît le domaine pour vendre, et tu rappelle que l'ex de ta soeur était un toxico.")
@@ -118,6 +127,7 @@ def vendre_par_un_tiers(sachets, money):
 	print("Tu récupères rapidement les sachets qui restent et prend la fuite, car tu sais qu'il n'a pas de quoi te rembourser 2 sachets qu'il t'as consommé.")
 	sachets -= 2
 	return sachets, money
+
 
 def mission_dealeur_1(money):
 	sachets = 12
@@ -145,9 +155,12 @@ def mission_dealeur_1(money):
 	print("C'est bon vous avez tout vendu ...")
 	return sachets, money
 
-def faire_tomber_TUCO():
-	print("vengeance")
-	
+
+def faire_tomber_TUCO(money):
+	print("\n\n🤬vengeance")
+	return money
+
+
 def fuite(money):
 	print("Tu part en sprintant en direction de la sortie, tu arrives à esquiver l'un des leurs.")
 	print("Tu te retrouves dehors, et tu reconnais la voiture dans laquelle on t'avais emmené. Tu fais donc face à deux choix:")
@@ -197,107 +210,90 @@ def fuite(money):
 		délai = 0.05
 		parole(message, délai)
 		fin_histoire()
-		
+
+
 def labo_tuco(money):
-    print("La pièce est remplie de matériel de labo… des tubes, des câbles, un PC explosé.")
-    print("Tuco te fixe avec un sourire carnassier.")
-    parole(" - On m’a dit que t’étais bon en informatique… tu vas me le prouver.", 0.03)
+	print("Tu disposes de la méthode de ton choix pour cuisiner de la met")
+	print("1) Utiliser ton informatique pour automatiser la cuisson (option risquée mais lucrative)")
+	print("2) Faire la méthode classique (moins rentable, mais moins de chances de rater)")
+	choix = demander_choix("\n🔹 Ton choix : ", choix2)
+	etat_trahison = False
+	purete = 0
+	volume = 0
+	if int(choix) == 1:
+		print("\n💻 Ton script que tu as programmé pour cook la meth")
+		print("1) Script agressif (volume++ risque++)")
+		print("2) Script stable (pureté++ volume--)")
+		programme = demander_choix("🔹 Quel programme t'interesses : ", choix2)
+      
+		if int(programme) == 1:
+			volume = random.randint(8, 15)
+			purete = random.randint(50, 75)
+			gain = volume * purete * 100
+			money += gain
+			print(f"\nPas mal ce que tu as produit ! {volume} kilos de met, pureté {purete}%.")
+			print(f"💰 Tuco te donne {gain}$ (clairement pas tout…)")
+			if gain < 75000 :   # Faire phrase de l'anarque avec un if et else pour chaque situation
+				etat_trahison = True
+		
+		elif int(programme) == 2:
+			purete = random.randint(80, 95)
+			volume = random.randint(2, 7)
+			gain = purete * 100
+			money += gain
+			print(f"\nMet ultra pur ! {purete}% mais volume faible.")
+			print(f"💰 Tuco te donne {gain}$… il se fout de toi.")
+			if gain < 35000: # pureté forte mais paiement faible → trahison
+				etat_trahison = True
+ 
+	elif int(choix) == 2:
+		print("\n🧪 Méthode classique avec ton collégue Jesse :")
+		print("1) Cuisson lente (safe), faible volume mais pureté au top")
+		print("2) Cuisson rapide (risque d’explosion) gros volume")
+		cuisson = demander_choix("🔹 Quel cuisson chois-tu ? : ", choix2)
+		if int(cuisson) == 1:
+			purete = random.randint(50, 70)
+			volume = random.randint(2, 4)
+			gain = purete * 5
+			money += gain
+			print(f"Met OK. Pureté {purete}%.")
+			print(f"💰 {gain}$ reçus… Tuco t’ignore.")
+			if gain < 200:  
+				etat_trahison = True
 
-    print("\nTuco sort deux sacs d’ingrédients et t’explique qu’il veut un batch plus pur que d’habitude.")
-    print("1) Utiliser ton informatique pour automatiser la cuisson (option risquée mais lucrative)")
-    print("2) Faire la méthode classique (moins rentable, mais moins de chances de rater)")
+		elif int(cuisson) == 2:
+            # 1 chance sur 3 de tout foirer
+			if random.randint(1, 3) == 1:
+				print("\n💥 Explosion dans le labo gros flop, Tuco t'engueule alors que c'est lui qui t'as enseigné, il veut que tu paye le nettoyage et lematos cassé")
+				money -= 1000
+				purete = 0
+				volume = 0
+				etat_trahison = True
+			else:
+				volume = random.randint(5, 10)
+				purete = random.randint(40, 60)
+				gain = purete * volume
+				money += gain
+				print(f"Batch massif : {volume} unités.")
+				print(f"💰 Tu reçois {gain}$… mais il semble que le compte n'y est par rapport au volume et prix du marché.")
 
-    choix = input("\n🔹 Ton choix : ")
+	return money, etat_trahison, purete, volume
 
-    etat_trahison = False
-    purete = 0
-    volume = 0
 
-    # ----------------------------------------------------------------------
-    # BRANCHE 1 : COOK INFORMATIQUE
-    # ----------------------------------------------------------------------
-    if choix == "1":
-        print("\n💻 Tu branches le vieux PC, répares deux câbles et écris un script de contrôle thermique.")
-
-        print("\nTu as deux options pour le script :")
-        print("  a) Script agressif : chauffe plus fort → volume ↑ mais risque ↑")
-        print("  b) Script stable : chauffe contrôlée → pureté ↑ mais volume ↓")
-
-        sous_choix = input("\n🔹 Que fais-tu ? (a/b) : ")
-
-        if sous_choix == "a":
-            print("\n🔥 Tu lances le script agressif… la machine vibre, surchauffe, mais le batch sort massif.")
-            volume = random.randint(6, 12)
-            purete = random.randint(40, 70)
-            gain = volume * purete * 2
-            money += gain
-            print(f"💰 En vendant une partie, Tuco te file {gain}$… mais clairement beaucoup moins que prévu.")
-            print("Tu comprends qu'il a volé une partie du bénéfice.")
-            etat_trahison = True
-
-        else:
-            print("\n🧪 Tu joues la sécurité, le script reste stable et le batch sort d’une pureté exceptionnelle.")
-            purete = random.randint(80, 100)
-            volume = random.randint(2, 5)
-            gain = purete * 10
-            money += gain
-            print(f"💰 Tuco te donne {gain}$ pour ta précision… mais tu sais qu’il a gardé la majeure partie.")
-            print("Il te dit 'On fait 50/50' alors que t’as eu que 10%.")
-            etat_trahison = True
-
-    # ----------------------------------------------------------------------
-    # BRANCHE 2 : COOK CLASSIQUE
-    # ----------------------------------------------------------------------
-    else:
-        print("\n🧪 Tu prends les ingrédients à la main comme un ouvrier du labo.")
-        print("Tu dois choisir ta manière de cuire : ")
-        print("  a) Cuisson lente : safe mais faible volume")
-        print("  b) Cuisson rapide : peut donner plus… ou cramer le batch")
-
-        sous_choix = input("\n🔹 Choix (a/b) : ")
-
-        if sous_choix == "a":
-            print("\n🥣 Tu fais ça proprement, étape par étape.")
-            purete = random.randint(50, 70)
-            volume = random.randint(2, 4)
-            gain = purete * 5
-            money += gain
-            print(f"💰 Tuco te file {gain}$… il dit que tu es 'correct', mais rien d'autre.")
-            print("Tu vois clairement qu'il se fout de toi.")
-            etat_trahison = True
-
-        else:
-            print("\n🔥 Tu augmentes la chaleur… trop.")
-            ratage = random.randint(1, 3)
-
-            if ratage == 1:
-                print("💥 Le batch SURRÉAGIT et tu dois tout jeter !")
-                print("Tuco t’engueule et te paye des miettes.")
-                money += 50
-                purete = 0
-                volume = 0
-                etat_trahison = True
-            else:
-                print("😮‍💨 Coup de bol : le batch sort énorme !")
-                volume = random.randint(5, 10)
-                purete = random.randint(40, 60)
-                gain = purete * volume
-                money += gain
-                print(f"💰 Tu gagnes {gain}$… mais Tuco a gardé un sac entier sans te le dire.")
-                etat_trahison = True
-
-    # ----------------------------------------------------------------------
-    # FIN DU LABO
-    # ----------------------------------------------------------------------
-    print("\nTu sors du labo avec l’argent en main.")
-    print("Mais un truc est clair : Tuco ne te respectera JAMAIS.")
-    print("Tu sens monter la rage… l’envie de tout faire exploser.")
-    print("\n➡️ Lancement de la fonction de vengeance…")
-
-    vengeance_tuco(money, purete, volume, etat_trahison)
-
-    return money
-
+def travailler_pour_tuco(money):
+	print("La pièce est remplie de matériel de labo… des tubes, des câbles, un PC explosé.")
+	parole(" - On m’a dit que t’étais bon en informatique… tu vas me le prouver.", 0.03)
+	print("La pièce sent les solvants. Tuco t’observe en silence.")
+	parole(" - Vas-y, montre-moi ce que tu sais faire...", 0.02)
+	print("\nTuco sort deux sacs d’ingrédients et t’explique qu’il veut de la met plus pur que d’habitude.")
+	etat_trahison = False
+	while not etat_trahison:
+		money, etat_trahison, purete, volume = labo_tuco(money)
+		print(f"\n➡️ Ton argent total : {money}$")
+		print("➡️ Le business continue… pour l’instant.")
+	
+	print("\n❗ Tu réalises que Tuco t’arnaque et ne te respectera jamais, tu pense donc à échapper à cela")
+	
 
 def le_cartel():
 	money = 0
@@ -335,7 +331,8 @@ def le_cartel():
 		message = "\n - 🧪 Bienvenue dans le vrai business ! "
 		délai = 0.03
 		parole(message, délai)
-		money = labo_tuco(money)
+		money = travailler_pour_tuco(money)
+		money = faire_tomber_TUCO(money)
 	
 	
 def introduction():
