@@ -142,7 +142,7 @@ def mission_dealeur_1(money):
 	print("C'est bon vous avez tout vendu ...")
 	return sachets, money
 
-def fuite(money):
+def fuite(money, pv):
 	print("Tu part en sprintant en direction de la sortie, tu te retrouves face à un garde qui tente de t'arrêter mais par chance tu arrives à l'esquiver.")
 	print("Tu te retrouves dehors, et tu reconnais la voiture dans laquelle on t'avais emmené. Tu fais donc face à deux choix:")
 	print("1)Aller en direction de la voiture et espérer que les clés sont restés sur le contact")
@@ -152,7 +152,33 @@ def fuite(money):
 	if int(choix_fuite) == 1 and voiture == 1:
 		print("Gros coup de chance! Les clés sont encore là, tu t'empresses de démarrer pendant que les membres du gang sortent du batîment et commencent à te tirer dessus.")
 		print("Plusieurs balles touchent la voiture, mais pas de blessures pour toi ni de disfonctionnement pour la voiture.")
+		print("Tu t’éloignes et tu décides d’en finir : Tuco doit tomber.")
 		####éliminer tuco ####prochaine histoire
+	elif int(choix_fuite) == 1 and voiture == 2:
+		print("\n❌ Mauvaise nouvelle : la voiture est fermée.")
+		print("Tu entends les pas du gang se rapprocher.")
+		print("Tu dois réagir vite :")
+		print("1) Casser la vitre pour tenter de voler la voiture")
+		print("2) Repartir en courant dans l’autre direction")
+
+        choix_bloque = demander_choix("Ton choix : ", choix2)
+        action = random.randint(1, 2)
+
+        if int(choix_bloque) == 1 and action == 1:
+            print("\n💥 Tu éclates la vitre avec ton coude, ça fait un bruit énorme.")
+            print("Tu montes, tu démarres… et tu parviens à t’enfuir de justesse.")
+            pv -= 20
+            print("Tu te blesses légèrement, -20 pv")
+        elif int(choix_bloque) == 1 and action == 2:
+            print("\n🚨 Tu tentes de casser la vitre mais le gang te rattrape.")
+            print("Ils te frappent à mort et prennent tout ce que tu as sur toi.")
+            money = 0
+            print("💸 Tu perds tout ton argent.")
+        else:
+            print("\n🏃‍♂️ Tu t’enfuis dans une ruelle sombre.")
+            print("Ils te poursuivent mais tu arrives à te cacher derrière une benne.")
+            print("Tu les entends passer sans te voir. Tu as survécu.")
+	
 	elif int(chois_fuite) == 1 and voiture == 2:
 		print("Lorsque tu te rends à la voiture, tu te rends compte que cette dernière est fermée.")
 
