@@ -211,18 +211,18 @@ def fuite(money):
 
 
 def travailler_pour_TUCO(money):
-	print("Dans ton processus automatisé pour cook tu as 2 options qui exécute un programme différent")
-	print("1) Utiliser ton informatique pour automatiser la cuisson (option risquée mais lucrative)")
-	print("2) Faire la méthode classique (moins rentable, mais moins de chances de rater)")
+	print("Tu lance ton processus automatisé pour cook la met, quel programme veut-tu utiliser")
+	print("1) Mode Sécurisé – moins rentable mais zéro risque")
+	print("2) Mode Boost – production plus élevée mais risque d'erreur")
 	choix = demander_choix("🔹 Ton choix : ", choix2)
 	etat_trahison = False
 	purete = 0
 	volume = 0
 	if int(choix) == 1:
-		print("\n💻 Ton script que tu as programmé pour cook la meth")
-		print("1) Script agressif (volume++ risque++)")
-		print("2) Script stable (pureté++ volume--)")
-		programme = demander_choix("🔹 Quel programme t'interesses : ", choix2)
+		print("\n💻 Le mode sécurisé et lancer sur quel autre paramètre veut tu influencer la synthèse de la métanphétamine ?)
+		print("1) Optimiser la quantité (volume ++) ")
+		print("2) Optimiser la pureté (qualité ++) ")
+		programme = demander_choix("🔹 Quel paramètre t'interesses : ", choix2)
       
 		if int(programme) == 1:
 			volume = random.randint(8, 15)
@@ -245,9 +245,9 @@ def travailler_pour_TUCO(money):
 				trahison = True
  
 	elif int(choix) == 2:
-		print("\n🧪 Méthode classique avec ton collégue Jesse :")
-		print("1) Cuisson lente (safe), faible volume mais pureté au top")
-		print("2) Cuisson rapide (risque d’explosion) gros volume")
+		print("\n Tu lances le mode boost avec ton collégue Jesse pour:")
+		print("1) Ajuster les catalyseurs (qualité ++ mais moins fiable)")
+		print("2) Forcer la réaction (rapidité +++ volume +++ mais risque d'explosion)")
 		cuisson = demander_choix("🔹 Quel cuisson chois-tu ? : ", choix2)
 		if int(cuisson) == 1:
 			purete = random.randint(50, 70)
