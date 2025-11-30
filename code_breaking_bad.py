@@ -159,7 +159,7 @@ def mission_dealeur_1(money):
 
 
 def faire_tomber_TUCO(money):
-	print("\n\n🤬vengeance")
+	print("\n\n🤬Il faut faire tomber ce fdp de Tuco !")
 	return money
 
 
@@ -209,24 +209,24 @@ def fuite(money):
 		parole( " - Laissez le je crois qu'il compris la leçon, ici on ne me fais de coup de traite sinon voilà ce qui arrive. Maintenant pour te pardonner tu n'as pas d'autre choix que de travailler pour moi, je vais te faire découvrir notre labo et tu n'y sortiras pas tant que j'en n'aurais pas fini avec toi", 0.02)
 		money = labo_de_TUCO(money)
 
-def faible_paiement(gain):
+def faible_paiement(gain, trahison):
 	print(f"Tuco te paye {gain}$, le montant est vraiment faible par rapport à la quantité produite 🤨")
 	rep = demander_choix("Veux tu te plaindre au près de Tuco ? \n 1)Oui c'est pas assez \n 2) Non c'est que le début il faut continuer à produire\n🔹 Ton choix : ", choix2)
 	if rep == 1:
-		print("\Tu te plains à Tuco du montant qu'il te donneprint\n👊 Tuco te choque contre le mur :")
-		parole(" - T’AS UN PROBLÈME AVEC MA GÉNÉROSITÉ ? TU BOSSES POUR MOI, PAS POUR TON PORTE-MONNAIE !")
+		print("\Tu te plains à Tuco du montant qu'il te donne.\n👊 Tuco te choque contre le mur :")
+		parole(" - T’AS UN PROBLÈME AVEC MA GÉNÉROSITÉ ? TU BOSSES POUR MOI, PAS POUR TON PORTE-MONNAIE !", 0.03)
 		trahison = True
 	elif rep == 2:
 		print("Tu n’apprécies pas… mais tu continues pour l’instant.")
 		input(">>>Appuies sur entrée pour prendre ta part et continuer à bosser 🧑‍🔬 ...")
+	return trahison
 
 	
-def travailler_pour_TUCO(money):
+def travailler_pour_TUCO(money, trahison):
 	print("Tu lance ton processus automatisé pour cook la met, quel programme veut-tu utiliser")
 	print("1) Mode Sécurisé – moins rentable mais zéro risque")
 	print("2) Mode Boost – production plus élevée mais risque d'erreur")
 	choix = demander_choix("🔹 Ton choix : ", choix2)
-	etat_trahison = False
 	purete = 0
 	volume = 0
 	if int(choix) == 1:
@@ -242,8 +242,8 @@ def travailler_pour_TUCO(money):
 			money += gain
 			print(f"\nPas mal ce que tu as produit ! {volume} kg de MET, pureté {purete}%.")
 			time.sleep(1)
-			if gain < 75000 :  
-				faible_paiement()
+			if gain < 80000 :  
+				trahison = faible_paiement(gain, trahison)
 			else :
 				print(f"Tuco te paye {gain}$ (c'est raisonnable mais clairement pas tout vu le prix du marché)")
 				input(">>>Appuies sur entrée pour prendre ta part et continuer à bosser 🧑‍🔬 ...")
@@ -256,7 +256,7 @@ def travailler_pour_TUCO(money):
 			print(f"\nMet ultra pur ! {purete}% mais volume faible seulement {volume} kg.")
 			time.sleep(1)
 			if gain < 35000: 
-				faible_paiement(gain)
+				trahison = faible_paiement(gain, trahison)
 			else :
 				print(f"Tuco te paye {gain}$ c'est très peu, il doit se faire de grosse marge💰\n)")
 				time.sleep(1)
@@ -278,7 +278,7 @@ def travailler_pour_TUCO(money):
 			time.sleep(1)
 			rep = demander_choix("Demander une augmenation ?\n 1) Oui \n 2) Non\n🔹Ton choix : ", choix2)
 			if rep == 1:
-				parole("- T’inquiète, la prochaine tu seras mieux payé c'est que le début.")
+				parole("- T’inquiète, la prochaine tu seras mieux payé c'est que le début.", 0.02)
 				time.sleep(1)
 				print("Tu comprends que Tuco abuse de toi et qu'il ne te payeras jamais suffisament")
 				trahison = True
@@ -306,35 +306,36 @@ def travailler_pour_TUCO(money):
 				print(f"Tuco est impressioné par ta recette il te paye {gain}$… mais il semble que le compte n'y est pas  par rapport au volume et prix du marché.💰")
 				input(">>>Appuies sur entrée pour prendre ta part et continuer à bosser 🧑‍🔬 ...")
 
-	return money, etat_trahison, purete, volume
+	return money, trahison
 
 
 def labo_de_TUCO(money):
-	input("\nAppuyer sur Entrée pour suivre Tuco dans le labo 🧑‍🔬\n")
+	input("\n>>>Appuyer sur Entrée pour suivre Tuco dans le labo 🧑‍🔬\n")
 	print("La pièce est remplie de matériel de chimie… des tubes, des câbles, des machines, des PC.")
-	parole(" - On m’a dit que t’étais bon en informatique… tu vas me le prouver,tu vas travailler pour moi. Ton objectif c'est de me coder un programme qui cook la MET la plus pure ! Tu ne seras pas seul, Jesse sera ton partenaire", 0.03)
+	parole(" - On m’a dit que t’étais bon en informatique… tu vas me le prouver,tu vas travailler pour moi. Ton objectif c'est de me coder un programme qui cook la MET la plus pure ! Tu ne seras pas seul, Jesse sera ton partenaire", 0.01)
 	time.sleep(duree_1)
 	print("\nTuco sort et vous laisse à deux avec Jesse, il t’explique ainsi les grandes étape de la synthèse de la métanphétamine 🧪.")
 	etat_trahison = False
 	input("\n>>>Appuyer sur Entrée pour commencer à cook de la met 🧑‍🔬\n")
-	parole(" - Salut Walter moi c'est Jesse, ensemble on va cook de le met, le boss Tuco a besoin de toi pour que tu m'aide à programmer un système qui automatise la production de la MET la plus pure !", 0.03)
+	parole(" - Salut Walter moi c'est Jesse, ensemble on va cook de le met, le boss Tuco a besoin de toi pour que tu m'aide à programmer un système qui automatise la production de la MET la plus pure !", 0.01)
 	time.sleep(duree_1)
-	print("Tu t'installes est prend commnce à coder sur un PC plusieur programmes différents 👨‍💻\n Tu passes la nuit entière à coder un logiciel qui sera répondre au attente de Tuco")
+	print("Tu t'installes est prend commnce à coder sur un PC plusieur programmes différents 👨‍💻\nTu passes la nuit entière à coder un logiciel qui sera répondre au attente de Tuco")
 	time.sleep(duree_1)
-	parole("\n>>>Script exucted ... \n011011010101011101110\n01100001111101101010\n110110110110010010010\n010111001011101101010\n101101101010011101110\n>>>Ready to cook\n", 0.02)
+	parole("\n>>>Script exucted ... \n011011010101011101110\n011001001111101101011\n110110110110010010010\n010111001011101101010\n101101101010011101110\n>>>Ready to cook\n", 0.01)
 	time.sleep(duree_1)
 	print("Ton logiciel est prêt, à toi de choisir avec Jesse quel programme éxecuter pour cook efficacement et faire un max de fric 💰\n")
 	time.sleep(1)
 	trahison = False
 	while not trahison:
-		money, etat_trahison, purete, volume = travailler_pour_TUCO(money)
+		money, trahison = travailler_pour_TUCO(money, trahison)
 		time.sleep(1)
-		print(f"\n >>>Ton argent total : {money}$ 💸")
-		print(">>>Le business continue pour l’instant ... 🚀")
+		if trahison:
+			break 
+		print(f"\n  Ton argent total : {money}$ 💸")
+		print("  Le business continue pour l’instant ... 🚀")
 		time.sleep(1)
-		
-	
-	print("\n❗ Tu réalises que Tuco t’arnaque et ne te respectera jamais, tu pense donc à échapper à cela")
+	print("\n❗Tu réalises que Tuco t’arnaque et ne te respectera jamais, tu penses donc à le faire tomber")
+	money = faire_tomber_TUCO(money)
 	
 
 def le_cartel():
@@ -609,8 +610,9 @@ def introduction():
 			# Début dans le cartel
 			le_cartel()
 
-	if int(reponse_1) == 0: # Racourci si on a la flemme d'afficher tout le programe pour vérifier la suite 
-		le_cartel()
+	if int(reponse_1) == 0:# Racourci si on a la flemme d'afficher tout le programe pour vérifier la suite 
+		money = 10000
+		labo_de_TUCO(money)
 
 def jouer():
 	introduction()
