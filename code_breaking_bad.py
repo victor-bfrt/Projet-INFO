@@ -209,7 +209,15 @@ def fuite(money):
 		parole( " - Laissez le je crois qu'il compris la leçon, ici on ne me fais de coup de traite sinon voilà ce qui arrive. Maintenant pour te pardonner tu n'as pas d'autre choix que de travailler pour moi, je vais te faire découvrir notre labo et tu n'y sortiras pas tant que j'en n'aurais pas fini avec toi", 0.02)
 		money = labo_de_TUCO(money)
 
+def faible_paiement():
+	print("🤨 Le montant est vraiment faible au vu de ce que tu as produits")
+	rep = demander_choix("Veux tu te plaindre au près de Tuco ? \n 1)Oui c'est pas assez \n 2) Non c'est que le début il faut continuer à produire\n🔹 Ton choix : ", choix2)
+	if rep == 1:
+		print("\Tu te plains à Tuco du montant qu'il te donneprint\n👊 Tuco te choque contre le mur :")
+		parole(" - T’AS UN PROBLÈME AVEC MA GÉNÉROSITÉ ? TU BOSSES POUR MOI, PAS POUR TON PORTE-MONNAIE !")
+		trahison = True
 
+	
 def travailler_pour_TUCO(money):
 	print("Tu lance ton processus automatisé pour cook la met, quel programme veut-tu utiliser")
 	print("1) Mode Sécurisé – moins rentable mais zéro risque")
@@ -219,20 +227,28 @@ def travailler_pour_TUCO(money):
 	purete = 0
 	volume = 0
 	if int(choix) == 1:
-		print("\n💻 Le mode sécurisé et lancer sur quel autre paramètre veut tu influencer la synthèse de la métanphétamine ?)
+		print("\n💻 Le mode sécurisé et lancer sur quel autre paramètre veux-tu influencer la synthèse de la métamphétamine ?)
 		print("1) Optimiser la quantité (volume ++) ")
 		print("2) Optimiser la pureté (qualité ++) ")
 		programme = demander_choix("🔹 Quel paramètre t'interesses : ", choix2)
       
 		if int(programme) == 1:
-			volume = random.randint(8, 15)
+			volume = random.randint(9, 15)
 			purete = random.randint(50, 75)
 			gain = volume * purete * 100
 			money += gain
-			print(f"\nPas mal ce que tu as produit ! {volume} kilos de met, pureté {purete}%.")
-			print(f"💰 Tuco te donne {gain}$ (clairement pas tout…)")
-			if gain < 75000 :   # Faire phrase de l'anarque avec un if et else pour chaque situation
-				trahison = True
+			print(f"\nPas mal ce que tu as produit ! {volume} kg de MET, pureté {purete}%.")
+			print(f"💰 Tuco te paye {gain}$ (c'est raisonnable mais clairement pas tout vu le prix du marché)")
+			if gain < 75000 :  
+				faible_paiement()
+				print("🤨 Le montant est vraiment faible au vu de ce que tu as produits")
+				rep = demander_choix("Veux tu te plaindre au près de Tuco ? \n 1)Oui c'est pas assez \n 2) Non c'est que le début il faut continuer à produire\n🔹 Ton choix : ", choix2)
+				if rep == 1:
+					print("\Tu te plains à Tuco du montant qu'il te donneprint\n👊 Tuco te choque contre le mur :")
+					parole(" - T’AS UN PROBLÈME AVEC MA GÉNÉROSITÉ ? TU BOSSES POUR MOI, PAS POUR TON PORTE-MONNAIE !")
+					trahison = True
+			else :
+				input("🧑‍🔬Appuies sur entrée pour prendre ta part et continuer à bosser ...")
 		
 		elif int(programme) == 2:
 			purete = random.randint(80, 95)
