@@ -157,6 +157,10 @@ def mission_dealeur_1(money):
 	print("\nC'est bon vous avez tout vendu ...")
 	return sachets, money
 
+def baron_de_la_drogue(money):
+	print("\nTu vas construire ton empire de la drogue⚔️\n")
+	return money
+
 
 def faire_tomber_TUCO(money):
 	print("\n\n🤬Il faut faire tomber ce fdp de Tuco !Il était temps de se débarrasser de Tuco")
@@ -211,7 +215,7 @@ def faire_tomber_TUCO(money):
 		choix = demander_choix("🔹 Ton hoix : ", choix2)
 		reussite = random.randint(1,4)
 		print("\nTuco arrive... Il veut goûter la marchandise...\n")
-		if reussite == 1:
+		if reussite != 1:
 			print("Le jour du deal Tuco veux tester ta marchandise, mais te demander de gôuter toi d'abord")
 			print("Tu te retouve piéger car c'est du poison")
 			print("Il comprend le piège et sort son flingue et te tue sur place.")
@@ -221,9 +225,8 @@ def faire_tomber_TUCO(money):
 			print("💉 La meth empoisonnée fait son effet. Tuco devient livide, tombe au sol.")
 			print("☠️ Tu l’as eu. Tu prend vite la fuite pour éviter les représailles. C’est terminé pour lui.")
 	time.sleep(1)
-	print("Tuco est mort mainteant c'est toi le nouveau baron de la drogue du coin !")		
-	return money
-
+	print("\nTuco est mort mainteant c'est toi le nouveau baron de la drogue du coin !")
+	money = baron_de_la_drogue(money)
 
 def fuite(money):
 	print("Tu part en sprintant en direction de la sortie, tu arrives à esquiver l'un des leurs.")
@@ -236,7 +239,7 @@ def fuite(money):
 		print("Gros coup de chance! Les clés sont encore là, tu t'empresses de démarrer pendant que les membres du gang sortent du batîment et commencent à te tirer dessus.")
 		print("Plusieurs balles touchent la voiture, mais pas de blessures pour toi ni de disfonctionnement pour la voiture.")
 		print("Tu t’éloignes et tu décides d’en finir : Tuco doit tomber.")
-		faire_tomber_TUCO()
+		mmoney = faire_tomber_TUCO(money)
 	
 	elif int(choix_fuite) == 1 and voiture == 2:
 		print("\nMauvaise nouvelle : la voiture est fermée...")
@@ -254,7 +257,7 @@ def fuite(money):
 			time.sleep(duree_1)
 			print("Tu t'es blessés légèrement en cassant la vitre")
 			print("Après cet incident qui a faille te couter la vie tu réfléchis pour en finir avec Tuco")
-			faire_tomber_TUCO(money)
+			money = faire_tomber_TUCO(money)
 		elif int(choix_bloque) == 1 and action == 2:
 			print("\nTu tentes de casser la vitre mais le cartel t'attrappe avant que tu puisse partir.")
 			print("Ils te frappent jusqu'à ta mort et prennent tout ce que tu as sur toi. 💀")
@@ -265,8 +268,8 @@ def fuite(money):
 			print("Tu les entends passer sans te voir. Tu as survécu. Tu décides de passer la nuit ici💤")
 			time.sleep(duree_1)
 			print("Le lendemain après avoir gamberger toute la nuit tu décides d’en finir : Tuco doit tomber.")
-			faire_tomber_TUCO(money)
-	elif int(chois_fuite) == 2:
+			money = faire_tomber_TUCO(money)
+	elif int(choix_fuite) == 2:
 		print("Le cartel de rattrape est commance à te frapper lourdement. Par chance Tuco arrive est ordonne qu'on arrête ton massacre")
 		parole( " - Laissez le je crois qu'il compris la leçon, ici on ne me fais de coup de traite sinon voilà ce qui arrive. Maintenant pour te pardonner tu n'as pas d'autre choix que de travailler pour moi, je vais te faire découvrir notre labo et tu n'y sortiras pas tant que j'en n'aurais pas fini avec toi", 0.02)
 		money = labo_de_TUCO(money)
@@ -275,7 +278,7 @@ def faible_paiement(gain, trahison):
 	print(f"Tuco te paye {gain}$, le montant est vraiment faible par rapport à la quantité produite 🤨")
 	rep = demander_choix("Veux tu te plaindre au près de Tuco ? \n 1)Oui c'est pas assez \n 2) Non c'est que le début il faut continuer à produire\n🔹 Ton choix : ", choix2)
 	if rep == 1:
-		print("\Tu te plains à Tuco du montant qu'il te donne.\n👊 Tuco te choque contre le mur :")
+		print("\nTu te plains à Tuco du montant qu'il te donne.\n👊 Tuco te choque contre le mur :")
 		parole(" - T’AS UN PROBLÈME AVEC MA GÉNÉROSITÉ ? TU BOSSES POUR MOI, PAS POUR TON PORTE-MONNAIE !", 0.03)
 		trahison = True
 	elif rep == 2:
@@ -397,6 +400,8 @@ def labo_de_TUCO(money):
 		print("  Le business continue pour l’instant ... 🚀")
 		time.sleep(1)
 	print("\nTu réalises que Tuco t’arnaque et ne te respectera jamais, tu penses donc à le faire tomber ❗")
+	money = faire_tomber_TUCO(money)
+	return money
 	
 
 def le_cartel():
@@ -438,7 +443,7 @@ def le_cartel():
 		parole(message, délai)
 		time.sleep(duree_1)
 		money = labo_de_TUCO(money)
-		money = faire_tomber_TUCO(money)
+		
 	
 	
 def introduction():
