@@ -157,8 +157,58 @@ def mission_dealeur_1(money):
 	print("\nC'est bon vous avez tout vendu ...")
 	return sachets, money
 
+def intervention_GUS(money):
+	print("\n🐓📞 *Un téléphone sonne au loin...*")
+	time.sleep(2)
+	print("\nUne voix calme et posée :")
+	time.sleep(1)
+	parole("  « Bonjour. Je suis Gustavo Fring. »", 0.02)
+	time.sleep(2)
+	parole("  « On m’a parlé de vous… un homme intelligent mais fauché. »", 0.02)
+	time.sleep(2)
+	parole("  « Je peux financer votre labo. En échange, je veux votre loyauté. »", 0.02)
+	time.sleep(2)
+	print("\nQue fais-tu ?")
+	print("1) Accepter l’offre de Gus (il te donne 50 000$ mais tu lui DOIS tout)")
+	print("2) Refuser (extrêmement dangereux…)")
+	choix = demander_choix("🔹 Ton choix : ", choix2)
+	if int(choix) == 1:
+		print("\nGustavo te félicite d'avoir accepter il finance entière la contruction d'un labo pour toi")
+		parole("Vous commencez demain 8h, RDV à Los Pollos Hermanos.", 0.02)
+		print(f"Argent total : {money}$")
+		parole("\n« Ne me décevez pas. »", 0.02)
+		return money
+	else :
+		print("\n❌ Tu refuses poliment…")
+		time.sleep(1)
+		parole("  « Je vois. C’est regrettable. »", 0.02)
+		time.sleep(2)
+		print("Quelques heures plus tard, tu disparais mystérieusement.")
+		fin_histoire()
+	return money
+
+
 def baron_de_la_drogue(money):
-	print("\nTu vas construire ton empire de la drogue⚔️\n")
+	input("\n>>>Appuies sur Entrée pour construire ton empire de la drogue⚔️\n")
+	print("Pour commencer, il te faut investir dans le matériel de chimie, les ingrédients mais surtout un lieu sûr pour cook.")
+	print(f"Tu dispose de {money}$ cela corespond à tout l'argent que tu as pu te faire avec la vente de drogue")
+	time.sleep(1)
+	print("\nOù veux-tu installer ton labo ?")
+	print("1) Dans un camping-car")
+	print("2) Dans un entrepôt abandonné")
+	choix = demander_choix("🔹 Ton choix : ", choix3)
+	if int(choix) == 1:
+		prix = 20000
+		lieu = "camping-car"
+	elif int(choix) == 2:
+		prix = 200000
+		lieu = "entrepôt abandonné"
+	if money < prix:
+		print(f"\n❌ Tu n’as pas assez pour acheter un {lieu} ({prix}$ requis).")
+		return intervention_GUS(money)
+	else :
+		print("Bien maintenant il te fait du matos")
+		
 	return money
 
 
@@ -175,6 +225,7 @@ def faire_tomber_TUCO(money):
 		print("\nTu optes pour un poison discret. Tu achètes une dose de Ricin sur le darkweb pour 2000$ avec l'argent que tu disposes.")
 		money -= 2000
 		print("Il te reste à trouver comment la lui faire ingérer...")
+		time.sleep(1)
 		print("\nTu as deux possibilités :")
 		print("1) Lui offrir un café 'pour discuter business'")
 		print("2) L'ajouter à son repas lors d'un rendez-vous professionnel")
@@ -191,6 +242,7 @@ def faire_tomber_TUCO(money):
 	if int(choix) == 2:
 		print("\n💣 Tu décides de fabriquer une bombe artisanale en regardant un tuto sur Youtube.")
 		print("Tu prépares un petit explosif que tu dois placer quelque part où Tuco passera.")
+		time.sleep(1)
 		print("\nOù veux-tu le placer ?")
 		print("1) Sous son siège de voiture")
 		print("2) Dans son bureau, derrière la porte")
@@ -208,6 +260,7 @@ def faire_tomber_TUCO(money):
 	if int(choix) == 3:
 		print("\nTu décides de monter un faux deal.")
 		print("Tu inventes une identité de dealer et fixes un rendez-vous à Tuco.")
+		time.sleep(1)
 		print("Ton but : lui faire tester une meth empoisonnée que tu as préparée.\n")
 		print("Où veux-tu organiser le deal ?")
 		print("1) Dans un parking souterrain")
