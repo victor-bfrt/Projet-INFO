@@ -44,9 +44,8 @@ def fin_histoire():
 
 
 def sortie_GAV():
-	message = "📌 Une fois sortie de cellule après ces quelques jour passer en garde à vue, votre femme apprend ce que vous avez fait... \nElle vous quitte et vous vire de la maison qu'elle possède ! Vous n'avez plus du tout d'argent et êtes livrer à vous mêmes pour survivre ..." 
-	delai = 0.02
-	parole(message, delai)
+	time.sleep(2)
+	print("\n 📌 Une fois sortie de cellule après ces quelques jour passer en garde à vue, votre femme apprend ce que vous avez fait... \nElle vous quitte et vous vire de la maison qu'elle possède ! Vous n'avez plus du tout d'argent et êtes livrer à vous mêmes pour survivre ...\n")
 
 
 def la_quête_du_crackhead(sachets, money):
@@ -120,13 +119,13 @@ def boîte_de_nuit(sachets, money):
 
 
 def vendre_par_un_tiers(sachets, money):
-	print("Tu cherches quelqu'un qui connaît le domaine pour vendre, et tu rappelle que l'ex de ta soeur était un toxico.")
-	time.sleep(duree_1)
+	print("Tu cherches quelqu'un qui connaît le domaine pour vendre : l'ex de ta soeur était un toxico.")
+	time.sleep(1)
 	print("Tu l'appelle en lui proposant de vendre pour toi en échange d'un pourcentage et il accepte directement. Tu lui donnes un délai de 3 jours.")
-	time.sleep(duree_1)
+	time.sleep(2)
 	print("Après 3 jours sans nouvelles, tu décides finalement de te rendre chez lui pour comprendre ce qu'il se passe. Tu te retrouves face à lui et 4 de ses amis, tous en train de consommer ta marchandise.")
-	time.sleep(duree_1)
-	print("Tu récupères rapidement les sachets qui restent et prend la fuite, car tu sais qu'il n'a pas de quoi te rembourser 2 sachets qu'il t'as consommé.")
+	time.sleep(1)
+	print("Tu récupères rapidement les sachets qui restent et prend la fuite, il n'a pas de quoi te rembourser 2 sachets qu'il t'as consommé.")
 	sachets -= 2
 	return sachets, money
 
@@ -139,11 +138,11 @@ def mission_dealeur_1(money):
         3: ("Aller en boîte de nuit pour vendre", boîte_de_nuit),
         4: ("Envoyer une lointaine connaissance vendre pour toi en lui promettant sa part", vendre_par_un_tiers)
     }
-	print(f"Vous disposez de {sachets} sachets de métamphétamine, chacun contenant 10 grammes, sachant que ça se vend généralement à 100$ le gramme.")
-	print("Les instructions donné par le deauer sont clair, vous devez vendre tous ces sachets et rapporter 10000$ à Tuco. Le reste part dans votre poche.")
+	print(f"Vous disposez de {sachets} sachets de métamphétamine, contenant 10 grammes chacun, le prix de vente est de 100$ le gramme.")
+	print("Les instructions donné par le dealer sont clair, vous devez vendre tous ces sachets et rapporter 10000$ à Tuco.")
 	print("Par contre, si vous n'êtes pas capables de ramener cet argent, ne vous attendez pas à rester en vie plus de quelques heures...")
 	while sachets>0 :
-		time.sleep(duree_1)
+		time.sleep(2)
 		print(f"\n 👉 Il vous reste {sachets} sachets à vendre, et vous avez {money}$ comment voulez procéder:\n")
 		for num, (desc, _) in missions.items():
 			print(f" {num}) {desc}")
@@ -464,9 +463,7 @@ def labo_de_TUCO(money):
 def le_cartel():
 	money = 0
 	input("\nAppuyez sur Entrée pour commencez à dealer...")
-	message = "\n💰C'est le début de votre aventure dans le monde du narcotrafique💰\n"
-	delai = 0.02
-	parole(message, delai)
+	parole("\n💰C'est le début de votre aventure dans le monde du narcotrafique💰\n", 0.02)
 	time.sleep(duree_1)
 	_, money = mission_dealeur_1(money)
 	print("\nMaintenant il faut rendre les bénéfice de tes ventes à Tuco")
@@ -614,10 +611,10 @@ def introduction():
 				print("Les policiers pensent que vous cachez encore quelque chose.")
 				print("Ils vous interrogent toute la journée...\n")
 				jour = jour + 1
-			time.sleep(duree_1)
+			time.sleep(1)
 			print("La garde à vue prend fin après ces longues heures de pression.")
 			print("Malgré le fait que les policiers ont décidés d'abandonner la garde à vue, ils décident de vous faire passer un peu de temps en cellule avec des personnes très peu sympatiques, le temps de gérer la partie admistrative...")
-			time.sleep(duree_1)
+			time.sleep(2)
 			print("\nUn de vos condétenu, un géorgien de 2m10 et 110kg de muscle avec un t-shirt et un short ufc, vous demande de lui passer vos chaussures car \"elles lui iraient très bien\".")
 			print("Vous décidez de:\n 1) Le frapper le plus fort possible au visage, même si son menton semble plus solide que les barreaux de votre cellule.\n 2) Vous lui passez vos chaussures comme le bon toutou que vous êtes.")
 			(reponse_2_1) = demander_choix("🔹 Quel est votre choix?", choix2)
@@ -659,6 +656,7 @@ def introduction():
 				elif int(choix_drogue) == 2 :
 					print("\nVous refusez. « Non merci, hier c’était une erreur. »")
 					print("Le codétenu change soudain de visage :")
+					time.sleep(1)
 					message = " - « Ah ouais ? Donc tu consommes gratos maintenant ? Tu crois que je fais ça par charité ? »"
 					délai = 0.03
 					parole(message, délai)
@@ -712,9 +710,7 @@ def introduction():
 					print("\nVous baissez les yeux. Vous savez que vous n’avez aucune autre issue.")
 					print("« J’accepte. »")
 					print("L’homme sourit : ")
-					message = "« - Bonne décision. On aime les gens intelligents. Tu commences aujourd’hui. Si tu tentes de fuir… tu connais la suite. Vend tout ces sachets de drogues pour la fin de semaine et ramène le fric au big boss Tuco »"
-					délai = 0.03
-					parole(message, délai)
+					parole(" - « Bonne décision. On aime les gens intelligents. Tu commences aujourd’hui. Si tu tentes de fuir… tu connais la suite. Vend tout ces sachets de drogues pour la fin de semaine et ramène le fric au big boss Tuco »", 0.03)
 					print("\nVous êtes libre… mais uniquement pour servir leur réseau.")
 					sortie_GAV()
 		
@@ -725,9 +721,7 @@ def introduction():
 					print("\nUn homme s’approche derrière vous")
 					time.sleep(duree_1)
 					print("PANNN !!")
-					message = "Vous êtes mort 💀"
-					délai = 0.08
-					parole(message, délai)
+					parole("Vous êtes mort 💀", 0.08)
 					fin_histoire()
 				
 			# Début dans le cartel
