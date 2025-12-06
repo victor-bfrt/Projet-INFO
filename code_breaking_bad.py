@@ -547,10 +547,8 @@ def introduction():
 				choix_casino = demander_choix("🔹 Quel est votre choix?", choix2)
 				resultat = random.randint(1, 2)
 				time.sleep(duree_1)
-				message = "\nLa roue tourne ... ♣️♦️♠️♥️"
-				delai = 0.02
-				parole(message, delai)
-				time.sleep(duree_05)
+				parole("\nLa roue tourne ... ♣️♦️♠️♥️", 0.03)
+				time.sleep(0.5)
 				if int(choix_casino) == resultat:      # Victoire
 					money = 2*money
 					tours = tours + 1
@@ -559,14 +557,15 @@ def introduction():
 						print(f"JACKPOT ! Tu as gagné 5 fois d’affilée.")
 						print(f"Tu repars avec {money}$ !!! Vous êtes riche !!! Largement suffisant pour démarer une nouvelle vie loin de tout problèmes et proche de toutes les babies dont vous rêvez!!!!")
 						fin_histoire()
-					time.sleep(duree_05)
+					time.sleep(1)
 					print(f"Comme vous n'êtes pas très futé, vous décidez de remettre tout vos gains en jeux, c'est à dire {money}$")
 				else :  
 					money = 0
 					print("\nDommage ! La balle ne tombe pas sur votre couleur...")
+					time.sleep(1)
 					print(f"Vous avez perdu TOUTES vos économies vous ne disposez plus que de {money}$")
 					break 
-			time.sleep(duree_1)
+			time.sleep(1)
 			print("\nVous êtes dépité, viré du casino et n'avait plus un seul euros sur vous ! Un homme en capuche s'approche de vous et vous propose ce deal : ")
 			message = " - Je t'ai entendu parler dans le casino, je sais que t'as plus rien et que tu t'y connais en informatique. Je te propose un nouveau job, où tu gagneras en un mois ce que t'aurais gagné en une vie. J'étais comme toi y'a plusiseurs années, maintenant je suis plein aux as..."
 			délai = 0.03
