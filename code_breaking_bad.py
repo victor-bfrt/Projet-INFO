@@ -2,8 +2,6 @@ import random
 import time 
 
 money = 30000
-pv = 100
-blue_crystal = 0
 
 choix0 = (0, 1, 2)  ### Racourci pas dans le vrai code ###
 choix2 = (1, 2)
@@ -166,6 +164,9 @@ def mission_dealeur_1(money):
 	input("\n>>>Appuies sur Entrée pour rendre l'argent au Big Boss Tuco...")
 	return sachets, money
 
+
+def blue_crystal(money, blue_crystal):
+
 def intervention_GUS(money, prix, lieu, name):
 	print("\n🐓📞 *Un téléphone sonne au loin...*")
 	time.sleep(1)
@@ -294,7 +295,7 @@ def baron_de_la_drogue(money):
 	print("\n-----------------------------------------\n")
 	print("\nGus revient te voir quelques jours plus tard.")
 	time.sleep(1)
-	parole(f"« {name}… Le matériel est en place. Ton {lieu} est prêt. »", 0.03)
+	parole(f"  « {name}… Le matériel est en place. Ton {lieu} est prêt pour commencer à produire de la METH. »", 0.03)
 	time.sleep(1)
 	print(f"\nTu te rends dans ton {lieu}. À l’intérieur :")
 	time.sleep(0.75)
@@ -302,12 +303,11 @@ def baron_de_la_drogue(money):
 	time.sleep(0.75)
 	print("• Hotte filtrante de labo 💨")
 	time.sleep(0.75)
-	print("• Barils de méthylamine bleutée… le carburant du vrai Crystal.")
+	print("• Barils de méthylamine bleutée… 🛢️")
 	time.sleep(1.5)
 	print("\nTu enfiles ta combinaison jaune. Le moment est venu de cook.")
 	input(">>> Appuie sur Entrée pour commencer la première production...")
-
-	
+	money, blue_crystal = blue_crystal(money, blue_crytal)
 	
 	return money
 
