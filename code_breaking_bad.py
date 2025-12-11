@@ -167,9 +167,9 @@ def mission_dealeur_1(money):
 
 
 def synthèse_blue_crystal(money, blue_crystal):
-	purete = 50     # base
-	quantite = 5 # base
-	print("\n🔹 Étape 1 : Choix du réactif ")
+	purete = 0     
+	quantite = 0 
+	parole("\n🔹 Étape 1 : Choix du réactif 👨‍🔬", 0.01)
 	print("1) Pseudoéphédrine industrielle (500$)")
 	print("2) Phénylacétone pharmaceutique (2000$)")
 	print("3) Méthylamine pure (10 000$)")
@@ -185,47 +185,69 @@ def synthèse_blue_crystal(money, blue_crystal):
 		return money, 0
 	money -= cout
 	if int(choix) == 1:
-		purete += 5
-		quantite += 50
+		purete += 11
+		quantite += 2
 	elif int(choix) == 2:
-		purete += 15
-		quantite += 30
+		purete += 21
+		quantite += 3
 	elif int(choix) == 3:
-		purete += 30
-		quantite += 80
+		purete += 31
+		quantite += 5
     # --- ÉTAPE 2 : Mode de chauffage ---
-	print("\n🔹 Étape 2 : Mode de chauffage")
+	print("\n🔹 Étape 2 : Mode de chauffage🔥")
 	print("1) Chauffage rapide (volume +, pureté -)")
 	print("2) Chauffage lent et contrôlé (pureté +++)")
 	print("3) Chauffage normal")
 	choix = demander_choix("🔹 Ton choix : ", choix3)
-	if int(choix) =="1":
-		purete -= 10
-		quantite += 60
-	elif int(choix) =="2":
-		purete += 25
-		quantite -= 10
-	elif int(choix) == "3":
+	if int(choix) == 1:
+		parole("\nChauffage en cour veuillez patienter...", 0.03)
 		purete += 10
+		quantite += 3
+		parole("🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩", 0.2)
+		parole("Cuisson terminé ! ☑️", 0.02)
+	elif int(choix) == 2:
+		parole("\nChauffage en cour veuillez patienter...", 0.03)
+		purete += 25
+		quantite += 4
+		parole("🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩", 1)
+		parole("Cuisson terminé ! ☑️", 0.02)
+	elif int(choix) == 3:
+		parole("\nChauffage en cour veuillez patienter...", 0.03)
+		purete += 10
+		quantite += 3
+		parole("🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩", 0.5)
+		parole("Cuisson terminé ! ☑️", 0.02)
     # --- ÉtAPE 3 : Technique de cristallisation ---
 	print("\n🔹 Étape 3 : Cristallisation")
-	print("1) Cristallisation simple (classique)")
+	print("1) Cristallisation simple (rapide)")
 	print("2) Cristallisation sous vide (pureté +)")
 	print("3) Cristallisation ultra lente (pureté +++, quantité -)")
 	choix = demander_choix("🔹 Ton choix : ", choix3)
 	if int(choix) == 1:
-		purete += 10
-	elif int(choix) == 2:
+		parole("Critsallisation en cours patientez...", 0.01)
+		parole("🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦", 0.2)
+		parole("Votre métamphétamine est prête ! ✅", 0.01)
 		purete += 20
+		quantite += 3
+	elif int(choix) == 2:
+		parole("Critsallisation en cours patientez...", 0.01)
+		parole("🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦", 0.75)
+		parole("Votre métamphétamine est prête ! ✅", 0.01)
+		purete += 20
+		quantite += 5
 	elif int(choix) == 3:
-		purete += 35
-		quantite -= 30
+		parole("Critsallisation en cours patientez...", 0.01)
+		parole("🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦", 1.5)
+		parole("Votre métamphétamine est prête ! ✅", 0.01)
+		purete += 47
+		quantite += 10
+	valeur = purete*quantite*250
     # Résultat final
+	time.sleep(1)
 	print("\n=== RÉSULTAT  ===")
-	print(f" Quantité obtenue : {quantite}kg")
+	print(f" Quantité synthètisée : {quantite}kg")
 	print(f" Pureté : {purete}%")
-	print(f" Valeur estimé pour le revente")
-	print(f"💰 Argent total : {money}$")
+	print(f" Valeur estimée pour le revente {valeur}$💰")
 	print("\nTa METH est prête c'est du vrai cristal bleue une pure folie !")
 	blue_crystal += quantite
 	return money, blue_crystal
@@ -368,7 +390,7 @@ def baron_de_la_drogue(money):
 	input("\n>>>Appuies sur Entrée pour construire ton empire de la drogue⚔️\n")
 	print("En tant que baron de la drogue il ta faut absolument un nom de narcotrafiquant")
 	name = input("🔹 Quel nom veut tu porter à la place de Walter Black : ")
-	parole(f"À présent les gens t'appelerons {name} 🥶", 0.02)
+	parole(f"À présent les gens t'appelerons {name} 🥶", 0.01)
 	time.sleep(0.5)
 	print("\nPour commencer, il te faut investir dans un labo, un lieu sûr pour cook.")
 	print(f"Tu disposes de {money}$ cela corespond à tout l'argent que tu as pu te faire avec la vente de drogue")
@@ -395,7 +417,7 @@ def baron_de_la_drogue(money):
 	print("\n-----------------------------------------\n")
 	print("Gus revient te voir quelques jours plus tard.")
 	time.sleep(0.5)
-	parole(f"  « {name}… Le matériel est en place. Ton {lieu} est prêt pour commencer à produire de la METH. »", 0.02)
+	parole(f"  « {name}… Le matériel est en place. Ton {lieu} est prêt pour commencer à produire de la METH. »", 0.01)
 	time.sleep(1)
 	print(f"\nTu te rends dans ton {lieu}. À l’intérieur :")
 	time.sleep(0.5)
