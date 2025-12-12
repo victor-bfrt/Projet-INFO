@@ -386,7 +386,9 @@ def acheter(money, inv):
 		elif int(choix) == 5:
 			return money, inv
 
-def mission_principale(money, inv):
+def mission_finale(money, inv):
+	parole("Tu es devenu l'un des plus grand dealeurs et fabricants de METH\nDésormais tu as le choix de décider comment mener à bien ton empire de la drogue ou bien même tout quitter", 0.01)
+	time.sleep(0.5)
 	while True:
 		print("\n===== 🔥 MISSIONS 🔥 =====")
 		print("1) Prendre ta retraite (disparaître)")
@@ -396,17 +398,15 @@ def mission_principale(money, inv):
 		choix = demander_choix("🔹 Ton choix : ", choix4)
 		
 		if int(choix) == 1:
-			print("\n Tu veux disparaître… changer d’identité… tout quitter. Et profiter de tout l'argent que tu as fais. \nFais un max d'oseille avant de partir mon gars vrai conseil")
-			confirm = demander_choix("Es-tu sûr de voiloir tout arrêter cette action est iréversible ? (oui/non) : ", choix2)
-			if money < 500000:
-				print("\n❌ Il faut AU MINIMUM 500 000$ pour disparaître proprement.")
-				input("\n>>>Appuie sur entrée pour retourner au menu...")
+			print("\n Tu veux disparaître… changer d’identité… tout quitter et profiter de tout l'argent que tu as gagner.")
+			print(f"Actuellement tu as accumulé au total {money}$ mais tu peux encore décider de continuer à vendre pour gagner plus (fais un max d'oseille avant de partir  tu risuqes d'en avoir besoin pour disparaître)")
+			confirm = demander_choix("🔹 Es-tu sûr de voiloir te retirer du deal ? (action est iréversible) (1)oui/(2)non : ", choix2)
 			if int(confirm) == 1:
 				print("\n🌅 Tu prends le large… Nouvelle identité. Nouveau pays.")
 				print("Ton histoire dans le monde de la meth s’arrête ici…")
 				fin_histoire()
 			elif int(confirm) == 2:
-				print("\nTu changes finalement d’avis…")
+				print("\nTu changes finalement d’avis… le business continue")
 				input("\n>>>Appuie sur entrée pour retourner au menu...")
 
 		
@@ -418,7 +418,7 @@ def mission_principale(money, inv):
 		elif int(choix) == 3:
 			print("\n🔫 Tu veux déclarer la guerre aux Salamanca…")
 			print("⚠️ C’est suicidaire sans préparation.")
-			print("👉 Minimum conseillé : 5 hommes + 3 armes + 200 000$")
+			print("👉 Minimum conseillé : 3 hommes + 3 armes + 200 000$")
 			if inv["hommes de mains"] < 5 or inv["armes"] < 3 or money < 200000:
 				print("\n❌ Tu n’as PAS les moyens pour une guerre frontale.")
 				print("Reviens quand tu seras un vrai patron.")
@@ -459,7 +459,7 @@ def menu_principal(money, lieu, blue_crystal, name):
 		elif int(menu) == 3:
 			money, inv = acheter(money, inv)
 		elif int(menu) == 4:
-				money, inv = mission_principale(money, inv)
+				money, inv = mission_finale(money, inv)
 		elif int(menu) == 5:
 			print(f"\n•🛢️ Stock actuel : {blue_crystal}kg")
 			print(f"•💵 Argent : {money}$")
