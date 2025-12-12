@@ -174,7 +174,7 @@ def vendre(money, blue_crystal, purete, quantite):
 		print("1) Vendre 1 kg aux petits voyous (vente à perte)")
 		print("2) Vendre 20 kg à Gus à un bon prix comme estimer selon le cours du marché")
 		print("3) Vente de Blue Sky (150 000$ le kg pour pureté > 90%)")
-		print("4) THE BIG DEAL : 200 kg pour 2 000 000$")
+		print("4) THE BIG DEAL : 100 kg pour 2 000 000$")
 		print("5) Retour au menu")
 		choix = demander_choix("Ton choix : ", choix5)
 		
@@ -216,9 +216,9 @@ def vendre(money, blue_crystal, purete, quantite):
 				input("\n>>> Appuie pour continuer...")
 		
 		elif int(choix) == 4:
-			if blue_crystal < 200:
+			if blue_crystal < 100:
 				print("\n❌ Il faut 200 kg pour ce deal monumental.")
-			elif blue_crystal >= 200:
+			elif blue_crystal >= 100:
 				gain = 2_000_000
 				blue_crystal -= 200
 				money += gain
@@ -252,10 +252,10 @@ def synthèse_blue_crystal(money, blue_crystal, purete, quantite):
 	money -= cout
 	if int(choix) == 1:
 		purete += 13
-		quantite += 1
+		quantite += 3
 	elif int(choix) == 2:
 		purete += 19
-		quantite += 3
+		quantite += 4
 	elif int(choix) == 3:
 		purete += 33
 		quantite += 5
@@ -318,74 +318,115 @@ def synthèse_blue_crystal(money, blue_crystal, purete, quantite):
 	blue_crystal += quantite
 	return money, blue_crystal, purete, quantite
 
-######################TRAVAIL EN COUR########################
+
 def acheter(money, inv):
-    while True:
-        print("\n===== INVESTISSEMENTS =====")
-		print(f"💵 Argent : {money}$")
-		print(f"🔫 Armes : {inv['armes']}/10")
-		print(f"🧍 Hommes : {inv['hommes']}/5")
-		print(f"⚖️ Avocat (Saul Goodman) : {'Oui' if inv['avocat'] else 'Non'}")
-		print(f"👮 Informateur police : {'Oui' if inv['informateur'] else 'Non'}")
+	while True:
+		print("\n===== INVESTISSEMENTS =====")
+		parole(f"💵 Argent : {money}$ |🔫 Armes : {inv['armes']}/10 |🧍 Hommes : {inv['hommes de mains']}/5", 0.005)
+		parole(f"⚖️ Avocat (Saul Goodman) : {'Oui' if inv['avocat'] else 'Non'} | Informateur police : {'Oui' if inv['informateur'] else 'Non'}", 0.005)
 		print("\nQue veux-tu acheter ?")
 		print("1) Une arme (35 000$)  - Max 10")
 		print("2) Un homme de main (100 000$) - Max 5")
 		print("3) Avocat Saul Goodman (500 000$) - Unique")
 		print("4) Informateur dans la police (750 000$) - Unique")
-        print("5) Retour au menu")
-        choix = demander_choix("🔹 Ton choix : ", choix5)
-		
-        if int(choix) == 1:
+		print("6) Retour au menu")
+		choix = demander_choix("🔹 Ton choix : ", choix5)
+		if int(choix) == 1:
 			if inv["armes"] >= 10:
 				print("\n❌ Tu as déjà le maximum d’armes (10).")
-            if money < 35000:
-                print("\n❌ Pas assez de cash.")
+				input("\n>>> Appuie pour continuer...")
+			if money < 35000:
+				print("\n❌ Pas assez de cash.")
+				input("\n>>> Appuie pour continuer...")
 			elif money >= 35000:
 				money -= 35000
 				inv["armes"] += 1
-				print("\n🔫 Tu achètes une arme.")
-
-
-        elif int(choix) == 2:
-            if inv["hommes"] >= 5:
-                print("\n❌ Tu as déjà le maximum d’hommes (5).")
-
-            if money < 100000:
-                print("\n❌ Pas assez de cash.")
-			
+				print("\Tu as acheté une arme🔫 .")
+				input("\n>>> Appuie pour continuer...")
+		
+		elif int(choix) == 2:
+			if inv["hommes de mains"] >= 5:
+				print("\n❌ Tu as déjà le maximum d’hommes (5).")
+				input("\n>>> Appuie pour continuer...")
+			if money < 100000:
+				print("\n❌ Pas assez de cash.")
+				input("\n>>> Appuie pour continuer...")
 			elif money >= 100000:
 				money -= 100000
-				inv["hommes"] += 1
+				inv["hommes de mains"] += 1
 				print("\n🧍 Tu recrutes un homme de main.")
-
-        elif int(choix) == 3:
-            if inv["avocat"]:
-                print("\n❌ Tu as déjà Saul Goodman.")
-                continue
-            if money < 500000:
-                print("\n❌ Pas assez de cash.")
-                continue
-			elif money >= 500000:
-            	money -= 500000
-            	inv["avocat"] = True
-            	print("\n⚖️ Saul Goodman rejoint ton organisation. « Better call Saul ! »")
-
+				input("\n>>> Appuie pour continuer...")
+			
+		elif int(choix) == 3:
+			if inv["avocat"]:
+				print("\n❌ Tu as déjà Saul Goodman.")
+				input("\n>>> Appuie pour continuer...")
+			if money < 500000:
+				print("\n❌ Pas assez de cash.")
+				input("\n>>> Appuie pour continuer...")
+			elif money >= 500000 and not inv["avocat"]:
+				money -= 500000
+				inv["avocat"] = True
+				print("\n⚖️ Saul Goodman rejoint ton organisation. « Better call Saul ! »")
+				input("\n>>> Appuie pour continuer...")
+		
 		elif int(choix) == 4:
-            if inv["informateur"]:
-                print("\n❌ Tu as déjà un informateur.")
-                continue
-            if money < 750000:
-                print("\n❌ Pas assez de cash.")
-                continue
-			elif money >= 750000:
+			if inv["informateur"]:
+				print("\n❌ Tu as déjà un informateur.")
+				input("\n>>> Appuie pour continuer...")
+			if money < 750000:
+				print("\n❌ Pas assez de cash.")
+				input("\n>>> Appuie pour continuer...")
+			elif money >= 750000 and not inv["informateur"]:
 				money -= 750000
-            	inv["informateur"] = True
-            	print("\n👮 Tu finances un informateur dans la police. Les infos vont couler…")
+				inv["informateur"] = True
+				print("\n Tu finances un informateur dans la police. Les infos vont couler… Tu ne devrais pas avoir à te soucier de la DEA")
+				input("\n>>> Appuie pour continuer...")
+		
+		elif int(choix) == 5:
+			return money, inv
 
-        elif int(choix) == 5:
-            return money, inv
+def mission_principale(money, inv):
+	while True:
+		print("\n===== 🔥 MISSIONS 🔥 =====")
+		print("1) Prendre ta retraite (disparaître)")
+		print("2) Blanchiment d’argent")
+		print("3) Déclencher une guerre contre le cartel Salamanca")
+		print("4) Retour au menu")
+		choix = demander_choix("🔹 Ton choix : ", choix4)
+		
+		if int(choix) == 1:
+			print("\n Tu veux disparaître… changer d’identité… tout quitter. Et profiter de tout l'argent que tu as fais. \nFais un max d'oseille avant de partir mon gars vrai conseil")
+			confirm = demander_choix("Es-tu sûr de voiloir tout arrêter cette action est iréversible ? (oui/non) : ", choix2)
+			if money < 500000:
+				print("\n❌ Il faut AU MINIMUM 500 000$ pour disparaître proprement.")
+				input("\n>>>Appuie sur entrée pour retourner au menu...")
+			if int(confirm) == 1:
+				print("\n🌅 Tu prends le large… Nouvelle identité. Nouveau pays.")
+				print("Ton histoire dans le monde de la meth s’arrête ici…")
+				fin_histoire()
+			elif int(confirm) == 2:
+				print("\nTu changes finalement d’avis…")
+				input("\n>>>Appuie sur entrée pour retourner au menu...")
 
-######################TRAVAIL EN COUR########################
+		
+		elif int(choix) == 2:
+			print("\n💼 Tu veux blanchir une partie de ton argent sale.")
+			print("💬 Plus tu blanchis, plus tu payes en 'frais' (perte).")
+			input("\n>>>Appuie sur entrée pour retourner au menu...")
+		
+		elif int(choix) == 3:
+			print("\n🔫 Tu veux déclarer la guerre aux Salamanca…")
+			print("⚠️ C’est suicidaire sans préparation.")
+			print("👉 Minimum conseillé : 5 hommes + 3 armes + 200 000$")
+			if inv["hommes de mains"] < 5 or inv["armes"] < 3 or money < 200000:
+				print("\n❌ Tu n’as PAS les moyens pour une guerre frontale.")
+				print("Reviens quand tu seras un vrai patron.")
+			input("\n>>>Appuie sur entrée pour retourner au menu...")
+		
+		elif int(choix) == 4:
+			return money, inv
+
 
 def menu_principal(money, lieu, blue_crystal, name):
 	tot = blue_crystal
@@ -416,16 +457,17 @@ def menu_principal(money, lieu, blue_crystal, name):
 		elif int(menu) == 2:
 			money, blue_crystal, purete, quantite = vendre(money, blue_crystal, purete, quantite)
 		elif int(menu) == 3:
-			print("Boutique pas encore disponible.")
-			input("\n>>>Appuie sur entrée pour retourner au menu...")
+			money, inv = acheter(money, inv)
 		elif int(menu) == 4:
-			print("Missions en travaux.")
-			input("\n>>>Appuie sur entrée pour retourner au menu...")
+				money, inv = mission_principale(money, inv)
 		elif int(menu) == 5:
-			print(f"\nStock actuel : {blue_crystal}kg")
-			print(f"💰 Argent : {money}$")
-			print(f"METHS produite au total depuis le debut : {tot}kg")
-			print(f"Inventaire : ")
+			print(f"\n•🛢️ Stock actuel : {blue_crystal}kg")
+			print(f"•💵 Argent : {money}$")
+			print(f"•🧪 METHS produite au total depuis le debut : {tot}kg")
+			print(f"•🔫 Armes : {inv['armes']}/10")
+			print(f"•🧍 Hommes : {inv['hommes de mains']}/5")
+			print(f"•⚖️ Avocat (Saul Goodman) : {'Oui' if inv['avocat'] else 'Non'}")
+			print(f"•👮‍♂️ Informateur police : {'Oui' if inv['informateur'] else 'Non'}")
 			input("\n>>>Appuie sur entrée pour retourner au menu...")
 		elif int(menu) == 6:
 			confirm = demander_choix("\n⚠️ Es-tu sûr de vouloir quitter le jeux ? (1)oui / (2)non : ", choix2)
