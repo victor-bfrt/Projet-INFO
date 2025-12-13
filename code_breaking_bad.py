@@ -35,9 +35,20 @@ def parole(texte, delai):  #Fonction pour afficher le texte progressivement
 	
 
 def fin_histoire():
-	message = " \n\n  --- 💸 FIN DE L'HISTOIRE 💸 ---  \n\n "
-	delai = 0.05
-	parole(message, delai)
+	parole(" \n\n  --- 💸 FIN DE L'HISTOIRE 💸 ---  \n\n ", 0.05)
+	print("""⢰⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⢸⣿⠛⠛⠛⠻⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⢸⣿⠀⣿⣿⠆⢸⣿⠿⢿⠿⢿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⢸⣿⠀⣤⣄⡀⢻⣿⠀⢈⣴⣾⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⢸⣿⠀⠿⠿⠃⢸⣿⠀⢸⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⢸⣿⣶⣶⣶⣾⣿⣿⣶⣾⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠘⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⡄
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡿⠿⠿⠿⣿⣿⣿⣿⣿⣿⣿⡇
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡇⢰⣶⣦⠈⣿⣿⣿⣿⣿⣿⡇
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡇⢈⣉⡁⠰⣿⣟⣡⣤⡈⣿⡇
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡇⢸⣿⠿⠀⣸⡏⢡⣶⠀⣿⡇
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣧⣤⣤⣤⣶⣿⣷⣤⣴⣧⣿⡇
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠇""")
 	exit()
 
 
@@ -173,7 +184,7 @@ def vendre(money, blue_crystal, purete, quantite):
 		print("\nChoisis ton type de vente :")
 		print("1) Vendre 1 kg aux petits voyous (vente à perte)")
 		print("2) Vendre 20 kg à Gus à un bon prix comme estimer selon le cours du marché")
-		print("3) Vente de Blue Sky (150 000$ le kg pour pureté > 90%)")
+		print("3) Vente de Blue Sky 💎(150 000$ le kg pour pureté > 90%)")
 		print("4) THE BIG DEAL : 100 kg pour 2 000 000$")
 		print("5) Retour au menu")
 		choix = demander_choix("Ton choix : ", choix5)
@@ -196,8 +207,8 @@ def vendre(money, blue_crystal, purete, quantite):
 				gain = purete * 20 * 100
 				blue_crystal -= 20
 				money += gain
-				print(f"\n📦 Gus accepte les 20 kg.")
-				print(f"💵 Il te donne {gain}$ pour la livraison.")
+				print(f"\nGus valide la transaction des 20 kg de METHS🛢️.")
+				print(f"Il te donne {gain}$ pour la livraison.")
 				time.sleep(1)
 				input("\n>>> Appuie pour continuer...")
 		
@@ -210,7 +221,7 @@ def vendre(money, blue_crystal, purete, quantite):
 				quantite = 0
 				purete = 0
 				money += gain
-				print("\n💎 Vente premium réussie !")
+				print("\n Vente premium réussie 💎 !")
 				print(f"💵 Tu gagnes {gain}$.")
 				time.sleep(1)
 				input("\n>>> Appuie pour continuer...")
@@ -994,11 +1005,12 @@ def introduction(money):
 			print(" 1)Vous décidez de resortir boire comme hier soir car vous en pouvez plus de votre situation\n 2)Vous décidez de reprendre votre vie en main et d'aller trouver un emploie chez pôle emploie.")
 			reponse_1_1_1 = demander_choix("🔹 Que choisissez-vous ? : ", choix2)
 			if int(reponse_1_1_1) == 1:
-				print("\nVous sombrez dans l'alcool, vous perdez tout ce que vous avez dans l'unique objectif de pouvoir acheter une bouteille de plus. Chaque jour devient le même, une bouteille de vodka à la main en dormant sous un pont.")
+				parole("\nVous sombrez dans l'alcool, vous perdez tout ce que vous avez dans l'unique objectif de pouvoir acheter une bouteille de plus. Chaque jour devient le même, une bouteille de vodka à la main en dormant sous un pont.", 0.01)
 				fin_histoire()
 			elif int(reponse_1_1_1) == 2:
-				print("\nÀ cause de l'essor de l'intelligence artificielle, vous avez des difficultés à trouver un travail adapté à vos compétences, vous vous résignez et partez travailler à McDo.") 
-				print("Cela suffit à combler vos besoins, et sans ambitions, vous continuez votre vie ainsi jusqu'à la retraite, une vie simple en fin de compte.")
+				parole("\nÀ cause de l'essor de l'intelligence artificielle, vous avez des difficultés à trouver un travail adapté à vos compétences, vous vous résignez et partez travailler à McDo.", 0.005) 
+				time.sleep(0.5)
+				parole("Cela suffit à combler vos besoins, et sans ambitions, vous continuez votre vie ainsi jusqu'à la retraite, une vie simple en fin de compte.", 0.005)
 				fin_histoire()
 			
 		# Branche Casino
