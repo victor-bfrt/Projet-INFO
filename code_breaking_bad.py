@@ -51,7 +51,7 @@ def sortie_GAV(money):
 
 def la_quête_du_crackhead(sachets, money):
 	parole("\nTu es reçu par 6 fous du bus, chacun d'eux avec une bouteille de poliakov cassée en main.", 0.005)
-	print("Ils te demandent ce que tu viens faire ici. Au vu de leur apparence tu prends peur et part en courant.", 0.005)
+	parole("Ils te demandent ce que tu viens faire ici. Au vu de leur apparence tu prends peur et part en courant.", 0.005)
 	time.sleep(1)
 	print("Tu repenses à l'argent que tu dois faire, tu choisis donc :")
 	print(" 1) Retourner les voir en leur proposant d'acheter ta marchandise.")
