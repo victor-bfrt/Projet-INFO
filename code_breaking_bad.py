@@ -418,6 +418,7 @@ def mission_finale(money, inv):
 					parole("  « J’ai peut-être quelqu’un… Un type qui fait disparaître les gens. C'est 500 000$  »", 0.02)
 					parole("  « Tout est pris en compte ton labo sera détruis, nouvel identité, transport nouvel vie ...»", 0.02)
 					parole("  « Qu'en dis tu ? »", 0.02)
+					time.sleep(1)
 					choix = demander_choix("🔹 Accepter (1) ou Refuser (2) :", choix2)
 					if money >= 500000 and int(choix) == 1:
 						money -= 500000
@@ -436,18 +437,21 @@ def mission_finale(money, inv):
 					parole("Malheuresement tu n'as aucun contact sur qui t'aider tu es seul (un avocat aurais pu t'aider à te faire disparâitre ...)", 0.01)
 					time.sleep(1)
 				print("\n Tu n’as plus le choix.🔥")
-				print("Tu décides de brûler ton labo pour effacer toute trace.")
-				print("Produits chimiques. Gaz. Meths. Matos. Une étincelle est tout explose…")
+				print("Tu dois brûler ton labo pour effacer toute trace.")
+				print("Produits chimiques. Gaz. METHS. Matos. Une étincelle est tout explose…")
+				input("Appuies sur entrée pour tout faire pêter !")
+				parole("💥💥💥BOOOOM💥💥💥!!!!", 0.01)
+				print("Tout ton labo commence à partir en fumer")
+				print("Tu réalise au même moment que tes sacs de billets sont en train de partir en fumer c'est tout ton argent")
+				time.sleep(1)
+				if inv["informateur"]:
+					parole("Tu reçois un appel de ton informateur dans la police et tu lui explique la situation")
+					parole("\n  « La police est en chemin et sera la dans 5 min, je m'occupe d'effacer toute preuve pouvant t'inculper»", 0.02) 
+					parole("  « À présent fuit le plus loin possible »", 0.02)
+					parole("  « Pour ce qui est de ton argent laisse bruler, tu recevera ton dû en crypto sur un compte off-shore »", 0.02)
+					print("Tu prends la route avant l’arrivée des flics.")
 				
-				if money >= 50000:
-                print("\n💥 L’explosion est massive.")
-                print("Les preuves disparaissent.")
-                print("Tu prends la route avant l’arrivée des flics.")
-                print("Tu survis, mais tu perds une partie de ton argent.")
-                print("\n🌫️ Fin : Tu t’en sors, mais à quel prix ?")
-                fin_histoire()
-
-            else:
+				if not inv["informateur"]:
                 print("\n🚒 Le feu attire trop l’attention.")
                 print("Les voisins appellent les secours.")
                 print("La police arrive trop vite.")
