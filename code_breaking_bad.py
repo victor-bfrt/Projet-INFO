@@ -54,13 +54,13 @@ def sortie_GAV(money):
 	money = 0
 	time.sleep(1.5)
 	print("\n-------------------------------")
-	parole("Une fois sortie de cellule après ces quelques jour passer en garde à vue, votre femme apprend ce que vous avez fait... \nElle vous quitte et vous vire de la maison qu'elle possède !\nVous n'avez plus du tout d'argent et êtes livrer à vous mêmes pour survivre ...🦧", 0.01)
+	parole("Une fois sorti de cellule après ces quelques jours passés en garde à vue, votre femme apprend ce que vous avez fait... \nElle vous quitte et vous vire de la maison qu'elle possède !\nVous n'avez plus du tout d'argent et êtes livrer à vous mêmes pour survivre ...🦧", 0.01)
 	print("-------------------------------")
 	return money
 
 def la_quête_du_crackhead(sachets, money):
 	parole("\nTu es reçu par 6 fous du bus, chacun d'eux avec une bouteille de poliakov cassée en main.", 0.005)
-	parole("Ils te demandent ce que tu viens faire ici. Au vu de leur apparence tu prends peur et part en courant.", 0.005)
+	parole("Ils te demandent ce que tu viens faire ici. Au vu de leur apparence, tu prends peur et pars en courant.", 0.005)
 	time.sleep(1)
 	print("Tu repenses à l'argent que tu dois faire, tu choisis donc :")
 	print(" 1) Retourner les voir en leur proposant d'acheter ta marchandise.")
@@ -69,10 +69,10 @@ def la_quête_du_crackhead(sachets, money):
 	if int(réponse_crackhead) == 1:
 		parole("\nIls semblent être partant pour t'en acheter", 0.005)
 		parole("Mais l'un d'entre eux dit aux autres qu'ils ont juste à te voler.", 0.005)
-		parole("Tu t'enfuies le plus vite possible, mais tu te retrouvent coincés dans un cul-de-sac.", 0.005)
+		parole("Tu t'enfuies le plus vite possible, mais tu te retrouves coincé dans un cul-de-sac.", 0.005)
 		time.sleep(1)
 		parole("Ils te laissent le choix entre leur donner gentiment 3 sachets ou te les faire voler de force, après quoi tu leur donnes sans hésiter les sachets.", 0.005)
-		parole("Avec tout le respect il te refile un vieux billet tout chiffoné de 5$ pour te remercier", 0.005)
+		parole("Avec tout le respect, ils te refilent un vieux billet tout chiffoné de 5$ pour te remercier", 0.005)
 		time.sleep(1)
 		sachets -= 3
 		money += 5   		
@@ -80,7 +80,7 @@ def la_quête_du_crackhead(sachets, money):
 	elif int(réponse_crackhead) == 2:
 		parole("\nTu refuses de retourner voir le groupe, mais un des crack-head t’attend déjà sur le chemin.", 0.005)
 		parole("Il insiste lourdement et finit par t'acheter 3 sachets pour 300$ d’un coup, tu acceptes volontier pour éviter les ennuis.", 0.005)
-		parole("La transaction est rapide, tu prends l’argent et tu t’éclipses même si tu n'es pas en bénéfice.", 0.005)
+		parole("La transaction est rapide, tu prends l’argent et tu t’éclipses même si tu ne fais pas de bénéfices.", 0.005)
 		time.sleep(1)
 		sachets -= 3
 		money += 300
@@ -89,16 +89,16 @@ def la_quête_du_crackhead(sachets, money):
 
 def distributeur_local(sachets, money):
 	time.sleep(1)
-	print("\nEn rentrant dans le cartel on t'as parler des grands dealeur du coins en particulier CRAZY 7")
-	print("Tu te rends alors visite à CRAZY 7, deux garde du corps te font rentrer après avoir bien vérifié que tu n'avais pas d'arme sur toi.")
+	print("\nEn rentrant dans le cartel on t'a parlé des grands dealeurs du coins en particulier CRAZY 7")
+	print("Tu rends alors visite à CRAZY 7, deux gardes du corps te font rentrer après avoir bien vérifié que tu n'avais pas d'arme sur toi.")
 	time.sleep(1)
 	print("Tu lui proposes d'acheter ta marchandise à 1500 euros le gramme, il te répond: ")
 	time.sleep(1)
 	message = " - Tu sais que le prix normal est bien plus bas que ça, t'as intérêt à baisser tes prix si tu veux repartir d'ici en un seul morceau."
 	délai = 0.03
 	parole(message, délai)
-	print("Tu lui répond:")
-	message = " 1) - Je vend pas en dessous de ce prix même aux gens comme toi, c'est 1500$ ou rien.\n 2) - Je peux faire le prix général, 1000$ le sachet mais pas plus bas."
+	print("Tu lui réponds:")
+	message = " 1) - Je vends pas en dessous de ce prix même aux gens comme toi, c'est 1500$ ou rien.\n 2) - Je peux faire le prix général, 1000$ le sachet mais pas plus bas."
 	délai = 0.03
 	parole(message, délai)
 	réponse_distributeur = demander_choix("🔹 Que réponds-tu?", choix2)
@@ -107,15 +107,15 @@ def distributeur_local(sachets, money):
 		délai = 0.03
 		parole(message, délai)
 		time.sleep(1)
-		print("Les gardes te passe 1 sac remplie de billets, tu te dépêches de partir.")
+		print("Les gardes te passent 1 sac rempli de billets, tu te dépêches de partir.")
 		sachets -= 3
 		money += 4500
 		return sachets, money
 	elif int(réponse_distributeur) == 2:
-		message = " - Je te donnerai 800 euros par sachet tu vas me remercier."
+		message = " - Je te donnerai 800 euros par sachet et tu vas me remercier."
 		délai = 0.03
 		parole(message, délai)
-		print("Avant même que tu ai pu te plaindre, les 2 garde te passe un sac et te foutent dehors")
+		print("Avant même que tu ais pu te plaindre, les 2 gardes te passent un sac et te foutent dehors")
 		sachets -= 3
 		money += 2400
 		return sachets, money
@@ -136,11 +136,11 @@ def boîte_de_nuit(sachets, money):
 def vendre_par_un_tiers(sachets, money):
 	print("Tu cherches quelqu'un qui connaît le domaine pour vendre : l'ex de ta soeur était un toxico.")
 	time.sleep(1)
-	print("Tu l'appelle en lui proposant de vendre pour toi en échange d'un pourcentage et il accepte directement. Tu lui donnes un délai de 3 jours.")
+	print("Tu l'appelles en lui proposant de vendre pour toi en échange d'un pourcentage et il accepte directement. Tu lui donnes un délai de 3 jours.")
 	time.sleep(2)
 	print("Après 3 jours sans nouvelles, tu décides finalement de te rendre chez lui pour comprendre ce qu'il se passe. Tu te retrouves face à lui et 4 de ses amis, tous en train de consommer ta marchandise.")
 	time.sleep(1)
-	print("Tu récupères rapidement les sachets qui restent et prend la fuite, il n'a pas de quoi te rembourser 2 sachets qu'il t'as consommé.")
+	print("Tu récupères rapidement les sachets qui restent et prend la fuite, il n'a pas de quoi te rembourser 2 sachets qu'il t'a consommé.")
 	sachets -= 2
 	return sachets, money
 
@@ -155,15 +155,15 @@ def mission_dealeur_1(money):
     }
 	time.sleep(1)
 	print(f"Vous disposez de {sachets} sachets de METH, contenant 10 grammes chacun, le prix de vente est de 100$ le gramme.")
-	print("Les instructions donné par le dealer sont clair, vous devez vendre tous ces sachets et rapporter 10000$ à Tuco.")
+	print("Les instructions données par le dealer sont claires, vous devez vendre tous ces sachets et rapporter 10000$ à Tuco.")
 	time.sleep(1)
 	print("Par contre, si vous n'êtes pas capables de ramener cet argent, ne vous attendez pas à rester en vie plus de quelques heures...")
 	while sachets>0 :
 		time.sleep(2)
-		parole(f"\n 👉 Il vous reste {sachets} sachets à vendre, et vous avez {money}$ comment voulez procéder:\n", 0.01)
+		parole(f"\n 👉 Il vous reste {sachets} sachets à vendre, et vous avez {money}$, comment voulez-vous procéder:\n", 0.01)
 		for num, (desc, _) in missions.items():
 			print(f" {num}) {desc}")
-		deal1 = int(input("\n🔹 Comment vend tu ta drogue ? : "))
+		deal1 = int(input("\n🔹 Comment vends-tu ta drogue ? : "))
 		if deal1 not in missions:
 			print("❌ Choix invalide.")
 			continue
@@ -171,7 +171,7 @@ def mission_dealeur_1(money):
 		sachets, money = fonction(sachets, money)  # Appeler la fonction et mettre à jour les sachets et money
 		del missions[deal1]    # Supprimer la mission pour qu'on ne puisse plus la refaire
 	time.sleep(2)
-	parole("\nC'est bon vous avez tout vendu ...💰", 0.01)
+	parole("\nC'est bon, vous avez tout vendu ...💰", 0.01)
 	input("\n>>>Appuies sur Entrée pour rendre l'argent au Big Boss Tuco...")
 	return sachets, money
 
@@ -180,8 +180,8 @@ def vendre(money, blue_crystal, purete, quantite):
 		parole("\n===== 💸 VENTE DE METH 💸 =====", 0.01)
 		parole(f"💵 Argent : {money}$ |🧪 STOCKS TOTAL : {blue_crystal}kg | Dernière production {quantite}kg pure à {purete}%", 0.01) 
 		print("\nChoisis ton type de vente :")
-		print("1) Vendre 1 kg aux petits voyous (vente à perte)")
-		print("2) Vendre 20 kg à Gus à un bon prix comme estimer selon le cours du marché")
+		print("1) Vendre 1 kg aux petits voyous ")
+		print("2) Vendre 20 kg à Gus à un bon prix comme estimé selon le cours du marché")
 		print("3) Vente de Blue Sky 💎(150 000$ le kg pour pureté > 90%)")
 		print("4) THE BIG DEAL : 100 kg pour 2 000 000$")
 		print("5) Retour au menu")
@@ -205,7 +205,7 @@ def vendre(money, blue_crystal, purete, quantite):
 				gain = purete * 20 * 100
 				blue_crystal -= 20
 				money += gain
-				print(f"\nGus valide la transaction des 20 kg de METHS🛢️.")
+				print(f"\nGus valide la transaction des 20 kg de METH🛢️.")
 				print(f"Il te donne {gain}$ pour la livraison.")
 				time.sleep(1)
 				input("\n>>> Appuie pour continuer...")
@@ -227,7 +227,7 @@ def vendre(money, blue_crystal, purete, quantite):
 		elif int(choix) == 4:
 			if blue_crystal < 100:
 				print("\n❌ Il faut 200 kg pour ce deal monumental.")
-			elif blue_crystal >= 100:
+			elif blue_crystal >= 200:
 				gain = 2_000_000
 				blue_crystal -= 200
 				money += gain
@@ -275,23 +275,23 @@ def synthèse_blue_crystal(money, blue_crystal, purete, quantite):
 	print("3) Chauffage normal")
 	choix = demander_choix("🔹 Ton choix : ", choix3)
 	if int(choix) == 1:
-		parole("\nChauffage en cour veuillez patienter...", 0.03)
+		parole("\nChauffage en cours veuillez patienter...", 0.03)
 		purete += 17
 		quantite += 7
 		parole("🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩", 0.2)
-		parole("Cuisson terminé ! ☑️", 0.02)
+		parole("Cuisson terminée ! ☑️", 0.02)
 	elif int(choix) == 2:
-		parole("\nChauffage en cour veuillez patienter...", 0.03)
+		parole("\nChauffage en cours veuillez patienter...", 0.03)
 		purete += 33
 		quantite += 5
 		parole("🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩", 1)
-		parole("Cuisson terminé ! ☑️", 0.02)
+		parole("Cuisson terminée ! ☑️", 0.02)
 	elif int(choix) == 3:
-		parole("\nChauffage en cour veuillez patienter...", 0.03)
+		parole("\nChauffage en cours veuillez patienter...", 0.03)
 		purete += 27
 		quantite += 10
 		parole("🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩", 0.5)
-		parole("Cuisson terminé ! ☑️", 0.02)
+		parole("Cuisson terminée ! ☑️", 0.02)
     # --- ÉtAPE 3 : Technique de cristallisation ---
 	print("\n🔹 Étape 3 : Cristallisation")
 	print("1) Cristallisation simple (rapide)")
@@ -320,10 +320,10 @@ def synthèse_blue_crystal(money, blue_crystal, purete, quantite):
     # Résultat final
 	time.sleep(1)
 	print("\n=== RÉSULTAT  ===")
-	print(f" Quantité synthètisée : {quantite}kg")
+	print(f" Quantité synthétisée : {quantite}kg")
 	print(f" Pureté : {purete}%")
-	print(f" Valeur estimée pour la revente {valeur}$💰 d'après le cours du marché")
-	print("\nTa METH est prête c'est du vrai cristal bleue une pure folie 👨‍🔬!")
+	print(f" Valeur estimée pour la revente, {valeur}$💰 d'après le cours du marché")
+	print("\nTa METH est prête, c'est du vrai cristal bleue une pure folie 👨‍🔬!")
 	blue_crystal += quantite
 	return money, blue_crystal, purete, quantite
 
@@ -385,7 +385,7 @@ def acheter(money, inv):
 				input("\n>>> Appuie pour continuer...")
 			if money < 750000:
 				print("\n❌ Pas assez de cash.")
-				input("\n>>> Appuie pour continuer...")
+				input("\n>>> Appuies pour continuer...")
 			elif money >= 750000 and not inv["informateur"]:
 				money -= 750000
 				inv["informateur"] = True
@@ -396,13 +396,13 @@ def acheter(money, inv):
 			return money, inv
 
 def mission_finale(money, inv):
-	parole("Tu es devenu l'un des plus grand dealeurs et fabricants de METH\nDésormais tu as le choix de décider comment mener à bien ton empire de la drogue ou bien même tout quitter", 0.01)
+	parole("Tu es devenu l'un des plus grands dealeurs et fabricants de METH\nDésormais tu as le choix de décider comment mener à bien ton empire de la drogue ou bien même tout quitter", 0.01)
 	time.sleep(0.5)
 	while True:
 		print("\n===== 🔥 MISSIONS 🔥 =====")
 		print("1) Prendre ta retraite (disparaître)")
 		print("2) Blanchiment d’argent")
-		print("3) Déclencher une guerre contre le cartel Salamanca")
+		print("3) Déclencher une guerre contre le cartel Salamanca, qui te limite dans ta production et donc t'empêches de faire suffisamment de bénéfices")
 		print("4) Retour au menu")
 		choix = demander_choix("🔹 Ton choix : ", choix4)
 		
@@ -418,8 +418,8 @@ def mission_finale(money, inv):
 					print("Ton avocat sauras surement comment te sortir de là")
 					parole("\n📞 Appel de Saul Goodman...", 0.01)
 					parole("  « J’ai peut-être quelqu’un… Un type qui fait disparaître les gens. C'est 500 000$  »", 0.02)
-					parole("  « Tout est pris en compte ton labo sera détruis, nouvel identité, transport nouvel vie ...»", 0.02)
-					parole("  « Qu'en dis tu ? »", 0.02)
+					parole("  « Tout est pris en compte ton labo sera détruis, nouvelle identité, transport, nouvelle vie ...»", 0.02)
+					parole("  « Qu'en dis-tu ? »", 0.02)
 					time.sleep(1)
 					choix = demander_choix("🔹 Accepter (1) ou Refuser (2) :", choix2)
 					if money >= 500000 and int(choix) == 1:
@@ -427,34 +427,34 @@ def mission_finale(money, inv):
 						print("\nTout est réglé.")
 						print("Nouveau nom. Nouvelle identité. Nouveau pays.")
 						time.sleep(0.5)
-						print(f"Tu profites du reste de ton argent $ à l'autre baut du monde")
+						print(f"Tu profites du reste de ton argent $ à l'autre bout du monde")
 						time.sleep(0.5)
 						print("\nLa disparition parfaite🌅.")
 						fin_histoire()
 					elif money < 500000 and int(choix) == 1:
-						print("\nTu n'as pas assez d'argent pour payer tu dois disparaitre autrement")
+						print("\nTu n'as pas assez d'argent pour payer tu dois disparaître autrement")
 					elif int(choix) == 2:
 						parole("\n  « C'est regretable mon amis, je ne peux pas t'aider autrement, c'est à toi de te débrouiller »", 0.02)
 				elif not inv["avocat"]:
-					parole("Malheuresement tu n'as aucun contact sur qui t'aider tu es seul (un avocat aurais pu t'aider à te faire disparâitre ...)", 0.01)
+					parole("Malheuresement tu n'as aucun contact sur qui t'aider, tu es seul sans (un avocat aurait pu t'aider à te faire disparaître ...)", 0.01)
 				time.sleep(2)
 				print("\nTu n’as plus le choix.🔥")
 				time.sleep(0.5)
 				print("Tu dois brûler ton labo pour effacer toute trace.")
 				time.sleep(0.5)
-				print("Produits chimiques. Gaz. METHS. Matos. Une étincelle est tout explose…")
+				print("Produits chimiques. Gaz. METHS. Matos. Une étincelle et tout explose…")
 				time.sleep(0.5)
 				input("Appuies sur entrée pour tout faire pêter !🧨")
 				parole("💥💥💥BOOOOM💥💥💥!!!!", 0.05)
 				print("Tout ton labo part en fumer")
 				time.sleep(0.5)
-				print("Tu réalise au même moment que tes sacs de billets sont en train de partir en fumer c'est tout ton argent")
+				print("Tu réalises au même moment que tes sacs de billets sont en train de partir en fumer c'est tout ton argent")
 				time.sleep(1)
 				if inv["informateur"]:
-					parole("Tu appel de ton informateur dans la police et tu lui explique la situation")
+					parole("Tu appelles ton informateur dans la police et tu lui explique la situation")
 					parole("\n  « La police est en chemin et sera la dans 5 min, je m'occupe d'effacer toute preuve pouvant t'inculper»", 0.02) 
 					parole("  « À présent fuit le plus loin possible »", 0.02)
-					parole("  « Pour ce qui est de ton argent laisse bruler, tu recevera ton dû en crypto sur un compte off-shore »", 0.02)
+					parole("  « Pour ce qui est de ton argent, laisses le brûler, tu recevera ton dû en crypto sur un compte off-shore »", 0.02)
 					time.sleep(1)
 					print("Tu prends la route avant l’arrivée des flics et prends le premier avion.")
 					print(f"Tu as réussi ! Tu profites de tes {money}$ sous les tropiques !")
@@ -465,7 +465,7 @@ def mission_finale(money, inv):
 					time.sleep(1)
 					print("La police arrive trop vite👮‍♂️")
 					time.sleep(0.5)
-					print("Tu es arrêté sur les lieux.")
+					print("Les policiers te retiennent le temps de comprendre à qui ils avaient affaire, après un petit temps ils découvrent qui tu es.")
 					time.sleep(0.5)
 					print("\n⛓️ Tu pars en prison")
 					fin_histoire()
@@ -474,7 +474,7 @@ def mission_finale(money, inv):
 				input("\n>>>Appuie sur entrée pour retourner au menu...")
 
 		elif int(choix) == 2:
-			print("\nTu veux blanchir ton argent sale sans te faire choper")
+			print("\nTu veux blanchir ton argent sale sans te faire chopper")
 			print("Mais chaque option a ses risques.")
 			print("\nOptions possible :")
 			print("1) Los Pollos Hermanos 🐔")
@@ -482,7 +482,7 @@ def mission_finale(money, inv):
 			print("3) Un car wash 🚗")
 			choix_blanchiment = demander_choix("🔹 Ton choix : ", choix3)
 			if not inv["informateur"] or not inv["avocat"]:
-				print("Mauvaise idée sans aucun contact et aucune expérience dans le millieu tu te chopes un contrôle fiscale")
+				print("Mauvaise idée sans aucun contact et aucune expérience dans le millieu tu te choppes un contrôle fiscale")
 				time.sleep(1)
 				print("Tu es démasqué et on t'arrête pour trafic de stupéfiants")
 				time.sleep(1)
@@ -492,9 +492,9 @@ def mission_finale(money, inv):
 				cout = 150000
 				parole(f"💸 Investissement initial : {cout}$", 0.01)
 				time.sleep(0.5)
-				print("\nTu t’adosses à une nouvelle entrprise pour blanchir ton argent")
+				print("\nTu utilises une nouvelle entreprise pour blanchir ton argent")
 				time.sleep(1)
-				print("Grace à l'aide de ton avocat Saul Good Man il s'arrange pour que la comptabilité soit gérer parfaitement")
+				print("Ton avocat Saul Good Man s'arrange pour que la comptabilité soit géré parfaitement")
 				time.sleep(1)
 				print("Avec ton informateur dans la police que tu as payé tu es assuré que personne ne vienne se mêler de ton business, il t’évite tout contrôle fédéral")
 				time.sleep(0.5)
@@ -508,13 +508,13 @@ def mission_finale(money, inv):
 		elif int(choix) == 3:
 			print("\n🔫 Tu veux déclarer la guerre aux Salamanca…")
 			print("⚠️ C’est suicidaire sans préparation.")
-			print("👉 Minimum conseillé : 3 hommes + 3 armes + pas mal de contact")
+			print("👉 Minimum conseillé : 3 hommes + 3 armes + pas mal de contacts")
 			if inv["hommes de mains"] < 5 or inv["armes"] < 3:
 				print("\n❌ Tu n’as PAS les moyens pour une guerre frontale.")
 			elif inv["hommes de mains"] >= 5 or inv["armes"] >= 3:
-				confirm = demander_choix("\n🔹 Es-tu sûr de voiloir mener cette guerre ? (action iréversible) (1)oui/(2)non : ", choix2)
+				confirm = demander_choix("\n🔹 Es-tu sûr de vouloir mener cette guerre ? (action iréversible) (1)oui/(2)non : ", choix2)
 				if int(confirm) == 1:
-					print("\nMal joué t'as aucune chance, tout le monde meurt")
+					print("\nMal joué, t'as aucune chance, tout le monde meurt")
 					fin_histoire()
 				elif int(confirm) == 2:
 					print("\nT'as raison c'est pas une bonne idée")
@@ -559,14 +559,14 @@ def menu_principal(money, lieu, blue_crystal, name):
 		elif int(menu) == 5:
 			print(f"\n•🛢️ Stock actuel : {blue_crystal}kg")
 			print(f"•💵 Argent : {money}$")
-			print(f"•🧪 METHS produite au total depuis le debut : {tot}kg")
+			print(f"•🧪 METH produite au total depuis le début : {tot}kg")
 			print(f"•🔫 Armes : {inv['armes']}/10")
 			print(f"•🧍 Hommes : {inv['hommes de mains']}/5")
 			print(f"•⚖️ Avocat (Saul Goodman) : {'Oui' if inv['avocat'] else 'Non'}")
 			print(f"•👮‍♂️ Informateur police : {'Oui' if inv['informateur'] else 'Non'}")
 			input("\n>>>Appuie sur entrée pour retourner au menu...")
 		elif int(menu) == 6:
-			confirm = demander_choix("\n⚠️ Es-tu sûr de vouloir quitter le jeux ? (1)oui / (2)non : ", choix2)
+			confirm = demander_choix("\n⚠️ Es-tu sûr de vouloir quitter le jeu ? (1)oui / (2)non : ", choix2)
 			if int(confirm) == 1:
 				fin_histoire()
 			elif int(confirm) == 2:
@@ -596,7 +596,7 @@ def intervention_GUS(money, prix, lieu, name):
 		choix = demander_choix("🔹 Que choisis-tu ?", choix2)
 		if int(choix) == 1:
 			money = money + argent_gus   ######mettre sois 20000 pour la caravane sois 200000 pour le labo
-			print("\nGustavo te félicite d'avoir accepté, il finance entière la contruction d'un labo pour toi")
+			print("\nGustavo te félicite d'avoir accepté, il finance entièrement la contruction d'un labo pour toi")
 			parole("Vous commencez demain 8h, RDV à Los Pollos Hermanos.", 0.02)
 			print(f"Argent total : {money}$")
 			parole("\n« Ne me décevez pas. »", 0.02)
@@ -608,7 +608,7 @@ def intervention_GUS(money, prix, lieu, name):
 			print("Quelques heures plus tard, tu disparais mystérieusement.")
 			fin_histoire()
 	if money > prix :
-		print("\nTu as plus qu’assez d’argent pour financer le projet pourquoi accepeter ? 💼 .")
+		print("\nTu as plus qu’assez d’argent pour financer le projet pourquoi accpeter ? 💼 .")
 		time.sleep(1)
 		parole("Gus marque un silence…", 0.03)
 		time.sleep(1)
@@ -622,13 +622,13 @@ def intervention_GUS(money, prix, lieu, name):
 		if int(choix) == 1:
 			print("\nTu refuses calmement la proposition de Gus.")
 			time.sleep(1)
-			parole("  « Très bien… Je respecte votre décision. Pour l’instant. »", 0.02)
+			parole("  « Très bien… Je respecte votre décision. Pour l’instant... »", 0.02)
 			time.sleep(1)
 			print(f"\nTu payes {prix}$ pour un {lieu} et tu restes totalement indépendant.")
 			money -= prix
 			print(f"Argent restant : {money}$")
 			time.sleep(1)
-			parole(f"Mais tu sens que cette histoire n’est pas terminée… tu continue alors l'installation de ton labo dans ton {lieu}, il te manque le matos de chimie", 0.03)
+			parole(f"Mais tu sens que cette histoire n’est pas terminée… tu continues alors l'installation de ton labo dans ton {lieu}, il te manque le matos de chimie", 0.03)
 			input("\nAppuie sur Entée pour continuer...")
 			print("\n Un soir alors 2 hommes en noir t'attendent à la sortie de ton {lieu}.")
 			time.sleep(1)
@@ -641,7 +641,7 @@ def intervention_GUS(money, prix, lieu, name):
 			if int(choix2bis) == 1:
 				print("\nTu essaies de fuir en courant…")
 				time.sleep(1)
-				print("Mais les hommes de main de Gus sont formés, rapides, précis.")
+				print("Mais les hommes de main de Gus sont formés, rapides, précis et sans-pitié.")
 				time.sleep(1)
 				parole("Un coup sec derrière la tête…", 0.02)
 				time.sleep(1)
@@ -656,9 +656,9 @@ def intervention_GUS(money, prix, lieu, name):
 				time.sleep(1)
 				parole("  «Je vous avais laissé une chance. Maintenant, vous travaillez pour moi.»", 0.02)
 				time.sleep(0.5)
-				parole(f"  «Seul vous n'y arriverez jamais. La preuve en 1 mois vous n'avez toujours pas installer tous votre équipement dans votre {lieu} »", 0.02)
+				parole(f"  «Seul vous n'y arriverez jamais. La preuve, en 1 mois, vous n'avez toujours pas installé tous votre équipement dans votre {lieu} »", 0.02)
 				time.sleep(1)
-				print("Vous acceptez à contre-coeur et espérer que ça ne finnisse pas comme avec Tuco")
+				print("Vous acceptez à contre-coeur et espérez que ça ne finnisse pas comme avec Tuco")
 		
 		elif int(choix) == 2:
 			print("\nTu acceptes le partenariat de Gus… même sans avoir besoin de lui.")
@@ -669,16 +669,16 @@ def intervention_GUS(money, prix, lieu, name):
 			money -= prix
 			print(f"Argent restant : {money}$")
 			time.sleep(1)
-			parole("« Vous commencez demain. Soyez ponctuel. »", 0.02)
+			parole("« Vous commencez demain 9h. Soyez ponctuel. »", 0.02)
 			
 	return money, prix, lieu
 
 
 def baron_de_la_drogue(money):
 	input("\n>>>Appuies sur Entrée pour construire ton empire de la drogue⚔️\n")
-	print("En tant que baron de la drogue il ta faut absolument un nom de narcotrafiquant")
+	print("En tant que baron de la drogue il te faut absolument un nom de narcotrafiquant")
 	name = input("🔹 Quel nom veut tu porter à la place de Walter Black : ")
-	parole(f"À présent les gens t'appelerons {name} 🥶", 0.01)
+	parole(f"À présent les gens t'appellerons {name} 🥶", 0.01)
 	time.sleep(0.5)
 	print("\nPour commencer, il te faut investir dans un labo, un lieu sûr pour cook.")
 	print(f"Tu disposes de {money}$ cela corespond à tout l'argent que tu as pu te faire avec la vente de drogue")
@@ -699,7 +699,7 @@ def baron_de_la_drogue(money):
 	elif money == 1000000: # PAS DANS LE CODE RACOURCIIIII
 		time.sleep(0.3)
 	else :
-		print("Tu te reinseigne")
+		print("Tu te renseignes")
 		money, prix, lieu = intervention_GUS(money, prix, lieu, name)
 		
 	print("\n-----------------------------------------\n")
@@ -718,11 +718,11 @@ def baron_de_la_drogue(money):
 	blue_crystal = 0
 	money, blue_crystal = synthèse_blue_crystal(money, blue_crystal)
 	time.sleep(1)
-	print("\nGus observe le cristal bleu que tu viens de prodire avec un léger sourire.")
+	print("\nGus observe le crystal bleu que tu viens de produire avec un léger sourire.")
 	parole("  — Impressionnant. Pour une première production, c’est remarquable. Continuez ainsi je compte sur vous pour batir un empire de la drogue.", 0.02)
 	parole("  - La pureté de ton produit est remarquable, je m'engage à être ton revendeur", 0.02)
 	time.sleep(0.5)
-	input("\n>>>À présent tu gère toi mêmes ton business Appuie sur Entrée pour accèder au menu de ton business...")
+	input("\n>>>À présent tu gères toi-même ton business. Appuie sur Entrée pour accéder au menu de ton business...")
 	money, lieu, blue_crystal, name = menu_principal(money, lieu, blue_crystal, name)
 
 	return money
@@ -732,7 +732,7 @@ def faire_tomber_TUCO(money):
 	time.sleep(1)
 	input("\nAppuies sur Entrée...")
 	print("\n-------------------------------------------------\n")
-	print("Il faut faire tomber ce TUCO !Il était temps de se débarrasser de lui🤬")
+	print("Il faut faire tomber ce fdp de TUCO !Il était temps de se débarrasser de lui🤬")
 	print("Tu réfléchis à la meilleure façon de t’en débarrasser définitivement.\n")
 	time.sleep(1)
 	print("👉 Trois plans te viennent en tête :\n")
@@ -743,7 +743,7 @@ def faire_tomber_TUCO(money):
 	if int(choix) == 1:
 		print("\nTu optes pour un poison discret. Tu achètes une dose de Ricin sur le darkweb pour 2000$ avec l'argent que tu disposes.")
 		money -= 2000
-		print("Il te reste à trouver comment la lui faire ingérer...")
+		print("Il te restes à trouver comment la lui faire ingérer...")
 		time.sleep(1)
 		print(" 1) Lui offrir un café 'pour discuter business'")
 		print(" 2) L'ajouter à son repas lors d'un rendez-vous professionnel")
@@ -752,12 +752,12 @@ def faire_tomber_TUCO(money):
 			print("Tuco accepte de discuter business à ta grande surprise. Tu lui verse ton poison quand il a le dos tourné.Le poison agit lentement...") 
 			parole("Tuco s'effondre. Il est mort.", 0.001)
 			time.sleep(1)
-			print("Tu n'as plus d'ennemi !")
+			print("Tu n'as plus d'ennemis !")
     
 		elif int(choix) == 2:
-			print("Tu verse du poison dans son repas. Tuco crache le contenu immédiatement, te regardant avec des yeux de tueur.")
+			print("Tu verses du poison dans son repas. Tuco crache le contenu immédiatement, te regardant avec des yeux de tueur.")
 			time.sleep(1)
-			print("Il te saute dessus et te tues d'une balle dans a tête sans hésiter.🔫")
+			print("Il te saute dessus et te tues d'une balle dans la tête sans hésiter.🔫")
 			parole("PANN !!! \nTu es mort 💀", 0.04)
 			fin_histoire()
 	
@@ -774,7 +774,7 @@ def faire_tomber_TUCO(money):
 		if reussite == 2 :
 			parole("BOOOOMMM💥", 0.04)
 			print("Une énorme explosion retentit. Tuco n’a pas eu le temps de comprendre.")
-			print("☠️ Tu as réussi il est mort.")
+			print("☠️ Tu as réussi, il est mort.")
 		else:
 			time.sleep(0.5)
 			print("Tuco te surprend en train de poser la bombe.")
@@ -787,36 +787,36 @@ def faire_tomber_TUCO(money):
 		print("\nTu décides de monter un faux deal.")
 		print("Tu inventes une identité de dealer et fixes un rendez-vous à Tuco.")
 		time.sleep(1)
-		print("Ton but : lui faire tester une meth empoisonnée que tu as préparée.\n")
+		print("Ton but : lui faire tester une METH empoisonnée que tu as préparé.\n")
 		print("Où veux-tu organiser le deal ?")
 		print("1) Dans un parking souterrain")
 		print("2) Dans un motel abandonné")
-		choix = demander_choix("🔹 Ton hoix : ", choix2)
+		choix = demander_choix("🔹 Ton choix : ", choix2)
 		reussite = random.randint(1,3)
 		print("\nTuco arrive...")
 		if reussite == 3:
-			print("Le jour du deal il veux tester ta marchandise, mais te demander de gôuter toi d'abord !")
-			print("Tu te retouve piéger car c'est du poison")
+			print("Le jour du deal, il veut tester ta marchandise, mais te demande de gôuter en premier !")
+			print("Tu te retouves piéger car c'est du poison")
 			time.sleep(1)
 			print("Il comprend le piège et sort son flingue.")
 			parole("PANN !!! \nTu es mort 💀", 0.04)
 			fin_histoire()
 		else:
-			print("Le jour du deal Tuco veux tester ta marchandise")
+			print("Le jour du deal, Tuco veut tester ta marchandise")
 			print("💉 La METH empoisonnée fait son effet. Tuco devient livide, tombe au sol.")
 			time.sleep(1)
 			print("☠️ Tu l’as eu. Tu prend vite la fuite pour éviter les représailles. C’est terminé pour lui.")
 	time.sleep(1)
-	print("\nTuco est mort mainteant c'est toi le nouveau baron de la drogue du coin !")
+	print("\nTuco est mort, maintenannt c'est toi le nouveau baron de la drogue du coin !")
 	print("\n----------------------------------------------\n")
 	money = baron_de_la_drogue(money)
 
 def fuite(money):
-	print("Tu part en sprintant en direction de la sortie.")
+	print("Tu pars en sprintant en direction de la sortie.")
 	print("Tu te retrouves dehors, tu reconnais la voiture dans laquelle on t'avais emmené.")
 	print("1) Aller en direction de la voiture et espérer que les clés sont restés sur le contact 🚗")
 	print("2) Continuer de courir en espérant les perdre dans les ruelles voisines🏃")
-	choix_fuite = demander_choix("🔹 Comment vous échappez vous?", choix2)
+	choix_fuite = demander_choix("🔹 Comment vous échappez-vous?", choix2)
 	voiture = random.randint(1,2)
 	if int(choix_fuite) == 1 and voiture == 1:
 		print("\nGros coup de chance! Les clés sont encore là, tu t'empresses de démarrer pendant que les membres du gang sortent du batîment et commencent à te tirer dessus.")
@@ -841,12 +841,12 @@ def fuite(money):
 			print("\n💥 Tu éclates la vitre avec ton coude, ça fait un bruit énorme.")
 			print("Tu montes, tu démarres… et tu parviens à t’enfuir de justesse.")
 			time.sleep(1)
-			print("Tu t'es blessés légèrement en cassant la vitre")
-			print("Après cet incident qui a failli te couter la vie tu réfléchis pour en finir avec Tuco")
+			print("Tu t'es blessé légèrement en cassant la vitre")
+			print("Après cet incident qui a failli te coûter la vie, tu réfléchis pour en finir avec Tuco")
 			time.sleep(1)
 			money = faire_tomber_TUCO(money)
 		elif int(choix_bloque) == 1 and action == 2:
-			print("\nTu tentes de casser la vitre mais le cartel t'attrappe avant que tu puisse partir.")
+			print("\nTu tentes de casser la vitre mais le cartel t'attrappe avant que tu puisses partir.")
 			print("Ils te frappent jusqu'à ta mort et prennent tout ce que tu as sur toi. 💀")
 			fin_histoire()
 		elif int(choix_bloque) == 2:
@@ -855,20 +855,20 @@ def fuite(money):
 			time.sleep(1)
 			print("Tu les entends passer sans te voir. Tu as survécu. Tu décides de passer la nuit ici💤")
 			time.sleep(2)
-			print("Le lendemain après avoir gamberger toute la nuit tu décides d’en finir : Tuco doit tomber.")
+			print("Le lendemain, après avoir gamberger toute la nuit, tu décides d’en finir : Tuco doit tomber.")
 			money = faire_tomber_TUCO(money)
 	elif int(choix_fuite) == 2:
-		print("Le cartel te rattrape est commance à te frapper lourdement. Par chance Tuco arrive est ordonne qu'on arrête ton massacre")
+		print("Le cartel te rattrape est commence à te frapper lourdement. Par chance Tuco arrive et ordonne qu'on arrête ton massacre")
 		parole( " - Laissez le je crois qu'il a compris la leçon,", 0.02)
 		parole( " - Ici on ne me fais de coup de traite sinon voilà ce qui arrive.", 0.02)
-		parole( " - Maintenant tu n'as pas d'autre choix que de travailler pour moi, je t'enmène au labo et tu n'y sortiras pas tant que j'en n'aurais pas fini avec toi", 0.02)
+		parole( " - Maintenant tu n'as pas d'autre choix que de travailler pour moi, je t'emmène au labo et tu n'en sortiras pas tant que j'en aurais pas fini avec toi", 0.02)
 		time.sleep(2)
 		money = labo_de_TUCO(money)
 
 def faible_paiement(gain, trahison):
 	print(f"Tuco te paye {gain}$, le montant est vraiment faible par rapport à la quantité produite 🤨")
 	time.sleep(1)
-	rep = demander_choix("Veux tu te plaindre au près de Tuco ? \n 1) Oui c'est pas assez \n 2) Non c'est que le début il faut continuer à produire\n🔹 Ton choix : ", choix2)
+	rep = demander_choix("Veux tu te plaindre au près de Tuco ? \n 1) Oui c'est pas assez \n 2) Non, c'est que le début il faut continuer à produire\n🔹 Ton choix : ", choix2)
 	if rep == 1:
 		print("\nTu te plains à Tuco du montant qu'il te donne.\n👊 Tuco te choque contre le mur :")
 		time.sleep(1)
@@ -888,10 +888,10 @@ def travailler_pour_TUCO(money, trahison):
 	purete = 0
 	volume = 0
 	if int(choix) == 1:
-		print("\n💻 Le mode sécurisé et lancer sur quel autre paramètre veux-tu influencer la synthèse de la métamphétamine ?")
+		print("\n💻 Le mode sécurisé est lancé, sur quel autre paramètre veux-tu influencer la synthèse de la métamphétamine ?")
 		print(" 1) Optimiser la quantité (volume ++) ")
 		print(" 2) Optimiser la pureté (qualité ++) ")
-		programme = demander_choix("🔹 Quel paramètre t'interesses : ", choix2)
+		programme = demander_choix("🔹 Quel paramètre t'intéresses ? ", choix2)
       
 		if int(programme) == 1:
 			volume = random.randint(9, 15)
@@ -903,7 +903,7 @@ def travailler_pour_TUCO(money, trahison):
 			if gain < 50000 :  
 				trahison = faible_paiement(gain, trahison)
 			else :
-				parole(f"Tuco te paye {gain}$ (c'est raisonnable mais clairement pas tout vu le prix du marché)", 0.005)
+				parole(f"Tuco te paye {gain}$ (c'est raisonnable mais clairement pas assez vu le prix du marché)", 0.005)
 				input("\n>>>Appuies sur entrée pour prendre ta part et continuer à bosser 🧑‍🔬 ...")
 		
 		elif int(programme) == 2:
@@ -911,17 +911,17 @@ def travailler_pour_TUCO(money, trahison):
 			volume = random.randint(2, 6)
 			gain = purete * 50
 			money += gain
-			parole(f"\nMet ultra pur ! {purete}% mais volume faible seulement {volume} kg.", 0.005)
+			parole(f"\nMeth ultra pur ! {purete}% mais volume faible seulement {volume} kg.", 0.005)
 			time.sleep(1)
 			if gain < 20000: 
 				trahison = faible_paiement(gain, trahison)
 			else :
-				parole(f"Tuco te paye {gain}$ c'est très peu, il doit se faire de grosse marge pour lui💰\n)", 0.005)
+				parole(f"Tuco te paie {gain}$ c'est très peu, il doit se faire de grosses marges pour lui💰\n)", 0.005)
 				time.sleep(1)
 				input(">>>Appuies sur entrée pour prendre ta part et continuer à bosser 🧑‍🔬 ...")
 				
 	elif int(choix) == 2:
-		print("\nTu lances le mode boost avec ton collégue Jesse pour synthétiser une METH d'exception, quel facteur souhaites tu ajuster ?:")
+		print("\nTu lances le mode boost avec ton collégue Jesse pour synthétiser une METH d'exception, quel facteur souhaite-tu ajuster ?:")
 		print("1) Ajuster les catalyseurs (qualité +++ mais volume moindre)")
 		print("2) Forcer la réaction (rapidité +++ volume +++ mais risque d'explosion)")
 		cuisson = demander_choix("🔹 Quel paramètre chois-tu ? : ", choix2)
@@ -930,16 +930,16 @@ def travailler_pour_TUCO(money, trahison):
 			volume = random.randint(4, 9)
 			gain = purete * volume * 150
 			money += gain
-			parole(f"EXCEPTIONNEL une MET pure à {purete}% c'est digne des plus grands narcotrafiquants !!!", 0.01)
+			parole(f"EXCEPTIONNEL une METH pure à {purete}%, c'est digne des plus grands narcotrafiquants !!!", 0.01)
 			time.sleep(1)
-			print(f"Tuco te félicites est te paye {gain}$ pour ta came (ça mérite beaucoup plus !) 💸 ")
+			print(f"Tuco te félicites et te paie {gain}$ pour ta came (ça mérite beaucoup plus !) 💸 ")
 			time.sleep(1)
-			rep = demander_choix("Demander une augmenation ?\n 1) Oui \n 2) Non\n🔹Ton choix : ", choix2)
+			rep = demander_choix("Demander une augmentation ?\n 1) Oui \n 2) Non\n🔹Ton choix : ", choix2)
 			if rep == 1:
 				print("👊 Tuco te choque contre le mur :")
-				parole("- Commences pas à te plaindre, la prochaine tu seras mieux payé prend pas la confiance avec moi.", 0.02)
+				parole("- Commences pas à te plaindre, la prochaine fois tu seras mieux payé prends pas la confiance avec moi.", 0.02)
 				time.sleep(1)
-				print("Tu comprends que Tuco abuse de toi et qu'il ne te payeras jamais suffisament")
+				print("Tu comprends que Tuco abuse de toi et qu'il ne te paieras jamais suffisamment")
 				trahison = True
 			if rep == 2:
 				print("Tu n’apprécies pas… mais tu continues pour l’instant c'est que le début.")
@@ -950,7 +950,12 @@ def travailler_pour_TUCO(money, trahison):
 			if random.randint(1, 2) == 1:
 				parole("\n💥💥BOOOOM !!!!💥💥", 0.07)
 				time.sleep(1)
-				print("\nGrosse explosion dans le labo énorme flop ! \nTuco t'engueule il veut que tu paye le nettoyage et le matos cassé pour un montant de 5000$")
+				print("\nGrosse explosion dans le labo énorme flop ! \nTuco t'engueule, il veut que tu paye le nettoyage et le matos cassé pour un montant de 5000$")
+				if money <= 5000:
+					print("Tu n'as pas assez d'argent pour rembourser Tuco.\n Il se rend compte que tu ne lui est pas utile et décide de se débarasser de toi.")
+					print("Tu disparais mystérieusement sans laiser de trace...")
+					fin_histoire()
+				else :
 				money -= 5000
 				time.sleep(2)
 				print("Travailler pour Tuco ne va pas être une mince affaire ...")
@@ -960,9 +965,9 @@ def travailler_pour_TUCO(money, trahison):
 				purete = random.randint(50, 70)
 				gain = purete * volume*50
 				money += gain
-				parole(f"INCROYABLE: {volume} kg de MET pure à {purete}% !!!", 0.01)
+				parole(f"INCROYABLE: {volume} kg de METH pure à {purete}% !!!", 0.01)
 				time.sleep(1)
-				print(f"Tuco est impressioné par ta recette il te paye {gain}$… mais il semble que le compte n'y est pas  par rapport au volume et prix du marché.💰")
+				print(f"Tuco est impressioné par ta recette il te paie {gain}$… mais il semble que le compte n'y est pas par rapport au volume et au prix du marché.💰")
 				input("\n>>>Appuies sur entrée pour prendre ta part et continuer à bosser 🧑‍🔬 ...")
 
 	return money, trahison
