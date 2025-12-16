@@ -525,7 +525,7 @@ def mission_finale(money, inv):
 					print("2)Envoyer tes hommes de mains au domicile des salamanca.")
 					confirm = demander_choix("\n🔹 Que choisis-tu?", choix2)
 					if int(confirm) == 1 and not inv["informateur"]:
-						print("\n📱Tu prend contact avec Lalo Salamanca afin d'arranger un rendez-vous pour discuter business.\n Ce dernier trouve que c'est une bonne idée et accepte de te rencontrer accompagner du reste du cartel.")
+						print("\n📞Tu prend contact avec Lalo Salamanca afin d'arranger un rendez-vous pour discuter business.\n Ce dernier trouve que c'est une bonne idée et accepte de te rencontrer accompagner du reste du cartel.")
 						print("Tu missiones l'un de tes hommes de se positionner au sommet d'une colline aux alentours, sur laquelle il aura une vue globale sur les environs.")
 						input("\nAppuie sur entrée pour continuer ...")
 						print("\nUne fois arrivé, tu discutes avec eux en attendant l'occasion parfaite d'en finir avec eux, lorsque tout d'un coup: ")
@@ -537,10 +537,10 @@ def mission_finale(money, inv):
 						print("La DEA débarque et vous embarque tous. Vous êtes tous envoyés en prison, ce qu'un informateur dans la police aurait pu vous éviter.")
 						fin_histoire()
 					if int(confirm) == 1 and inv["informateur"]:
-						print("\nTu prends contact avec Lalo Salamanca pour un rendez-vous sous couvert de négociations.")
+						print("\n📞Tu prends contact avec Lalo Salamanca pour un rendez-vous sous couvert de négociations.")
 						print("\nAlors que tu es en train de te préparer pour partir au rendez-vous, ton homme infiltré dans la police t'informe qu'ils ont eu vent de ces négociations et qu'ils comptent arrêter tout le monde sur place.")
 						print("\nIl t'explique qu'il s'arrangera pour que ton nom ne ressorte pas pendant les interrogatoires, et qu'il faut uniquement que tu fasses profil bas pendant quelque temps.")
-						print("\nTout ce qu'il demande est une augmentation de son salaire, ce qui ne devrait pas être un problème une fois que tu auras la main-mise sur le territoire des Salamanca.")
+						print("\n💵Tout ce qu'il demande est une augmentation de son salaire, ce qui ne devrait pas être un problème une fois que tu auras la main-mise sur le territoire des Salamanca.")
 						print("\n Tu attends nerveux depuis ton laboratoire, quand soudainn ton téléphone sonne:")
 						parole("<<C'est fini. On les a eu.>>")
 						print("Tu es débarassé de tes ennemis les plus dangereux, qui remontent à l'époque où tu as tué Tuco. Plus rien ni personne ne s'oppose à l'expansion de ton empire maintenant.")
