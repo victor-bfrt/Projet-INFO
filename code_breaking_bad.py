@@ -706,7 +706,7 @@ def baron_de_la_drogue(money):
 	name = input("🔹 Quel nom veut tu porter à la place de Walter Black : ")
 	parole(f"À présent les gens t'appellerons {name} 🥶", 0.03)
 	time.sleep(1)
-	print("\nPour commencer, il te faut investir dans un labo, un lieu sûr pour cook.")
+	print("\nPour commencer, il te faut investir dans un labo, un lieu sûre pour cook.")
 	time.sleep(1)
 	print(f"Tu disposes de {money}$ cela corespond à tout l'argent que tu as pu te faire avec la vente de drogue")
 	time.sleep(1)
@@ -1126,7 +1126,7 @@ def introduction(money):
 				time.sleep(1)
 				parole("\nLa roue tourne ... ♣️♦️♠️♥️", 0.03)
 				time.sleep(0.5)
-				if int(choix_casino) == resultat:      # Victoire
+				if int(choix_casino) == resultat:
 					money = 2*money
 					tours = tours + 1
 					parole(f"\nBravo ! Tu gagnes. Ton argent double : {money}$.", 0.01)
@@ -1153,9 +1153,7 @@ def introduction(money):
 			if int(décision) == 1 :
 				print("\nVous acceptez sans réfléchir. L'homme vous emmène dans une voiture.")
 				print("Il vous tend des sachets de métanphétamine et sors un flingue en vous menaçant :")
-				message = " - Tiens, ta première mission, revend tout ça d'ici la fin de la semaine et ramène le fric au big boss Tuco, c'est le seul moyen de faire tes preuves dans notre cartel, après ça on en aura pas fini avec toi, crois moi bien!" 
-				délai = 0.03
-				parole(message, délai)
+				parole" - Tiens, ta première mission, revend tout ça d'ici la fin de la semaine et ramène le fric au big boss Tuco, c'est le seul moyen de faire tes preuves dans notre cartel, après ça on en aura pas fini avec toi, crois moi bien!", 0.03)
 				print("Trop tard pour reculer, vous n'avez pas d'autre choix que de dealer.")
 			elif int(décision) == 2 :
 				print("\nVous refusez et tentez de partir pour rentrer chez vous.")
@@ -1178,9 +1176,7 @@ def introduction(money):
 			nb_jours = 3   # durée de la garde à vue
 			while jour <= nb_jours:
 				time.sleep(0.75)
-				message = f"\n📅 Jour {jour} de garde à vue"
-				délai = 0.04
-				parole(message, délai)
+				parole(f"\n📅 Jour {jour} de garde à vue", 0.04)
 				time.sleep(0.75)
 				print("Les policiers pensent que vous cachez encore quelque chose.")
 				print("Ils vous interrogent toute la journée...\n")
@@ -1231,17 +1227,11 @@ def introduction(money):
 					print("\nVous refusez. « Non merci, hier c’était une erreur. »")
 					print("Le codétenu change soudain de visage :")
 					time.sleep(1)
-					message = " - « Ah ouais ? Donc tu consommes gratos maintenant ? Tu crois que je fais ça par charité ? »"
-					délai = 0.03
-					parole(message, délai)
+					parole(" - « Ah ouais ? Donc tu consommes gratos maintenant ? Tu crois que je fais ça par charité ? »", 0.03)
 					print("\nIl s’approche de vous, tout près :")
-					message = " - Tu vas rembourser. Et tu vas me rembourser en travaillant pour moi. "
-					délai = 0.03
-					parole(message, délai)
+					parole(" - Tu vas rembourser. Et tu vas me rembourser en travaillant pour moi. ", 0.03)
 					print("Il vous met dans la main un petit sachet : ")
-					message = " - Tu vas le refourguer discret. Si tu refuses… Quand tu sortiras dehors on te retrouvera et on te fera la peau si tu nous trahis. "
-					délai = 0.03
-					parole(message, délai)
+					parole(" - Tu vas le refourguer discret. Si tu refuses… Quand tu sortiras dehors on te retrouvera et on te fera la peau si tu nous trahis. ", 0.03)
 					print("\nVous êtes désormais forcé de dealer pour rembourser votre ‘dette’.")
 					print("Au même instant, on vous annonce que vous êtes liberé, c'est la fin de votre séjour en celulle")
 					money = sortie_GAV(money)
@@ -1284,7 +1274,7 @@ def introduction(money):
 					time.sleep(1)
 					print("\nUn homme s’approche derrière vous")
 					time.sleep(1)
-					parole("PANNN !!", 0.03)
+					parole("PANNN !!", 0.1)
 					parole("Vous êtes mort 💀", 0.1)
 					fin_histoire()
 			money = le_cartel(money)
