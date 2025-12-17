@@ -1153,7 +1153,7 @@ def introduction(money):
 			if int(décision) == 1 :
 				print("\nVous acceptez sans réfléchir. L'homme vous emmène dans une voiture.")
 				print("Il vous tend des sachets de métanphétamine et sors un flingue en vous menaçant :")
-				parole" - Tiens, ta première mission, revend tout ça d'ici la fin de la semaine et ramène le fric au big boss Tuco, c'est le seul moyen de faire tes preuves dans notre cartel, après ça on en aura pas fini avec toi, crois moi bien!", 0.03)
+				parole(" - Tiens, ta première mission, revend tout ça d'ici la fin de la semaine et ramène le fric au big boss Tuco, c'est le seul moyen de faire tes preuves dans notre cartel, après ça on en aura pas fini avec toi, crois moi bien!", 0.03)
 				print("Trop tard pour reculer, vous n'avez pas d'autre choix que de dealer.")
 			elif int(décision) == 2 :
 				print("\nVous refusez et tentez de partir pour rentrer chez vous.")
