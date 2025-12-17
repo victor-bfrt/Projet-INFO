@@ -24,13 +24,13 @@ def demander_choix(texte: str, rep_possibles: list):    # Fonction pour vérifie
         if r in ("q", "Q"):
             quit()
         if not r.isdigit():
-            print("\n  Entre un nombre.\n")
+            print("\n  Entre un nombre\n")
             continue
         r = int(r)
         if r in rep_possibles:
             return r
         else:
-            print(f"\n  Choisis parmi {rep_possibles}.\n")
+            print(f"\n  Choisis parmi {rep_possibles}\n")
 
 def parole(texte, delai):      # Fonction pour afficher le texte progressivement
     for caractere in texte:
