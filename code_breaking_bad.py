@@ -18,19 +18,22 @@ RESET = "\033[0m"
 
 money = 30000  #Argent de départ
 
-def demander_choix(texte: str, rep_possibles: list):    # Fonction pour vérifier si les réps sont bien dans les choix possibles
+
+##Toutes les fonctions du jeux##
+
+def demander_choix(texte, rep_possibles):    # Fonction pour vérifier si les réps sont bien dans les choix possibles
     while True:
         r = input(texte)
         if r in ("q", "Q"):
             quit()
         if not r.isdigit():
-            print("\n  Entre un nombre\n")
+            print("Entre un nombre")
             continue
         r = int(r)
         if r in rep_possibles:
             return r
         else:
-            print(f"\n  Choisis parmi {rep_possibles}\n")
+            print(f"Choisis parmi {rep_possibles}")
 
 def parole(texte, delai):      # Fonction pour afficher le texte progressivement
     for caractere in texte:
@@ -1109,14 +1112,14 @@ def dessin():
 ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢇⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦
 ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠃⣾⣿⣿⣿⣿⣿⣿⣿⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿""" + RESET)
 	
-def introduction(money):
+def introduction(money):     #Introduction de l'histoire avant d'arriver dans le narcotrafique 
 	parole("\n            --- 💸 A BREAKING BAD STORY 💸 --- ", 0.03)
 	dessin()
 	input(">>> Appuies sur Entrée pour jouer...")
-	parole("Vous êtes Walter Black, un professeur d'informatique au lycée.👨‍💻\nEn vous réveillant, vous checkez vos mails et apprenez que la direction vous a viré car votre métier se fait remplacer par une intelligence artificielle.", 0.01)
-	parole("Cette nouvelle vous attriste car ces derniers temps, vous avez quelques soucis financiers... ", 0.01)
+	parole("Vous êtes Walter Black, un professeur d'informatique au lycée.👨‍💻\nEn vous réveillant, vous checkez vos mails et apprenez que la direction vous a viré car votre métier se fait remplacer par une intelligence artificielle.", 0.0075)
+	parole("Cette nouvelle vous attriste car ces derniers temps, vous avez quelques soucis financiers... ", 0.0075)
 	time.sleep(1)
-	parole("\nPendant que vous déprimez, votre collègue vous appelle car il a reçu le même mail\nFace à la situation vous décidez :\n 1)De sortir boire un coup au bar pour vous changer les idées\n 2)D'aller manifester devant le lycée avec d'autres enseignants dans votre situation ", 0.01)
+	parole("\nPendant que vous déprimez, votre collègue vous appelle car il a reçu le même mail\nFace à la situation vous décidez :\n 1)De sortir boire un coup au bar pour vous changer les idées\n 2)D'aller manifester devant le lycée avec d'autres enseignants dans votre situation ", 0.0075)
 	reponse_1 = demander_choix("🔹 Quel est ton choix(sélectionnez le numéro) : ", choix_possibles[0])
 	
 	#Branche aller au bar
@@ -1333,4 +1336,4 @@ def introduction(money):
 def jouer(money):
 	introduction(money)
 
-jouer(money)
+jouer(money)  #Fin du code
